@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Report User &amp; Safety Moderation - HobbyLink</title>
+<!-- Google Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-highest": "#e5e2e1",
+            "tertiary-fixed-dim": "#78dc77",
+            "primary-container": "#db322f",
+            "tertiary": "#006b1b",
+            "secondary-container": "#ff9800",
+            "secondary-fixed": "#ffdcbe",
+            "primary-fixed": "#ffdad6",
+            "on-error-container": "#93000a",
+            "surface-container-low": "#f6f3f2",
+            "tertiary-fixed": "#94f990",
+            "on-primary-container": "#fffbff",
+            "on-surface-variant": "#5b403d",
+            "surface-variant": "#e5e2e1",
+            "primary-fixed-dim": "#ffb4ac",
+            "background": "#fcf9f8",
+            "surface-dim": "#dcd9d9",
+            "on-error": "#ffffff",
+            "on-tertiary-fixed-variant": "#005313",
+            "secondary": "#8b5000",
+            "outline-variant": "#e4beb9",
+            "on-secondary": "#ffffff",
+            "on-secondary-fixed-variant": "#693c00",
+            "surface-container-high": "#eae7e7",
+            "on-primary": "#ffffff",
+            "surface-container": "#f0eded",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-fixed": "#002204",
+            "error": "#ba1a1a",
+            "secondary-fixed-dim": "#ffb870",
+            "tertiary-container": "#1e862d",
+            "on-secondary-fixed": "#2c1600",
+            "inverse-primary": "#ffb4ac",
+            "on-tertiary-container": "#f7fff1",
+            "surface-bright": "#fcf9f8",
+            "primary": "#b7131a",
+            "surface-container-lowest": "#ffffff",
+            "on-surface": "#1b1c1c",
+            "on-primary-fixed-variant": "#93000d",
+            "surface": "#fcf9f8",
+            "on-primary-fixed": "#410002",
+            "on-background": "#1b1c1c",
+            "surface-tint": "#bb171c",
+            "inverse-surface": "#303030",
+            "error-container": "#ffdad6",
+            "on-secondary-container": "#653900",
+            "outline": "#906f6c",
+            "inverse-on-surface": "#f3f0ef"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "24px",
+            "space-2xl": "48px",
+            "space-2xs": "4px",
+            "space-md": "16px",
+            "space-xl": "32px",
+            "gutter": "16px",
+            "space-sm": "12px",
+            "space-xs": "8px",
+            "margin-mobile": "16px",
+            "touch-target-min": "48px",
+            "margin-tablet": "24px"
+          },
+          "fontFamily": {
+            "body-sm": ["Roboto Flex"],
+            "body-lg": ["Roboto Flex"],
+            "label-sm": ["Roboto Flex"],
+            "label-lg": ["Roboto Flex"],
+            "label-md": ["Roboto Flex"],
+            "headline-lg-mobile": ["Roboto Flex"],
+            "body-md": ["Roboto Flex"],
+            "headline-lg": ["Roboto Flex"],
+            "display-lg": ["Roboto Flex"],
+            "headline-sm": ["Roboto Flex"],
+            "headline-md": ["Roboto Flex"]
+          },
+          "fontSize": {
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body-md text-on-surface antialiased min-h-screen flex justify-center selection:bg-primary selection:text-on-primary">
+<!-- Mobile Screen Canvas / Focused Journey Modal Architecture (Bottom Navigation Suppressed via Destination Rule for Task-Focused Flow) -->
+<div class="w-full max-w-[440px] bg-surface min-h-screen flex flex-col shadow-2xl relative pb-space-2xl">
+<!-- Top Bar Modal Navigation (Elevation Level 3 shadow-sm without top/bottom border lines) -->
+<header class="sticky top-0 z-40 bg-surface px-margin-mobile h-touch-target-min flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-space-xs">
+<button aria-label="Close and return" class="w-touch-target-min h-touch-target-min -ml-2 flex items-center justify-center rounded-full hover:bg-surface-container active:scale-95 transition-transform text-on-surface" type="button">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight">Report Profile</h1>
+</div>
+<div class="flex items-center">
+<span class="text-label-sm font-label-sm text-primary uppercase tracking-wider bg-primary-fixed text-on-primary-fixed px-space-xs py-space-2xs rounded-full">FR-24 • 3.14</span>
+</div>
+</header>
+<!-- Main Modal Form Canvas -->
+<main class="flex-1 px-margin-mobile pt-space-md space-y-space-lg">
+<!-- Target User Info Card (Level 1 Elevation) -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
+<div class="flex items-center gap-space-sm">
+<div class="relative">
+<img class="w-14 h-14 rounded-full object-cover shadow-sm ring-2 ring-surface-variant" data-alt="A candid profile portrait of Karim Mostafa, a middle-aged male hobby enthusiast wearing a casual warm grey hoodie outdoors in an open city park. The lighting is soft natural daylight, emphasizing clean and reliable character tones within a bright modern UI palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKRyFSyoyLIUn67_ExpQXCMb4F_4Az6GtOhpoQ0cQy6FFxzI10zmfK_Vd9tXrfw6Ifk1ZctcobtwcJZfIy-e-cfkn6KkWmcuVXwZfTQ849v5C2BOgnXx55Z7xcjVfRktqh4hO56FXoNQpe5IbMJCIl9L8tCd6Z6_HuEvY7q0paE9LWQJbAXHhuqj8CSCQac2zkK6spzwuco_Df9vODhloNIIzVMuCGT4nyLMrLUsJ_3EszZBMIR821EA"/>
+<!-- In Hobby Session Away / Radar indicator -->
+<span class="absolute bottom-0 right-0 w-3 h-3 bg-[#FF9800] rounded-full border-2 border-surface-container-lowest" title="In Hobby Session"></span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5">
+<h2 class="font-headline-sm text-headline-sm font-bold truncate text-on-surface">Karim Mostafa</h2>
+<span class="material-symbols-outlined text-tertiary text-base select-none" data-icon="verified" title="Verified Member">verified</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">@karim_m</p>
+<div class="mt-1 flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="hub">hub</span>
+<span class="font-body-sm text-body-sm truncate">Woodworking &amp; Drone Racing Clubs</span>
+</div>
+</div>
+</div>
+<div class="mt-space-sm pt-space-xs border-t border-surface-container-high flex items-center justify-between text-on-surface-variant">
+<span class="font-label-md text-label-md">Report Context:</span>
+<span class="font-label-md text-label-md text-primary font-semibold">User Activity &amp; Physical Meetups</span>
+</div>
+</section>
+<!-- Reason Selection Radio Group -->
+<section class="space-y-space-xs">
+<div class="flex items-baseline justify-between">
+<label class="font-headline-sm text-headline-sm font-bold text-on-surface">
+            Reason for report <span class="text-primary">*</span>
+</label>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Select one option</span>
+</div>
+<div aria-label="Reason for report" class="space-y-space-2xs pt-space-2xs" role="radiogroup">
+<!-- Option 1 -->
+<label class="flex items-center justify-between p-space-sm min-h-touch-target-min bg-surface-container-lowest rounded-xl shadow-sm cursor-pointer hover:bg-surface-container transition-colors active:scale-[0.99]">
+<div class="flex items-center gap-space-sm pr-space-xs">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="front_hand">front_hand</span>
+<span class="font-body-md text-body-md font-medium text-on-surface">Harassment or Bullying</span>
+</div>
+<input class="w-5 h-5 text-primary border-outline focus:ring-primary focus:ring-2" name="report_reason" type="radio" value="harassment"/>
+</label>
+<!-- Option 2 -->
+<label class="flex items-center justify-between p-space-sm min-h-touch-target-min bg-surface-container-lowest rounded-xl shadow-sm cursor-pointer hover:bg-surface-container transition-colors active:scale-[0.99]">
+<div class="flex items-center gap-space-sm pr-space-xs">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="report">report</span>
+<span class="font-body-md text-body-md font-medium text-on-surface">Inappropriate or Harmful Content</span>
+</div>
+<input class="w-5 h-5 text-primary border-outline focus:ring-primary focus:ring-2" name="report_reason" type="radio" value="inappropriate_content"/>
+</label>
+<!-- Option 3 -->
+<label class="flex items-center justify-between p-space-sm min-h-touch-target-min bg-surface-container-lowest rounded-xl shadow-sm cursor-pointer hover:bg-surface-container transition-colors active:scale-[0.99]">
+<div class="flex items-center gap-space-sm pr-space-xs">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="person_cancel">person_cancel</span>
+<span class="font-body-md text-body-md font-medium text-on-surface">Fake Profile or Impersonation</span>
+</div>
+<input class="w-5 h-5 text-primary border-outline focus:ring-primary focus:ring-2" name="report_reason" type="radio" value="impersonation"/>
+</label>
+<!-- Option 4: Highlighted FR-3 Protection Requirement -->
+<label class="flex items-center justify-between p-space-sm min-h-touch-target-min bg-surface-container-lowest border border-primary/20 rounded-xl shadow-sm cursor-pointer hover:bg-surface-container transition-colors active:scale-[0.99]">
+<div class="flex items-center gap-space-sm pr-space-xs">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="escalator_warning">escalator_warning</span>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-medium text-on-surface">Underage User without Supervision</span>
+<span class="font-label-sm text-label-sm text-primary font-bold tracking-wide">COMPLIANCE • FR-3</span>
+</div>
+</div>
+<input checked="" class="w-5 h-5 text-primary border-outline focus:ring-primary focus:ring-2" name="report_reason" type="radio" value="underage_fr3"/>
+</label>
+<!-- Option 5 -->
+<label class="flex items-center justify-between p-space-sm min-h-touch-target-min bg-surface-container-lowest rounded-xl shadow-sm cursor-pointer hover:bg-surface-container transition-colors active:scale-[0.99]">
+<div class="flex items-center gap-space-sm pr-space-xs">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="warning">warning</span>
+<span class="font-body-md text-body-md font-medium text-on-surface">Suspicious or Unsafe Real-world Behavior</span>
+</div>
+<input class="w-5 h-5 text-primary border-outline focus:ring-primary focus:ring-2" name="report_reason" type="radio" value="unsafe_behavior"/>
+</label>
+<!-- Option 6 -->
+<label class="flex items-center justify-between p-space-sm min-h-touch-target-min bg-surface-container-lowest rounded-xl shadow-sm cursor-pointer hover:bg-surface-container transition-colors active:scale-[0.99]">
+<div class="flex items-center gap-space-sm pr-space-xs">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="campaign">campaign</span>
+<span class="font-body-md text-body-md font-medium text-on-surface">Spam or Commercial Advertising</span>
+</div>
+<input class="w-5 h-5 text-primary border-outline focus:ring-primary focus:ring-2" name="report_reason" type="radio" value="spam"/>
+</label>
+</div>
+</section>
+<!-- Detailed Explanation Textarea Section -->
+<section class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-headline-sm text-headline-sm font-bold text-on-surface" for="report-details">
+            Additional details <span class="text-primary">*</span>
+</label>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Min. 20 characters</span>
+</div>
+<div class="relative">
+<textarea class="w-full rounded-xl bg-surface-container-lowest border border-outline-variant p-space-md font-body-md text-on-surface placeholder:text-on-surface-variant/70 focus:border-2 focus:border-primary focus:ring-0 focus:outline-none transition-all shadow-sm resize-none" id="report-details" placeholder="Please describe what happened in detail to help our Trust &amp; Safety team investigate... (minimum 20 characters)" rows="4"></textarea>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant px-1">
+<span class="font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="lock">lock</span>
+            Stored encrypted &amp; audit-logged
+          </span>
+<span class="font-label-sm text-label-sm">0 / 500</span>
+</div>
+</section>
+<!-- Attachment Proof Option (File Uploader Button) -->
+<section class="space-y-space-xs">
+<label class="font-label-lg text-label-lg font-bold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-lg" data-icon="attach_file">attach_file</span>
+          Supporting Proof (Optional)
+        </label>
+<div class="border-2 border-dashed border-outline-variant rounded-xl p-space-md bg-surface-container-lowest flex flex-col items-center justify-center text-center group cursor-pointer hover:border-primary transition-colors">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary group-hover:scale-110 transition-transform mb-space-2xs">
+<span class="material-symbols-outlined text-2xl" data-icon="add_photo_alternate">add_photo_alternate</span>
+</div>
+<p class="font-label-lg text-label-lg font-bold text-on-surface">Attach screenshots or photos</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">PNG, JPG or PDF up to 15MB</p>
+<button class="mt-space-sm px-space-md py-space-2xs rounded-full border border-outline-variant bg-surface hover:bg-surface-container font-label-md text-label-md text-on-surface flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="upload">upload</span>
+            Browse Files
+          </button>
+</div>
+</section>
+<!-- Safety Reassurance Box (Community Shield Icon) -->
+<section class="bg-surface-container-low rounded-xl p-space-md flex items-start gap-space-sm border-l-4 border-tertiary">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined" data-icon="shield">shield</span>
+</div>
+<div class="space-y-0.5">
+<h3 class="font-label-lg text-label-lg font-bold text-on-surface flex items-center gap-1">
+            100% Confidential Report
+          </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Your report is 100% confidential. Karim will not know who filed this report. Our safety team investigates within 24-48 hours.
+          </p>
+</div>
+</section>
+<!-- Primary Red Submit Button -->
+<section class="pt-space-xs">
+<button class="w-full h-touch-target-min bg-primary hover:bg-[#D32F2F] text-on-primary font-headline-sm text-headline-sm rounded-xl font-bold flex items-center justify-center gap-space-xs shadow-md active:scale-95 transition-all focus:outline-none focus:ring-4 focus:ring-primary-fixed" type="button">
+<span class="material-symbols-outlined" data-icon="security_update_warning">security_update_warning</span>
+          Submit Report to Moderation
+        </button>
+</section>
+<!-- Immediate Danger Emergency Callout -->
+<section class="text-center pt-space-xs pb-space-md">
+<div class="inline-flex items-center gap-1.5 bg-error-container text-on-error-container px-space-md py-space-xs rounded-full">
+<span class="material-symbols-outlined text-base" data-icon="emergency">emergency</span>
+<p class="font-label-sm text-label-sm font-bold">
+            In immediate danger? <a class="underline hover:opacity-80" href="tel:911">Contact local emergency services.</a>
+</p>
+</div>
+</section>
+</main>
+</div>
+</body></html>

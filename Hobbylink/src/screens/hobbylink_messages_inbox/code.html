@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HobbyLink - Messages &amp; Notifications Inbox</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Roboto Flex Google Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-surface-variant": "#5b403d",
+            "tertiary-fixed-dim": "#78dc77",
+            "on-primary-fixed-variant": "#93000d",
+            "on-primary-fixed": "#410002",
+            "primary-container": "#db322f",
+            "background": "#fcf9f8",
+            "on-primary": "#ffffff",
+            "on-secondary-fixed": "#2c1600",
+            "on-primary-container": "#fffbff",
+            "tertiary-container": "#1e862d",
+            "on-secondary-fixed-variant": "#693c00",
+            "on-tertiary-container": "#f7fff1",
+            "on-surface": "#1b1c1c",
+            "secondary-container": "#ff9800",
+            "inverse-primary": "#ffb4ac",
+            "surface-container": "#f0eded",
+            "tertiary-fixed": "#94f990",
+            "surface-container-high": "#eae7e7",
+            "inverse-surface": "#303030",
+            "surface-variant": "#e5e2e1",
+            "primary": "#b7131a",
+            "on-secondary-container": "#653900",
+            "secondary": "#8b5000",
+            "surface-dim": "#dcd9d9",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-fixed": "#002204",
+            "surface-container-low": "#f6f3f2",
+            "on-error": "#ffffff",
+            "surface-tint": "#bb171c",
+            "surface": "#fcf9f8",
+            "primary-fixed": "#ffdad6",
+            "inverse-on-surface": "#f3f0ef",
+            "surface-container-lowest": "#ffffff",
+            "tertiary": "#006b1b",
+            "on-error-container": "#93000a",
+            "surface-bright": "#fcf9f8",
+            "secondary-fixed": "#ffdcbe",
+            "outline": "#906f6c",
+            "secondary-fixed-dim": "#ffb870",
+            "surface-container-highest": "#e5e2e1",
+            "outline-variant": "#e4beb9",
+            "primary-fixed-dim": "#ffb4ac",
+            "error-container": "#ffdad6",
+            "on-tertiary-fixed-variant": "#005313",
+            "on-secondary": "#ffffff",
+            "on-background": "#1b1c1c",
+            "error": "#ba1a1a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "touch-target-min": "48px",
+            "space-xs": "8px",
+            "space-2xs": "4px",
+            "space-lg": "24px",
+            "space-sm": "12px",
+            "margin-tablet": "24px",
+            "space-md": "16px",
+            "gutter": "16px",
+            "space-2xl": "48px",
+            "space-xl": "32px",
+            "margin-mobile": "16px"
+          },
+          "fontFamily": {
+            "label-sm": ["Roboto Flex"],
+            "body-lg": ["Roboto Flex"],
+            "body-md": ["Roboto Flex"],
+            "label-md": ["Roboto Flex"],
+            "headline-lg-mobile": ["Roboto Flex"],
+            "display-lg": ["Roboto Flex"],
+            "label-lg": ["Roboto Flex"],
+            "headline-sm": ["Roboto Flex"],
+            "body-sm": ["Roboto Flex"],
+            "headline-lg": ["Roboto Flex"],
+            "headline-md": ["Roboto Flex"]
+          },
+          "fontSize": {
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background antialiased flex justify-center min-h-screen">
+<!-- Mobile Screen Container -->
+<main class="w-full max-w-[480px] min-h-screen bg-background flex flex-col relative pb-[84px] shadow-2xl">
+<!-- TopAppBar adhering strictly to Shared Components JSON & Design System -->
+<header class="sticky top-0 z-40 bg-surface shadow-sm flex justify-between items-center w-full px-margin-mobile h-touch-target-min">
+<div class="flex items-center space-x-2">
+<button class="w-touch-target-min h-touch-target-min flex items-center justify-center hover:bg-surface-container rounded-full active:scale-95 transition-transform duration-150 text-primary">
+<span class="material-symbols-outlined text-[24px]">explore</span>
+</button>
+<h1 class="text-headline-md font-headline-md font-bold text-primary tracking-tight">Messages</h1>
+</div>
+<div class="flex items-center space-x-1">
+<!-- Trailing search action -->
+<button aria-label="Search messages" class="w-touch-target-min h-touch-target-min flex items-center justify-center hover:bg-surface-container rounded-full active:scale-95 transition-transform duration-150 text-on-surface-variant">
+<span class="material-symbols-outlined text-[22px]">search</span>
+</button>
+<!-- Trailing mark all as read action -->
+<button aria-label="Mark all as read" class="w-touch-target-min h-touch-target-min flex items-center justify-center hover:bg-surface-container rounded-full active:scale-95 transition-transform duration-150 text-on-surface-variant">
+<span class="material-symbols-outlined text-[22px]">done_all</span>
+</button>
+</div>
+</header>
+<!-- Content Scrollable Body -->
+<div class="flex-1 flex flex-col px-margin-mobile pt-space-xs space-y-space-md">
+<!-- Segmented Tab Control -->
+<nav aria-label="Messages Tabs" class="flex items-center justify-between border-b-0 bg-surface-container-low rounded-xl p-1 shadow-sm">
+<!-- Tab 1: Chats (Active) -->
+<button class="flex-1 relative flex items-center justify-center py-2 px-space-xs rounded-lg bg-surface-container-lowest shadow-sm transition-all duration-150">
+<span class="text-label-lg font-label-lg text-primary font-bold">Chats</span>
+<span class="ml-1.5 px-1.5 py-0.5 rounded-full bg-primary text-on-primary text-label-sm font-label-sm leading-none">3</span>
+<span class="absolute bottom-0 left-3 right-3 h-[2.5px] bg-primary rounded-full"></span>
+</button>
+<!-- Tab 2: Requests -->
+<button class="flex-1 relative flex items-center justify-center py-2 px-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container active:scale-95 transition-all duration-150">
+<span class="text-label-lg font-label-lg text-on-surface-variant">Requests</span>
+<span class="ml-1.5 flex items-center">
+<span class="text-label-sm font-label-sm text-on-surface-variant mr-1">2</span>
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+</span>
+</button>
+<!-- Tab 3: System -->
+<button class="flex-1 relative flex items-center justify-center py-2 px-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container active:scale-95 transition-all duration-150">
+<span class="text-label-lg font-label-lg text-on-surface-variant">System</span>
+<span class="ml-1.5 px-1.5 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant text-label-sm font-label-sm leading-none">1</span>
+</button>
+</nav>
+<!-- Pending Request Banner / Teaser Card -->
+<section class="bg-gradient-to-r from-primary-fixed/60 to-surface-container-low p-space-md rounded-xl shadow-sm border border-outline-variant/30 flex flex-col space-y-space-sm relative overflow-hidden">
+<div class="flex items-start justify-between">
+<div class="flex items-center space-x-space-xs">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container shadow-sm">
+<span class="material-symbols-outlined text-[18px]">person_add</span>
+</div>
+<div>
+<p class="text-label-sm font-label-sm text-primary uppercase tracking-wider">New Matches</p>
+<h2 class="text-body-md font-body-md font-semibold text-on-surface">2 new activity partner requests waiting</h2>
+</div>
+</div>
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-container"></span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant pl-10">
+<span class="font-semibold text-on-surface">Karem Adel</span> &amp; <span class="font-semibold text-on-surface">Layla M.</span> want to connect for upcoming sessions.
+        </p>
+<div class="flex justify-end pt-1">
+<button class="h-touch-target-min px-space-lg rounded-xl bg-primary-fixed hover:bg-primary-fixed-dim text-on-primary-fixed font-label-lg text-label-lg font-bold flex items-center space-x-1.5 shadow-sm active:scale-95 transition-all">
+<span>Review Requests</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- Section Title & Status Filters -->
+<div class="flex items-center justify-between pt-space-xs">
+<h3 class="text-label-lg font-label-lg text-on-surface-variant font-bold">Recent Conversations</h3>
+<span class="text-label-sm font-label-sm text-outline">Real-Time Hub</span>
+</div>
+<!-- Conversations Bento / Stack -->
+<div class="flex flex-col space-y-space-sm" role="feed">
+<!-- Item 1: Karim Mostafa -->
+<article class="bg-surface-container-lowest hover:bg-surface-container-low p-space-md rounded-xl shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer border border-surface-container flex items-center space-x-space-md active:scale-[0.99]">
+<!-- Avatar with Online Status Indicator -->
+<div class="relative shrink-0 w-12 h-12">
+<img class="w-12 h-12 rounded-full object-cover shadow-sm ring-1 ring-outline-variant/30" data-alt="A smiling sporty man in athletic sportswear outdoors in bright daylight, warm energetic expression, modern social mobile avatar framing, vivid colors with clean neutral tones and subtle red branding details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsjevoKe2FC-AgB9FYfFRK-lMBaIAW_Zm46WfeR2mFiXMl4M9UPoqG49sdllOfW7BAab9chZVoJ8HwpU4oPGJtLH_viiWG5wZo2otl4398BgnZB8T9tO_YdH3gL8lhXPuwC_tBouiOhZ23T9_ic0n8hPbHgOHycGhxIpdT6mKCLp4G3_0lEv9zIYG8p79cuwF03i5k0j7JhMGvcRka48tgN13Q1KnliwJNlwBhrI7I78qyUelokXK7xg"/>
+<!-- Green Online Dot (4CAF50) with 2px solid white border -->
+<span class="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-[#4CAF50] border-2 border-surface-container-lowest" title="Online Now"></span>
+</div>
+<!-- Content Details -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between mb-0.5">
+<div class="flex items-center space-x-1.5 truncate">
+<h4 class="text-headline-sm font-headline-sm text-on-surface truncate">Karim Mostafa</h4>
+<!-- VIP Pro Badge -->
+<span class="inline-flex items-center px-1.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed text-label-sm font-label-sm font-bold shadow-xs">
+<span class="material-symbols-outlined text-[12px] mr-0.5" style="font-variation-settings: 'FILL' 1;">star</span>
+                  VIP Pro
+                </span>
+</div>
+<span class="text-label-sm font-label-sm text-primary font-bold shrink-0 ml-2">7:16 PM</span>
+</div>
+<!-- Last Message Snippet -->
+<p class="text-body-md font-body-md text-on-surface font-semibold truncate mb-2">
+              Awesome! Let's do it. I'll bring the balls.
+            </p>
+<!-- Bottom Row: Tag & Badges -->
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[13px] mr-1 text-primary">sports_tennis</span>
+                Paddle Tennis
+              </span>
+<!-- Unread Count Badge in Brand Red -->
+<span class="w-5 h-5 rounded-full bg-primary text-on-primary flex items-center justify-center text-label-sm font-label-sm font-bold shadow-xs">
+                1
+              </span>
+</div>
+</div>
+</article>
+<!-- Item 2: Sarah Jenkins -->
+<article class="bg-surface-container-lowest hover:bg-surface-container-low p-space-md rounded-xl shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer border border-surface-container flex items-center space-x-space-md active:scale-[0.99]">
+<!-- Avatar with Amber Active Recently Dot -->
+<div class="relative shrink-0 w-12 h-12">
+<img class="w-12 h-12 rounded-full object-cover shadow-sm ring-1 ring-outline-variant/30" data-alt="A portrait of an energetic young female runner with tied hair against a sunny park trail, bright natural lighting, modern social lifestyle photography, subtle sports aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxuVQcoFAf9LIjc20X5RK6112Ud3J8b7YChssQt0GqJvZA_ooVBid88khhkY8rTpVqr75o5UkUP7Hlq6PhZQpBN0OltZuBKHSCTboMNt-Ee8C4mYpNRF54kO9wE_wybANfXcqMvPgEp0YVE23s_83Pgnrsv39XgPihgWh9fUtJ0D65UmgvJWT9GjrSUrw5c7I7uJMBUby0j1W-cNNCqAKyayOniJWVt3rebQ8LDZwR2tMV8k73w4kJ_A"/>
+<!-- Amber Active Recently Dot (#FF9800) -->
+<span class="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-[#FF9800] border-2 border-surface-container-lowest" title="Active recently"></span>
+</div>
+<!-- Content Details -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between mb-0.5">
+<div class="flex items-center space-x-1.5 truncate">
+<h4 class="text-headline-sm font-headline-sm text-on-surface truncate">Sarah Jenkins</h4>
+<!-- Verified Trust badge -->
+<span class="material-symbols-outlined text-[16px] text-tertiary" style="font-variation-settings: 'FILL' 1;" title="Verified Member">verified</span>
+</div>
+<span class="text-label-sm font-label-sm text-outline shrink-0 ml-2">Yesterday</span>
+</div>
+<!-- Last Message Snippet -->
+<p class="text-body-md font-body-md text-on-surface-variant truncate mb-2">
+              👋 Sarah accepted your connection request!
+            </p>
+<!-- Bottom Row: Tag & Double Blue Checkmark -->
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[13px] mr-1 text-secondary">directions_run</span>
+                Running
+              </span>
+<div class="flex items-center text-[#1976D2]" title="Read">
+<span class="material-symbols-outlined text-[18px]">done_all</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Item 3: City Club Padel Group -->
+<article class="bg-surface-container-lowest hover:bg-surface-container-low p-space-md rounded-xl shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer border border-surface-container flex items-center space-x-space-md active:scale-[0.99]">
+<!-- Group Icon with Multiple Mini Avatars -->
+<div class="relative shrink-0 w-12 h-12 bg-primary-fixed rounded-full flex items-center justify-center overflow-hidden border border-outline-variant/30">
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[26px]">groups</span>
+</div>
+<div class="absolute bottom-0 right-0 w-5 h-5 rounded-full bg-surface-container-highest border border-surface-container-lowest flex items-center justify-center text-[9px] font-bold text-on-surface-variant">
+              +12
+            </div>
+</div>
+<!-- Content Details -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between mb-0.5">
+<div class="flex items-center space-x-1.5 truncate">
+<h4 class="text-headline-sm font-headline-sm text-on-surface truncate">City Club Padel Group</h4>
+</div>
+<span class="text-label-sm font-label-sm text-outline shrink-0 ml-2">Oct 22</span>
+</div>
+<!-- Last Message Snippet -->
+<p class="text-body-md font-body-md text-on-surface-variant truncate mb-2">
+<span class="text-on-surface font-medium">Manager:</span> Court 4 is confirmed for 8 PM
+            </p>
+<!-- Bottom Row: Event Tag & Group Status -->
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant text-label-sm font-label-sm font-semibold">
+<span class="material-symbols-outlined text-[13px] mr-1 text-primary">event_available</span>
+                Event Group
+              </span>
+<span class="material-symbols-outlined text-[18px] text-outline">notifications_off</span>
+</div>
+</div>
+</article>
+</div>
+<!-- Quick Action / Security Note Pill -->
+<div class="flex items-center justify-center py-2 px-space-md rounded-full bg-surface-container-low text-on-surface-variant text-center">
+<span class="material-symbols-outlined text-[15px] mr-1.5 text-tertiary">lock</span>
+<span class="text-label-sm font-label-sm">End-to-end encrypted activity messaging</span>
+</div>
+</div>
+<!-- Bottom Navigation Bar adhering strictly to Shared Components JSON -->
+<!-- Destination count: 5. Exact labels: Home, Radar, Events, Messages, Profile. Active tab: Messages -->
+<nav aria-label="Bottom Navigation" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-margin-mobile py-space-xs min-h-touch-target-min bg-surface shadow-md border-0">
+<!-- Tab 1: Home -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-space-xs py-space-2xs hover:bg-surface-container active:scale-95 transition-transform duration-150 h-touch-target-min w-16">
+<span class="material-symbols-outlined text-[22px]">home</span>
+<span class="text-label-sm font-label-sm mt-0.5">Home</span>
+</button>
+<!-- Tab 2: Radar -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-space-xs py-space-2xs hover:bg-surface-container active:scale-95 transition-transform duration-150 h-touch-target-min w-16">
+<span class="material-symbols-outlined text-[22px]">radar</span>
+<span class="text-label-sm font-label-sm mt-0.5">Radar</span>
+</button>
+<!-- Tab 3: Events -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-space-xs py-space-2xs hover:bg-surface-container active:scale-95 transition-transform duration-150 h-touch-target-min w-16">
+<span class="material-symbols-outlined text-[22px]">event</span>
+<span class="text-label-sm font-label-sm mt-0.5">Events</span>
+</button>
+<!-- Tab 4: Messages [ACTIVE DESTINATION] -->
+<!-- Injected style_active_navigation: flex flex-col items-center justify-center bg-primary-fixed dark:bg-primary-container text-on-primary-fixed dark:text-on-primary-container rounded-full px-space-md py-space-2xs -->
+<button aria-current="page" class="flex flex-col items-center justify-center bg-primary-fixed text-on-primary-fixed rounded-full px-space-md py-space-2xs active:scale-95 transition-transform duration-150 h-touch-target-min">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">chat</span>
+<span class="text-label-sm font-label-sm mt-0.5 font-bold">Messages</span>
+</button>
+<!-- Tab 5: Profile -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-space-xs py-space-2xs hover:bg-surface-container active:scale-95 transition-transform duration-150 h-touch-target-min w-16">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="text-label-sm font-label-sm mt-0.5">Profile</span>
+</button>
+</nav>
+</main>
+</body></html>

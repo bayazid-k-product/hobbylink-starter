@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HobbyLink - Notifications Center</title>
+<!-- Fonts: Roboto Flex & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-fixed": "#ffdcbe",
+            "on-primary": "#ffffff",
+            "secondary-fixed-dim": "#ffb870",
+            "primary-fixed-dim": "#ffb4ac",
+            "on-secondary-container": "#653900",
+            "background": "#fcf9f8",
+            "on-tertiary-fixed-variant": "#005313",
+            "on-secondary-fixed-variant": "#693c00",
+            "surface-container-highest": "#e5e2e1",
+            "tertiary-fixed": "#94f990",
+            "on-error": "#ffffff",
+            "on-tertiary-container": "#f7fff1",
+            "surface-container-high": "#eae7e7",
+            "surface-variant": "#e5e2e1",
+            "surface-tint": "#bb171c",
+            "on-surface-variant": "#5b403d",
+            "primary-container": "#db322f",
+            "on-primary-fixed-variant": "#93000d",
+            "outline": "#906f6c",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-fixed": "#2c1600",
+            "on-primary-container": "#fffbff",
+            "on-background": "#1b1c1c",
+            "on-primary-fixed": "#410002",
+            "secondary": "#8b5000",
+            "on-tertiary": "#ffffff",
+            "surface-bright": "#fcf9f8",
+            "on-error-container": "#93000a",
+            "error-container": "#ffdad6",
+            "tertiary-container": "#1e862d",
+            "tertiary-fixed-dim": "#78dc77",
+            "inverse-primary": "#ffb4ac",
+            "error": "#ba1a1a",
+            "inverse-surface": "#303030",
+            "primary": "#b7131a",
+            "tertiary": "#006b1b",
+            "secondary-container": "#ff9800",
+            "on-tertiary-fixed": "#002204",
+            "inverse-on-surface": "#f3f0ef",
+            "primary-fixed": "#ffdad6",
+            "surface-container-low": "#f6f3f2",
+            "surface-container": "#f0eded",
+            "on-surface": "#1b1c1c",
+            "on-secondary": "#ffffff",
+            "surface": "#fcf9f8",
+            "surface-dim": "#dcd9d9",
+            "outline-variant": "#e4beb9"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-md": "16px",
+            "space-xs": "8px",
+            "space-lg": "24px",
+            "space-2xs": "4px",
+            "space-2xl": "48px",
+            "space-xl": "32px",
+            "margin-mobile": "16px",
+            "margin-tablet": "24px",
+            "gutter": "16px",
+            "touch-target-min": "48px",
+            "space-sm": "12px"
+          },
+          "fontFamily": {
+            "headline-md": ["Roboto Flex"],
+            "headline-sm": ["Roboto Flex"],
+            "display-lg": ["Roboto Flex"],
+            "headline-lg-mobile": ["Roboto Flex"],
+            "body-md": ["Roboto Flex"],
+            "body-sm": ["Roboto Flex"],
+            "label-sm": ["Roboto Flex"],
+            "label-lg": ["Roboto Flex"],
+            "label-md": ["Roboto Flex"],
+            "headline-lg": ["Roboto Flex"],
+            "body-lg": ["Roboto Flex"]
+          },
+          "fontSize": {
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scroll-hide::-webkit-scrollbar {
+      display: none;
+    }
+    .custom-scroll-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    /* Pulse for live indicators */
+    @keyframes pulse-dot {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.25); opacity: 0.85; }
+    }
+    .live-pulse {
+      animation: pulse-dot 2s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col justify-between selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Main Phone Frame / Wrapper -->
+<div class="w-full max-w-md mx-auto bg-surface flex flex-col min-h-screen relative pb-24 shadow-xl">
+<!-- Top App Bar (Task-Focused with Back Action & Settings) -->
+<header class="sticky top-0 z-40 bg-surface shadow-sm px-margin-mobile h-touch-target-min flex items-center justify-between transition-colors">
+<div class="flex items-center space-x-2">
+<button aria-label="Go back" class="min-w-[48px] min-h-[48px] flex items-center justify-center -ml-2 rounded-full hover:bg-surface-container active:scale-95 transition-transform text-on-surface">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm text-on-surface font-bold">Notifications</h1>
+</div>
+<div class="flex items-center space-x-1">
+<!-- Mark all as read button -->
+<button class="h-touch-target-min px-space-xs text-primary font-label-md text-label-md hover:bg-surface-container rounded-lg active:scale-95 transition-transform flex items-center" id="mark-all-btn">
+          Mark all as read
+        </button>
+<!-- Settings Gear -->
+<button aria-label="Notification settings" class="min-w-[48px] min-h-[48px] flex items-center justify-center rounded-full hover:bg-surface-container active:scale-95 transition-transform text-on-surface-variant">
+<span class="material-symbols-outlined text-[22px]">settings</span>
+</button>
+</div>
+</header>
+<!-- Filter Segmented Chips (Horizontally Scrollable) -->
+<section class="px-margin-mobile pt-space-xs pb-space-sm bg-surface">
+<div class="flex items-center space-x-2 overflow-x-auto custom-scroll-hide py-1">
+<!-- Pill: All (Active) -->
+<button class="h-[36px] min-h-[48px] px-4 rounded-full bg-primary text-on-primary font-label-md text-label-md flex items-center justify-center shrink-0 shadow-sm active:scale-95 transition-transform">
+          All
+        </button>
+<!-- Pill: Requests (2) -->
+<button class="h-[36px] min-h-[48px] px-4 rounded-full bg-surface-container text-on-surface font-label-md text-label-md flex items-center justify-center shrink-0 hover:bg-surface-container-high active:scale-95 transition-transform">
+<span>Requests</span>
+<span class="ml-1.5 px-1.5 py-0.2 bg-primary-container text-on-primary font-label-sm text-label-sm rounded-full">2</span>
+</button>
+<!-- Pill: Events (3) -->
+<button class="h-[36px] min-h-[48px] px-4 rounded-full bg-surface-container text-on-surface font-label-md text-label-md flex items-center justify-center shrink-0 hover:bg-surface-container-high active:scale-95 transition-transform">
+<span>Events</span>
+<span class="ml-1.5 px-1.5 py-0.2 bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm rounded-full">3</span>
+</button>
+<!-- Pill: System -->
+<button class="h-[36px] min-h-[48px] px-4 rounded-full bg-surface-container text-on-surface font-label-md text-label-md flex items-center justify-center shrink-0 hover:bg-surface-container-high active:scale-95 transition-transform">
+          System
+        </button>
+</div>
+</section>
+<!-- Swipe-to-dismiss hint -->
+<div class="px-margin-mobile py-1 flex items-center justify-between text-on-surface-variant opacity-80">
+<div class="flex items-center space-x-1">
+<span class="material-symbols-outlined text-[16px]">swipe_left</span>
+<span class="font-body-sm text-body-sm">Swipe left on any item to dismiss</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-bold">2 UNREAD</span>
+</div>
+<!-- Notification Feed Container -->
+<main class="flex-1 px-margin-mobile space-y-space-md mt-1">
+<!-- GROUP 1: TODAY -->
+<section class="space-y-space-xs">
+<div class="flex items-center justify-between pt-2">
+<h2 class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-wider">Today</h2>
+<span class="font-body-sm text-body-sm text-outline">Recent</span>
+</div>
+<!-- Notification 1: Activity Partner Request (Unread) -->
+<article class="relative bg-surface-container-lowest rounded-xl p-space-md shadow-sm transition-all hover:shadow-md border-l-4 border-primary overflow-hidden">
+<div class="flex items-start space-x-3">
+<!-- Avatar with Activity Badge -->
+<div class="relative shrink-0 mt-0.5">
+<img class="w-12 h-12 rounded-full object-cover shadow-sm" data-alt="A modern, high-contrast lifestyle portrait of Karim Mostafa, an energetic Egyptian man in athletic sportswear ready for padel tennis on an outdoor sunlit court, warm sunlight, modern clean aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7w3lpr_ZGiyhyN9BnlA32-moCPfm1GLNr6smA3OiZ91yC5lM_FmcDKKNzuVnIKyHXdHCLdYH4xzu9G7alUk5AgyMS8XmWA0pTltUunbWFQ2qooBNxNs0UFGv6sZB2Q1EO-bm3SRleBZOuUp9LN0CefPyNiMPnBBaWX90e9fKJ9RrHQq8fEbLT5_IDtnX2-D7piM9c10qWNtPR8gFMW126JZOrRjLE8sDjnyfyd3yb8Y5Xwa64pIa6zA"/>
+<div class="absolute -bottom-1 -right-1 w-5 h-5 bg-primary-container text-on-primary-container rounded-full flex items-center justify-center border-2 border-surface-container-lowest">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">sports_tennis</span>
+</div>
+<!-- Unread status dot -->
+<span class="absolute -top-0.5 -right-0.5 w-3 h-3 bg-primary rounded-full border-2 border-surface-container-lowest"></span>
+</div>
+<!-- Content Area -->
+<div class="flex-1 min-w-0">
+<div class="flex items-baseline justify-between gap-1">
+<span class="font-label-md text-label-md text-primary font-bold">Partner Request</span>
+<span class="font-body-sm text-body-sm text-outline shrink-0">12m ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mt-1 leading-snug">
+<strong class="font-bold text-on-background">Karim Mostafa</strong> sent you a 👋 handshake request for <span class="font-semibold text-primary">Paddle Tennis</span> in Nasr City.
+              </p>
+<!-- Quick Action Buttons -->
+<div class="mt-3 flex items-center space-x-2">
+<button class="min-h-[48px] h-10 px-5 rounded-full bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md active:scale-95 transition-all shadow-sm flex items-center justify-center">
+                  Accept
+                </button>
+<button class="min-h-[48px] h-10 px-4 rounded-full border border-outline text-on-surface font-label-md text-label-md hover:bg-surface-container active:scale-95 transition-all flex items-center justify-center">
+                  Decline
+                </button>
+<button aria-label="View user profile" class="min-w-[48px] min-h-[48px] ml-auto flex items-center justify-center text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined text-[20px]">person</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- Notification 2: Event Joined Approval (Unread) -->
+<article class="relative bg-surface-container-lowest rounded-xl p-space-md shadow-sm transition-all hover:shadow-md border-l-4 border-primary overflow-hidden">
+<div class="flex items-start space-x-3">
+<!-- Icon/Avatar for Club Event -->
+<div class="relative shrink-0 mt-0.5">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed shadow-sm">
+<span class="material-symbols-outlined text-[24px]">verified</span>
+</div>
+<!-- Unread status dot -->
+<span class="absolute -top-0.5 -right-0.5 w-3 h-3 bg-primary rounded-full border-2 border-surface-container-lowest"></span>
+</div>
+<!-- Content Area -->
+<div class="flex-1 min-w-0">
+<div class="flex items-baseline justify-between gap-1">
+<span class="font-label-md text-label-md text-secondary font-bold">Request Approved</span>
+<span class="font-body-sm text-body-sm text-outline shrink-0">1h ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mt-1 leading-snug">
+<strong class="font-bold text-on-background">Ahmed M.</strong> approved your spot for the <span class="font-semibold">City Club Padel Match</span> this Saturday.
+              </p>
+<!-- Secondary Action Link -->
+<div class="mt-2.5">
+<a class="inline-flex items-center space-x-1.5 text-primary font-label-md text-label-md hover:underline active:scale-95 transition-transform min-h-[48px] py-2" href="#open-chat">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+<span>Open Group Chat</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</article>
+<!-- Notification 3: Radar Nearby Alert -->
+<article class="relative bg-surface-container-lowest rounded-xl p-space-md shadow-sm transition-all hover:shadow-md overflow-hidden">
+<div class="flex items-start space-x-3">
+<!-- Live Radar Beacon Pin -->
+<div class="relative shrink-0 mt-0.5">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[24px]">radar</span>
+</div>
+<!-- Live Host indicator -->
+<span class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-primary rounded-full border-2 border-surface-container-lowest live-pulse"></span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-baseline justify-between gap-1">
+<div class="flex items-center space-x-1">
+<span class="font-label-md text-label-md text-primary font-bold">Hobby Radar</span>
+<span class="inline-block px-1.5 py-0.2 bg-surface-container text-on-surface-variant font-label-sm text-label-sm rounded">Nearby</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline shrink-0">3h ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mt-1 leading-snug">
+                New Padel meetup created <span class="font-semibold text-primary">1.2 km</span> from you: <em>"Afternoon Friendly Singles &amp; Doubles"</em>.
+              </p>
+<div class="mt-2 flex items-center justify-between">
+<button class="inline-flex items-center space-x-1.5 text-primary font-label-md text-label-md hover:text-primary-container min-h-[48px] py-1 active:scale-95 transition-transform">
+<span>View Event</span>
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</button>
+<span class="font-body-sm text-body-sm text-on-surface-variant">3 spots remaining</span>
+</div>
+</div>
+</div>
+</article>
+</section>
+<!-- GROUP 2: EARLIER THIS WEEK -->
+<section class="space-y-space-xs pt-2">
+<div class="flex items-center justify-between">
+<h2 class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-wider">Earlier this week</h2>
+<span class="font-body-sm text-body-sm text-outline">Read</span>
+</div>
+<!-- Notification 4: Rating Received -->
+<article class="relative bg-surface-container-lowest rounded-xl p-space-md shadow-sm transition-all hover:shadow-md opacity-95">
+<div class="flex items-start space-x-3">
+<div class="relative shrink-0 mt-0.5">
+<img class="w-12 h-12 rounded-full object-cover shadow-sm" data-alt="A warm candid portrait of Sarah Jenkins outdoors after a sports session, smiling with positive sportsmanship energy, soft neutral tones with subtle red accents, natural light photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD957Qp3NIiZLsY8yowG9R4x3Cwq8txFqtpLeyHQqErTRt5Cy-30C9kyYDHjAJc2PSEqpReuqGKpu_P7ZqYu-gNvE9T6zKqk34cGD2QrlG5qDSW9sr-WLFSQcSDR6lw9puksGvscBZalSuqk0XDIm22E1aXK-SzovckN8xy0q1y7Igowc_EcGxgLpLff1BuXQfwQH-Pb7JEoMyRGqFpccd09S2mcOSrqUPENGFdBCrrxWaZ_wseZviJQQ"/>
+<div class="absolute -bottom-1 -right-1 w-5 h-5 bg-secondary-container text-on-secondary-fixed rounded-full flex items-center justify-center border-2 border-surface-container-lowest">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-baseline justify-between gap-1">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Community Review</span>
+<span class="font-body-sm text-body-sm text-outline shrink-0">Oct 24</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mt-1 leading-snug">
+<strong class="font-bold text-on-background">Sarah Jenkins</strong> rated your meetup: <span class="text-secondary font-bold">⭐ 5.0</span>
+</p>
+<!-- Review Tag Badge -->
+<div class="mt-2 flex flex-wrap items-center gap-1.5">
+<span class="inline-flex items-center px-2 py-0.5 bg-surface-container text-on-surface-variant font-label-sm text-label-sm rounded-md">
+                  Punctual
+                </span>
+<span class="inline-flex items-center px-2 py-0.5 bg-surface-container text-on-surface-variant font-label-sm text-label-sm rounded-md">
+                  Friendly
+                </span>
+<button class="font-label-md text-label-md text-primary ml-auto min-h-[48px] px-2 flex items-center hover:underline">
+                  View Badge
+                </button>
+</div>
+</div>
+</div>
+</article>
+<!-- Notification 5: System Safety Announcement -->
+<article class="relative bg-surface-container-low rounded-xl p-space-md shadow-sm transition-all hover:shadow-md border border-outline-variant/40">
+<div class="flex items-start space-x-3">
+<div class="shrink-0 mt-0.5 w-12 h-12 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[24px]">verified_user</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-baseline justify-between gap-1">
+<div class="flex items-center space-x-1.5">
+<span class="font-label-md text-label-md text-tertiary font-bold">Trust &amp; Safety</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+</div>
+<span class="font-body-sm text-body-sm text-outline shrink-0">Oct 22</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mt-1 leading-snug">
+<strong>Community Guidelines updated:</strong> Review verified meetup tips and our pledge for secure, harassment-free hobby experiences.
+              </p>
+<div class="mt-2.5">
+<button class="text-on-surface font-label-md text-label-md underline hover:text-primary min-h-[48px] py-1 flex items-center space-x-1">
+<span>Read Safety Protocols</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+</section>
+<!-- Empty state subtle hint / End of feed -->
+<div class="pt-4 pb-6 text-center text-outline">
+<span class="material-symbols-outlined text-[28px] text-outline-variant">check_circle</span>
+<p class="font-body-sm text-body-sm mt-1">You're completely caught up with your hobby circle!</p>
+</div>
+</main>
+<!-- Bottom Standard Navigation Bar (Shared Component Execution) -->
+<!-- active tab mapped to Messages/Activity intent with active indicator -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-margin-mobile py-space-xs min-h-touch-target-min bg-surface shadow-md">
+<!-- Home -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-space-xs py-space-2xs min-h-[48px] min-w-[48px] hover:bg-surface-container active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[24px]">home</span>
+<span class="font-label-sm text-label-sm mt-0.5">Home</span>
+</button>
+<!-- Radar -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-space-xs py-space-2xs min-h-[48px] min-w-[48px] hover:bg-surface-container active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[24px]">radar</span>
+<span class="font-label-sm text-label-sm mt-0.5">Radar</span>
+</button>
+<!-- Events -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-space-xs py-space-2xs min-h-[48px] min-w-[48px] hover:bg-surface-container active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[24px]">event</span>
+<span class="font-label-sm text-label-sm mt-0.5">Events</span>
+</button>
+<!-- Messages / Notifications (ACTIVE TAB per Contextual Logic) -->
+<button class="flex flex-col items-center justify-center bg-primary-fixed text-on-primary-fixed rounded-full px-space-md py-space-2xs min-h-[48px] min-w-[64px] active:scale-95 transition-transform">
+<div class="relative">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">chat</span>
+<span class="absolute -top-1 -right-1.5 w-2.5 h-2.5 bg-primary rounded-full ring-2 ring-white"></span>
+</div>
+<span class="font-label-sm text-label-sm font-bold mt-0.5">Messages</span>
+</button>
+<!-- Profile -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-space-xs py-space-2xs min-h-[48px] min-w-[48px] hover:bg-surface-container active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[24px]">person</span>
+<span class="font-label-sm text-label-sm mt-0.5">Profile</span>
+</button>
+</nav>
+</div>
+<!-- Interactive Script for Quick Actions and Mark Read -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const markAllBtn = document.getElementById('mark-all-btn');
+      
+      if (markAllBtn) {
+        markAllBtn.addEventListener('click', () => {
+          // Remove unread indicators
+          const unreadDots = document.querySelectorAll('.bg-primary.rounded-full.border-2, .border-l-4');
+          unreadDots.forEach(el => {
+            el.classList.remove('border-l-4', 'border-primary');
+            if (el.classList.contains('w-3')) {
+              el.remove();
+            }
+          });
+          markAllBtn.textContent = 'All read';
+          markAllBtn.classList.add('text-outline');
+          markAllBtn.classList.remove('text-primary');
+        });
+      }
+    });
+  </script>
+</body></html>

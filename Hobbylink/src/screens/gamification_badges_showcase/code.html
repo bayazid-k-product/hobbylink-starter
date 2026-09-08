@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HobbyLink - Gamification &amp; Achievements</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Font: Roboto Flex -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Play CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "surface-variant": "#e5e2e1",
+          "surface-container": "#f0eded",
+          "on-primary-fixed": "#410002",
+          "surface-tint": "#bb171c",
+          "on-surface-variant": "#5b403d",
+          "on-background": "#1b1c1c",
+          "surface-container-highest": "#e5e2e1",
+          "tertiary-fixed-dim": "#78dc77",
+          "on-secondary-fixed": "#2c1600",
+          "on-secondary": "#ffffff",
+          "on-tertiary-fixed": "#002204",
+          "tertiary-container": "#1e862d",
+          "error": "#ba1a1a",
+          "surface-dim": "#dcd9d9",
+          "secondary-fixed-dim": "#ffb870",
+          "secondary": "#8b5000",
+          "on-primary": "#ffffff",
+          "tertiary-fixed": "#94f990",
+          "surface-container-high": "#eae7e7",
+          "surface": "#fcf9f8",
+          "primary-fixed": "#ffdad6",
+          "on-secondary-container": "#653900",
+          "on-primary-fixed-variant": "#93000d",
+          "error-container": "#ffdad6",
+          "inverse-primary": "#ffb4ac",
+          "on-tertiary-fixed-variant": "#005313",
+          "inverse-surface": "#303030",
+          "on-error-container": "#93000a",
+          "background": "#fcf9f8",
+          "on-tertiary-container": "#f7fff1",
+          "tertiary": "#006b1b",
+          "primary-container": "#db322f",
+          "surface-container-lowest": "#ffffff",
+          "surface-container-low": "#f6f3f2",
+          "secondary-container": "#ff9800",
+          "on-secondary-fixed-variant": "#693c00",
+          "outline-variant": "#e4beb9",
+          "outline": "#906f6c",
+          "primary-fixed-dim": "#ffb4ac",
+          "inverse-on-surface": "#f3f0ef",
+          "on-tertiary": "#ffffff",
+          "primary": "#b7131a",
+          "on-surface": "#1b1c1c",
+          "on-error": "#ffffff",
+          "surface-bright": "#fcf9f8",
+          "on-primary-container": "#fffbff",
+          "secondary-fixed": "#ffdcbe"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "touch-target-min": "48px",
+          "space-md": "16px",
+          "space-lg": "24px",
+          "margin-mobile": "16px",
+          "space-2xs": "4px",
+          "space-2xl": "48px",
+          "space-xl": "32px",
+          "gutter": "16px",
+          "margin-tablet": "24px",
+          "space-xs": "8px",
+          "space-sm": "12px"
+        },
+        "fontFamily": {
+          "headline-sm": ["Roboto Flex"],
+          "headline-lg": ["Roboto Flex"],
+          "label-sm": ["Roboto Flex"],
+          "headline-lg-mobile": ["Roboto Flex"],
+          "body-md": ["Roboto Flex"],
+          "body-sm": ["Roboto Flex"],
+          "label-md": ["Roboto Flex"],
+          "body-lg": ["Roboto Flex"],
+          "display-lg": ["Roboto Flex"],
+          "label-lg": ["Roboto Flex"],
+          "headline-md": ["Roboto Flex"]
+        },
+        "fontSize": {
+          "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+          "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+          "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700"}],
+          "headline-lg-mobile": ["26px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+          "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+          "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+          "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+          "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+          "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+          "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+          "headline-md": ["22px", {"lineHeight": "28px", "fontWeight": "700"}]
+        }
+      }
+    }
+  }
+  </script>
+<style>
+    body {
+      font-family: 'Roboto Flex', sans-serif;
+      background-color: #fcf9f8;
+      color: #1b1c1c;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      display: inline-block;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+    }
+    @keyframes pulse-subtle {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.85; }
+    }
+    .badge-pulse {
+      animation: pulse-subtle 3s ease-in-out infinite;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col justify-between antialiased selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Mobile Container wrapper centered for realistic preview -->
+<div class="w-full max-w-md mx-auto min-h-screen flex flex-col bg-surface relative pb-28">
+<!-- Top App Bar (Tailored to Shared Components JSON specs & Contextual Task Header) -->
+<header class="sticky top-0 z-40 bg-surface shadow-sm flex items-center justify-between px-margin-mobile h-touch-target-min">
+<div class="flex items-center gap-space-sm">
+<button aria-label="Back" class="w-touch-target-min h-touch-target-min flex items-center justify-center rounded-full text-on-surface hover:bg-surface-container active:scale-95 transition-transform">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div class="flex items-center gap-1.5">
+<span class="text-headline-md font-headline-md font-bold text-primary tracking-tight">HobbyLink</span>
+<span class="bg-primary text-on-primary px-1.5 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider">PRO</span>
+</div>
+</div>
+<!-- Live Points Counter Badge -->
+<div class="flex items-center bg-secondary-fixed text-on-secondary-fixed rounded-full pl-2 pr-3 py-1 shadow-sm border border-secondary-fixed-dim/40 active:scale-95 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-secondary text-[18px] mr-1" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="text-label-md font-headline-sm text-secondary font-bold">3,245 Pts</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-margin-mobile pt-space-md space-y-space-md">
+<!-- Title & Gamification Subtitle -->
+<div class="flex items-center justify-between">
+<div>
+<h1 class="text-headline-md font-headline-md text-on-surface tracking-tight">Achievements &amp; Badges</h1>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Level up by attending sessions &amp; leading hobbies</p>
+</div>
+<span class="material-symbols-outlined text-primary text-[28px]" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+</div>
+<!-- User Level Tier Card (Gold Tier / خبير Expert) -->
+<section class="bg-gradient-to-br from-surface-container-lowest via-surface-container to-secondary-fixed/30 rounded-2xl p-space-md shadow-md border border-secondary-fixed-dim/30 relative overflow-hidden">
+<!-- Shiny Ambient Gold Accent Glow -->
+<div class="absolute -right-10 -top-10 w-36 h-36 bg-secondary-container/20 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-start justify-between relative z-10">
+<div class="flex items-center gap-space-sm">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-secondary-container to-amber-300 flex items-center justify-center text-on-secondary shadow-md border-2 border-surface-container-lowest">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-headline-sm font-headline-sm text-on-surface">Gold Tier</span>
+<span class="text-body-sm font-label-md text-secondary font-bold">(خبير / Expert)</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant flex items-center gap-1">
+                Top 8% Active Enthusiast
+              </p>
+</div>
+</div>
+<!-- VIP Pro Badge -->
+<div class="flex items-center gap-1 bg-secondary-container text-surface-container-lowest px-2.5 py-1 rounded-full text-label-sm font-label-sm shadow-sm font-bold">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span>VIP ACTIVE</span>
+</div>
+</div>
+<!-- Progress Bar & Next Milestone -->
+<div class="mt-space-md pt-space-xs border-t border-surface-variant/60">
+<div class="flex justify-between items-center text-body-sm mb-1.5">
+<span class="font-label-md text-label-md text-on-surface">Next: Platinum Tier</span>
+<span class="font-label-md text-label-md text-secondary font-bold">3,245 / 5,000 Pts</span>
+</div>
+<div class="w-full bg-surface-variant h-2.5 rounded-full overflow-hidden p-0.5">
+<div class="bg-gradient-to-r from-secondary-container via-amber-500 to-primary h-full rounded-full transition-all duration-500" style="width: 65%;"></div>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant mt-2 text-right">1,755 Pts remaining to unlock Platinum Perks</p>
+</div>
+<!-- Perk Unlock Pill Banner -->
+<div class="mt-space-sm bg-surface-container-lowest/90 backdrop-blur rounded-xl p-space-sm flex items-center justify-between border border-secondary-fixed/50">
+<div class="flex items-center gap-2">
+<span class="text-secondary text-base">⭐</span>
+<div>
+<p class="text-label-md font-label-md text-on-surface">1,000 pts = 1 Day Free VIP</p>
+<p class="text-body-sm font-body-sm text-tertiary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+                3 Days Redeemable Now
+              </p>
+</div>
+</div>
+<button class="bg-surface-container hover:bg-surface-variant text-on-surface px-space-sm py-1.5 rounded-lg text-label-sm font-label-sm active:scale-95 transition-all">
+            Perks Info
+          </button>
+</div>
+</section>
+<!-- Section 1: Unlocked Badges (4) -->
+<section class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Unlocked Badges</h2>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed font-bold text-label-sm px-2 py-0.5 rounded-full">4</span>
+</div>
+<span class="text-label-md font-label-md text-primary cursor-pointer hover:underline">View Showcase</span>
+</div>
+<!-- Bento Grid for Badges -->
+<div class="grid grid-cols-2 gap-space-sm">
+<!-- Badge 1: Padel Addict -->
+<div class="bg-surface-container-lowest p-space-md rounded-2xl shadow-sm border border-surface-variant flex flex-col justify-between relative group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between mb-2">
+<div class="w-12 h-12 rounded-xl bg-primary-fixed flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[26px]">sports_tennis</span>
+</div>
+<span class="material-symbols-outlined text-tertiary text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div>
+<div class="flex items-baseline gap-1 flex-wrap">
+<h3 class="text-label-lg font-label-lg text-on-surface font-bold">Padel Addict</h3>
+<span class="text-body-sm font-body-sm text-on-surface-variant text-xs">(مدمن بادل)</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1 text-xs">10 matches completed</p>
+</div>
+<div class="mt-3 pt-2 border-t border-surface-container flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-primary font-bold">+100 Pts</span>
+<span class="text-[10px] font-bold text-tertiary tracking-wide uppercase">Unlocked</span>
+</div>
+</div>
+<!-- Badge 2: Avid Reader -->
+<div class="bg-surface-container-lowest p-space-md rounded-2xl shadow-sm border border-surface-variant flex flex-col justify-between relative group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between mb-2">
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed flex items-center justify-center text-secondary shadow-sm">
+<span class="material-symbols-outlined text-[26px]">menu_book</span>
+</div>
+<span class="material-symbols-outlined text-tertiary text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div>
+<div class="flex items-baseline gap-1 flex-wrap">
+<h3 class="text-label-lg font-label-lg text-on-surface font-bold">Avid Reader</h3>
+<span class="text-body-sm font-body-sm text-on-surface-variant text-xs">(قارئ نهم)</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1 text-xs">5 book sessions</p>
+</div>
+<div class="mt-3 pt-2 border-t border-surface-container flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-secondary font-bold">+50 Pts</span>
+<span class="text-[10px] font-bold text-tertiary tracking-wide uppercase">Unlocked</span>
+</div>
+</div>
+<!-- Badge 3: Community Trusted -->
+<div class="bg-surface-container-lowest p-space-md rounded-2xl shadow-sm border border-surface-variant flex flex-col justify-between relative group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between mb-2">
+<div class="w-12 h-12 rounded-xl bg-tertiary-fixed flex items-center justify-center text-tertiary shadow-sm">
+<span class="material-symbols-outlined text-[26px]" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<span class="material-symbols-outlined text-tertiary text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div>
+<div class="flex items-baseline gap-1 flex-wrap">
+<h3 class="text-label-lg font-label-lg text-on-surface font-bold">Community Trusted</h3>
+<span class="text-body-sm font-body-sm text-on-surface-variant text-xs">(موثوق)</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1 text-xs">4.8+ rating / 20 meetups</p>
+</div>
+<div class="mt-3 pt-2 border-t border-surface-container flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-tertiary font-bold">+200 Pts</span>
+<span class="text-[10px] font-bold text-tertiary tracking-wide uppercase">Unlocked</span>
+</div>
+</div>
+<!-- Badge 4: Gym Pro -->
+<div class="bg-surface-container-lowest p-space-md rounded-2xl shadow-sm border border-surface-variant flex flex-col justify-between relative group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between mb-2">
+<div class="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center text-orange-600 shadow-sm">
+<span class="material-symbols-outlined text-[26px]">fitness_center</span>
+</div>
+<span class="material-symbols-outlined text-tertiary text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div>
+<div class="flex items-baseline gap-1 flex-wrap">
+<h3 class="text-label-lg font-label-lg text-on-surface font-bold">Gym Pro</h3>
+<span class="text-body-sm font-body-sm text-on-surface-variant text-xs">(حريف جيم)</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1 text-xs">15 gym sessions</p>
+</div>
+<div class="mt-3 pt-2 border-t border-surface-container flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-orange-600 font-bold">+150 Pts</span>
+<span class="text-[10px] font-bold text-tertiary tracking-wide uppercase">Unlocked</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: In Progress Badges -->
+<section class="space-y-space-sm pt-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<h2 class="text-headline-sm font-headline-sm text-on-surface">In Progress Badges</h2>
+<span class="bg-surface-variant text-on-surface-variant font-bold text-label-sm px-2 py-0.5 rounded-full">3</span>
+</div>
+<span class="text-label-md font-label-md text-on-surface-variant">Track All</span>
+</div>
+<div class="space-y-space-sm">
+<!-- In-Progress 1: App Ambassador -->
+<div class="bg-surface-container-lowest p-space-md rounded-2xl shadow-sm border border-surface-variant hover:border-outline-variant transition-colors">
+<div class="flex items-start gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-on-surface-variant shrink-0">
+<span class="material-symbols-outlined text-[26px]">diversity_3</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<h3 class="text-label-lg font-label-lg text-on-surface font-bold truncate">App Ambassador <span class="text-body-sm text-on-surface-variant font-normal">(سفير التطبيق)</span></h3>
+<span class="text-label-sm font-label-sm font-bold text-primary">6 / 10</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Invite 10 active friends to HobbyLink</p>
+<div class="mt-2.5 w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full transition-all duration-300" style="width: 60%;"></div>
+</div>
+<div class="flex justify-between items-center mt-2 text-[11px] text-on-surface-variant">
+<span>Reward: +300 Pts + Special Badge</span>
+<span class="text-primary font-bold">4 invites to go</span>
+</div>
+</div>
+</div>
+</div>
+<!-- In-Progress 2: Event Host Star -->
+<div class="bg-surface-container-lowest p-space-md rounded-2xl shadow-sm border border-surface-variant hover:border-outline-variant transition-colors">
+<div class="flex items-start gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-on-surface-variant shrink-0">
+<span class="material-symbols-outlined text-[26px]">stars</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<h3 class="text-label-lg font-label-lg text-on-surface font-bold truncate">Event Host Star <span class="text-body-sm text-on-surface-variant font-normal">(منظم متميز)</span></h3>
+<span class="text-label-sm font-label-sm font-bold text-secondary">3 / 5</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Organize 5 community events</p>
+<div class="mt-2.5 w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-secondary-container h-full rounded-full transition-all duration-300" style="width: 60%;"></div>
+</div>
+<div class="flex justify-between items-center mt-2 text-[11px] text-on-surface-variant">
+<span>Reward: +500 Pts + Beacon Access</span>
+<span class="text-secondary font-bold">2 sessions left</span>
+</div>
+</div>
+</div>
+</div>
+<!-- In-Progress 3: Explorer -->
+<div class="bg-surface-container-lowest p-space-md rounded-2xl shadow-sm border border-surface-variant hover:border-outline-variant transition-colors">
+<div class="flex items-start gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-on-surface-variant shrink-0">
+<span class="material-symbols-outlined text-[26px]">explore</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<h3 class="text-label-lg font-label-lg text-on-surface font-bold truncate">Explorer <span class="text-body-sm text-on-surface-variant font-normal">(مستكشف)</span></h3>
+<span class="text-label-sm font-label-sm font-bold text-tertiary">1 / 3</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Activities attended in 3 distinct areas</p>
+<div class="mt-2.5 w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full rounded-full transition-all duration-300" style="width: 33%;"></div>
+</div>
+<div class="flex justify-between items-center mt-2 text-[11px] text-on-surface-variant">
+<span>Reward: +150 Pts</span>
+<span class="text-tertiary font-bold">2 areas left</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Action CTAs -->
+<section class="pt-space-sm space-y-space-sm">
+<div class="flex flex-col sm:flex-row gap-space-sm">
+<!-- Secondary Action: Share Achievements -->
+<button class="flex-1 h-touch-target-min border border-outline/30 bg-surface-container-lowest hover:bg-surface-container text-on-surface rounded-xl font-label-lg text-label-lg flex items-center justify-center gap-2 active:scale-95 transition-all shadow-sm">
+<span class="material-symbols-outlined text-[20px]">share</span>
+            Share Achievements
+          </button>
+<!-- Primary Red Action: Redeem Points for VIP -->
+<button class="flex-1 h-touch-target-min bg-primary hover:bg-primary-container text-on-primary rounded-xl font-label-lg text-label-lg flex items-center justify-center gap-2 active:scale-95 transition-all shadow-md">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">redeem</span>
+            Redeem Points for VIP
+          </button>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Generated strictly adhering to Shared Components JSON) -->
+<!-- Destination count: 5 ["Home", "Radar", "Events", "Messages", "Profile"] -->
+<!-- Active State: 'Profile' is selected since this represents User Level, Achievements, Badges & VIP Status -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-margin-mobile py-space-xs min-h-touch-target-min bg-surface shadow-md border-t-0">
+<!-- Nav Item 1: Home -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-space-xs py-space-2xs hover:bg-surface-container active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[24px]">home</span>
+<span class="text-label-sm font-label-sm mt-0.5">Home</span>
+</button>
+<!-- Nav Item 2: Radar -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-space-xs py-space-2xs hover:bg-surface-container active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[24px]">radar</span>
+<span class="text-label-sm font-label-sm mt-0.5">Radar</span>
+</button>
+<!-- Nav Item 3: Events -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-space-xs py-space-2xs hover:bg-surface-container active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[24px]">event</span>
+<span class="text-label-sm font-label-sm mt-0.5">Events</span>
+</button>
+<!-- Nav Item 4: Messages -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-space-xs py-space-2xs hover:bg-surface-container active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[24px]">chat</span>
+<span class="text-label-sm font-label-sm mt-0.5">Messages</span>
+</button>
+<!-- Nav Item 5: Profile (ACTIVE STATE per Intent & JSON styling rule) -->
+<button class="flex flex-col items-center justify-center bg-primary-fixed text-on-primary-fixed rounded-full px-space-md py-space-2xs active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="text-label-sm font-label-sm font-bold mt-0.5">Profile</span>
+</button>
+</nav>
+</div>
+</body></html>

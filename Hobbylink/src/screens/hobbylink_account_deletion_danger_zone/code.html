@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Account Deletion Danger Zone - HobbyLink</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-highest": "#e5e2e1",
+            "tertiary-fixed-dim": "#78dc77",
+            "primary-container": "#db322f",
+            "tertiary": "#006b1b",
+            "secondary-container": "#ff9800",
+            "secondary-fixed": "#ffdcbe",
+            "primary-fixed": "#ffdad6",
+            "on-error-container": "#93000a",
+            "surface-container-low": "#f6f3f2",
+            "tertiary-fixed": "#94f990",
+            "on-primary-container": "#fffbff",
+            "on-surface-variant": "#5b403d",
+            "surface-variant": "#e5e2e1",
+            "primary-fixed-dim": "#ffb4ac",
+            "background": "#fcf9f8",
+            "surface-dim": "#dcd9d9",
+            "on-error": "#ffffff",
+            "on-tertiary-fixed-variant": "#005313",
+            "secondary": "#8b5000",
+            "outline-variant": "#e4beb9",
+            "on-secondary": "#ffffff",
+            "on-secondary-fixed-variant": "#693c00",
+            "surface-container-high": "#eae7e7",
+            "on-primary": "#ffffff",
+            "surface-container": "#f0eded",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-fixed": "#002204",
+            "error": "#ba1a1a",
+            "secondary-fixed-dim": "#ffb870",
+            "tertiary-container": "#1e862d",
+            "on-secondary-fixed": "#2c1600",
+            "inverse-primary": "#ffb4ac",
+            "on-tertiary-container": "#f7fff1",
+            "surface-bright": "#fcf9f8",
+            "primary": "#b7131a",
+            "surface-container-lowest": "#ffffff",
+            "on-surface": "#1b1c1c",
+            "on-primary-fixed-variant": "#93000d",
+            "surface": "#fcf9f8",
+            "on-primary-fixed": "#410002",
+            "on-background": "#1b1c1c",
+            "surface-tint": "#bb171c",
+            "inverse-surface": "#303030",
+            "error-container": "#ffdad6",
+            "on-secondary-container": "#653900",
+            "outline": "#906f6c",
+            "inverse-on-surface": "#f3f0ef"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "24px",
+            "space-2xl": "48px",
+            "space-2xs": "4px",
+            "space-md": "16px",
+            "space-xl": "32px",
+            "gutter": "16px",
+            "space-sm": "12px",
+            "space-xs": "8px",
+            "margin-mobile": "16px",
+            "touch-target-min": "48px",
+            "margin-tablet": "24px"
+          },
+          "fontFamily": {
+            "body-sm": ["Roboto Flex"],
+            "body-lg": ["Roboto Flex"],
+            "label-sm": ["Roboto Flex"],
+            "label-lg": ["Roboto Flex"],
+            "label-md": ["Roboto Flex"],
+            "headline-lg-mobile": ["Roboto Flex"],
+            "body-md": ["Roboto Flex"],
+            "headline-lg": ["Roboto Flex"],
+            "display-lg": ["Roboto Flex"],
+            "headline-sm": ["Roboto Flex"],
+            "headline-md": ["Roboto Flex"]
+          },
+          "fontSize": {
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md antialiased min-h-screen flex items-center justify-center p-0 md:p-space-lg select-none">
+<!-- Background Scrim Container -->
+<div class="w-full max-w-md min-h-screen md:min-h-[844px] bg-surface flex flex-col justify-end relative overflow-hidden shadow-2xl md:rounded-[36px]">
+<!-- Underlay Ambient Backdrop Representation (Blurred Settings behind) -->
+<div class="absolute inset-0 bg-surface-container-low p-space-md opacity-40 filter blur-xs pointer-events-none flex flex-col gap-space-md">
+<div class="h-12 w-full bg-surface-container rounded-lg"></div>
+<div class="h-32 w-full bg-surface-container-lowest rounded-xl"></div>
+<div class="h-48 w-full bg-surface-container-lowest rounded-xl"></div>
+<div class="h-24 w-full bg-surface-container-lowest rounded-xl"></div>
+</div>
+<!-- Scrim Overlay (Level 4 Elevation 40% backdrop) -->
+<div class="absolute inset-0 bg-black/40 transition-opacity"></div>
+<!-- Mobile Danger Zone Confirmation Sheet Modal (Level 4 Elevation) -->
+<div class="relative z-10 w-full bg-surface-container-lowest rounded-t-[28px] shadow-[0px_12px_24px_rgba(0,0,0,0.16),0px_4px_8px_rgba(0,0,0,0.10)] max-h-[813px] flex flex-col overflow-hidden animate-in slide-in-from-bottom duration-200">
+<!-- Top Grab Bar & Header -->
+<div class="pt-space-xs px-space-md pb-space-sm bg-surface-container-lowest flex flex-col items-center shrink-0">
+<div class="w-10 h-1.5 bg-surface-container-highest rounded-full mb-space-xs"></div>
+<div class="w-full flex items-center justify-between min-h-touch-target-min">
+<button aria-label="Go back" class="w-touch-target-min h-touch-target-min flex items-center justify-center rounded-full text-on-surface hover:bg-surface-container active:scale-95 transition-transform duration-150" type="button">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm text-on-surface font-bold">Delete Account</h1>
+<div class="w-touch-target-min h-touch-target-min flex items-center justify-center">
+<span class="material-symbols-outlined text-outline text-[20px]">security</span>
+</div>
+</div>
+</div>
+<!-- Scrollable Modal Content -->
+<div class="overflow-y-auto px-space-md pb-space-lg flex flex-col gap-space-md">
+<!-- Warning Illustration / Icon Banner -->
+<div class="flex flex-col items-center justify-center pt-space-xs pb-space-2xs text-center">
+<div class="relative flex items-center justify-center w-20 h-20 bg-error-container/60 rounded-full mb-space-sm">
+<span class="material-symbols-outlined text-[44px] text-error" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+<div class="absolute -bottom-1 -right-1 bg-surface-container-lowest rounded-full p-1 shadow-sm">
+<span class="material-symbols-outlined text-[24px] text-error" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+</div>
+<span class="bg-error-container text-on-error-container px-space-sm py-1 rounded-full font-label-sm text-label-sm mb-space-xs uppercase tracking-wider">
+            FR-7 &amp; FR-21 Danger Zone
+          </span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-extrabold tracking-tight px-space-2xs leading-tight">
+            Are you sure you want to permanently delete your account?
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs leading-relaxed">
+            This action is irreversible. Once deleted, all your data will be permanently wiped from our Firebase servers in accordance with GDPR regulations.
+          </p>
+</div>
+<!-- Consequences Checklist Card (Level 1 Elevation) -->
+<div class="bg-surface-container-low rounded-xl p-space-md border border-outline-variant/30 flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-error text-[20px]" style="font-variation-settings: 'FILL' 1;">report_problem</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold">Immediate Consequences</span>
+</div>
+<ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface">
+<li class="flex items-start gap-space-xs">
+<span class="text-error font-bold select-none leading-5">✕</span>
+<span>Your profile <strong class="font-label-md text-label-md text-primary">@ahmed_dev</strong>, badges <span class="inline-flex items-center gap-0.5 bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm px-1.5 py-0.5 rounded-full"><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>Gold Tier</span>, and points will be erased.</span>
+</li>
+<li class="flex items-start gap-space-xs">
+<span class="text-error font-bold select-none leading-5">✕</span>
+<span>All active event registrations and chat histories will be deleted forever.</span>
+</li>
+<li class="flex items-start gap-space-xs">
+<span class="text-error font-bold select-none leading-5">✕</span>
+<span>Any active <span class="bg-secondary-container text-on-primary-container px-1 rounded font-label-sm text-label-sm">VIP Pro</span> subscription will be cancelled immediately without refund.</span>
+</li>
+<li class="flex items-start gap-space-xs">
+<span class="text-error font-bold select-none leading-5">✕</span>
+<span>Your verified community trust score (<strong class="text-tertiary">4.9 ★</strong> Trust &amp; Safety rating) will be permanently forfeited.</span>
+</li>
+</ul>
+</div>
+<!-- Confirmation Security Check Form -->
+<div class="flex flex-col gap-space-sm">
+<!-- Text confirmation input -->
+<div class="flex flex-col gap-1">
+<label class="font-label-lg text-label-lg text-on-surface flex items-center justify-between" for="confirm-text">
+<span>Please type <span class="text-error font-bold">DELETE</span> to confirm</span>
+<span class="text-error text-xs font-label-sm">Required</span>
+</label>
+<div class="relative">
+<input autocomplete="off" class="w-full h-[52px] px-space-md rounded-lg border border-outline-variant bg-surface text-on-surface placeholder:text-outline-variant focus:border-2 focus:border-error focus:ring-0 focus:outline-none font-body-md text-body-md transition-colors" id="confirm-text" oninput="validateForm()" placeholder="DELETE" type="text"/>
+</div>
+</div>
+<!-- Password verification input -->
+<div class="flex flex-col gap-1">
+<label class="font-label-lg text-label-lg text-on-surface flex items-center justify-between" for="confirm-password">
+<span>Enter current password</span>
+<span class="text-error text-xs font-label-sm">Required</span>
+</label>
+<div class="relative flex items-center">
+<input autocomplete="current-password" class="w-full h-[52px] pl-space-md pr-12 rounded-lg border border-outline-variant bg-surface text-on-surface placeholder:text-outline-variant focus:border-2 focus:border-error focus:ring-0 focus:outline-none font-body-md text-body-md transition-colors" id="confirm-password" oninput="validateForm()" placeholder="••••••••••••" type="password"/>
+<button aria-label="Toggle password visibility" class="absolute right-0 w-touch-target-min h-touch-target-min flex items-center justify-center text-outline hover:text-on-surface" onclick="togglePasswordVisibility()" type="button">
+<span class="material-symbols-outlined text-[20px]" id="pwd-icon">visibility</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Assistance / Alternative Suggestion Note -->
+<div class="flex items-start gap-space-xs p-space-sm bg-secondary-fixed/30 rounded-xl border border-secondary-fixed-dim/40">
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5">lightbulb</span>
+<p class="font-body-sm text-body-sm text-on-surface">
+<strong class="font-label-sm text-label-sm text-secondary block mb-0.5">Looking for a temporary break?</strong>
+            You can toggle <span class="font-semibold text-on-surface">Radar Visibility off</span> in Settings instead to pause new invitations without wiping your account.
+          </p>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-space-xs pt-space-2xs">
+<!-- Destructive Red Action Button (Initially Disabled) -->
+<button class="w-full min-h-touch-target-min py-space-sm px-space-lg rounded-xl font-label-lg text-label-lg flex items-center justify-center gap-space-xs transition-all duration-150 bg-surface-container-highest text-outline cursor-not-allowed select-none active:scale-95" disabled="" id="delete-button" type="button">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">delete_forever</span>
+<span>Permanently Delete Account</span>
+</button>
+<!-- Secondary Keep Account Button -->
+<button class="w-full min-h-touch-target-min py-space-sm px-space-lg rounded-xl font-label-lg text-label-lg text-on-surface bg-surface-container hover:bg-surface-container-high transition-transform duration-150 active:scale-95 flex items-center justify-center" type="button">
+            Keep My Account (Go Back)
+          </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Form Logic for Deletion Safeguard -->
+<script>
+    function validateForm() {
+      const confirmText = document.getElementById('confirm-text').value.trim();
+      const confirmPassword = document.getElementById('confirm-password').value.trim();
+      const deleteButton = document.getElementById('delete-button');
+
+      const isPhraseValid = (confirmText === 'DELETE');
+      const isPasswordValid = (confirmPassword.length >= 6);
+
+      if (isPhraseValid && isPasswordValid) {
+        deleteButton.disabled = false;
+        deleteButton.className = 'w-full min-h-touch-target-min py-space-sm px-space-lg rounded-xl font-label-lg text-label-lg flex items-center justify-center gap-space-xs transition-all duration-150 bg-primary text-on-primary hover:bg-[#D32F2F] shadow-sm active:scale-95 cursor-pointer';
+      } else {
+        deleteButton.disabled = true;
+        deleteButton.className = 'w-full min-h-touch-target-min py-space-sm px-space-lg rounded-xl font-label-lg text-label-lg flex items-center justify-center gap-space-xs transition-all duration-150 bg-surface-container-highest text-outline cursor-not-allowed select-none';
+      }
+    }
+
+    function togglePasswordVisibility() {
+      const pwdField = document.getElementById('confirm-password');
+      const pwdIcon = document.getElementById('pwd-icon');
+      if (pwdField.type === 'password') {
+        pwdField.type = 'text';
+        pwdIcon.innerText = 'visibility_off';
+      } else {
+        pwdField.type = 'password';
+        pwdIcon.innerText = 'visibility';
+      }
+    }
+  </script>
+</body></html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HobbyLink - Offline Connectivity</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght,opsz@300..900,8..144&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-highest": "#e5e2e1",
+            "tertiary-fixed-dim": "#78dc77",
+            "primary-container": "#db322f",
+            "tertiary": "#006b1b",
+            "secondary-container": "#ff9800",
+            "secondary-fixed": "#ffdcbe",
+            "primary-fixed": "#ffdad6",
+            "on-error-container": "#93000a",
+            "surface-container-low": "#f6f3f2",
+            "tertiary-fixed": "#94f990",
+            "on-primary-container": "#fffbff",
+            "on-surface-variant": "#5b403d",
+            "surface-variant": "#e5e2e1",
+            "primary-fixed-dim": "#ffb4ac",
+            "background": "#fcf9f8",
+            "surface-dim": "#dcd9d9",
+            "on-error": "#ffffff",
+            "on-tertiary-fixed-variant": "#005313",
+            "secondary": "#8b5000",
+            "outline-variant": "#e4beb9",
+            "on-secondary": "#ffffff",
+            "on-secondary-fixed-variant": "#693c00",
+            "surface-container-high": "#eae7e7",
+            "on-primary": "#ffffff",
+            "surface-container": "#f0eded",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-fixed": "#002204",
+            "error": "#ba1a1a",
+            "secondary-fixed-dim": "#ffb870",
+            "tertiary-container": "#1e862d",
+            "on-secondary-fixed": "#2c1600",
+            "inverse-primary": "#ffb4ac",
+            "on-tertiary-container": "#f7fff1",
+            "surface-bright": "#fcf9f8",
+            "primary": "#b7131a",
+            "surface-container-lowest": "#ffffff",
+            "on-surface": "#1b1c1c",
+            "on-primary-fixed-variant": "#93000d",
+            "surface": "#fcf9f8",
+            "on-primary-fixed": "#410002",
+            "on-background": "#1b1c1c",
+            "surface-tint": "#bb171c",
+            "inverse-surface": "#303030",
+            "error-container": "#ffdad6",
+            "on-secondary-container": "#653900",
+            "outline": "#906f6c",
+            "inverse-on-surface": "#f3f0ef"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "24px",
+            "space-2xl": "48px",
+            "space-2xs": "4px",
+            "space-md": "16px",
+            "space-xl": "32px",
+            "gutter": "16px",
+            "space-sm": "12px",
+            "space-xs": "8px",
+            "margin-mobile": "16px",
+            "touch-target-min": "48px",
+            "margin-tablet": "24px"
+          },
+          "fontFamily": {
+            "body-sm": ["Roboto Flex"],
+            "body-lg": ["Roboto Flex"],
+            "label-sm": ["Roboto Flex"],
+            "label-lg": ["Roboto Flex"],
+            "label-md": ["Roboto Flex"],
+            "headline-lg-mobile": ["Roboto Flex"],
+            "body-md": ["Roboto Flex"],
+            "headline-lg": ["Roboto Flex"],
+            "display-lg": ["Roboto Flex"],
+            "headline-sm": ["Roboto Flex"],
+            "headline-md": ["Roboto Flex"]
+          },
+          "fontSize": {
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    @keyframes pulse-ring {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.08); opacity: 0.3; }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+    .radar-pulse {
+      animation: pulse-ring 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    @keyframes spin-soft {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .spin-active {
+      animation: spin-soft 0.8s linear infinite;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col justify-between selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Modal/Error Screen Container (Strictly suppression-compliant: Global Nav bars suppressed for transactional offline blocking state) -->
+<div class="relative w-full max-w-md mx-auto flex-1 flex flex-col justify-between px-margin-mobile pt-space-md pb-space-lg">
+<!-- Top System Context Bar -->
+<header class="w-full flex justify-between items-center h-touch-target-min">
+<div class="flex items-center space-x-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-error ring-4 ring-error-container animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-error uppercase tracking-wider">OFFLINE MODE</span>
+</div>
+<div class="flex items-center space-x-space-2xs bg-surface-container px-space-sm py-1 rounded-full">
+<span class="material-symbols-outlined text-outline text-[16px]">signal_wifi_off</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">No Carrier</span>
+</div>
+</header>
+<!-- Main Visual & Content Container -->
+<main class="w-full flex flex-col items-center text-center my-auto pt-space-xs pb-space-md">
+<!-- Illustrated Connection Lost Hero Icon -->
+<div class="relative flex items-center justify-center mb-space-lg">
+<!-- Ambient decorative pulse radar layer -->
+<div class="absolute w-36 h-36 rounded-full bg-error-container opacity-40 radar-pulse"></div>
+<div class="absolute w-28 h-28 rounded-full bg-primary-fixed opacity-70"></div>
+<!-- Center Icon Base Badge -->
+<div class="relative z-10 w-24 h-24 rounded-full bg-surface-container-lowest shadow-md flex items-center justify-center border-2 border-outline-variant/30">
+<div class="relative flex items-center justify-center w-16 h-16 rounded-full bg-error-container text-primary">
+<span class="material-symbols-outlined text-[36px] text-primary" style="font-variation-settings: 'FILL' 1;">wifi_off</span>
+<!-- Diagonal Slash / Warning Dot Accent -->
+<div class="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[14px]">priority_high</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Headlines -->
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-space-xs tracking-tight">
+        Connection Lost
+      </h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[340px] leading-relaxed mb-space-lg">
+        HobbyLink requires an active internet connection to connect you with nearby activity partners and real-time radar.
+      </p>
+<!-- Diagnostic Status Card (Level 1 Elevation Bento Architecture) -->
+<div class="w-full bg-surface-container-lowest rounded-xl p-space-md shadow-sm border border-surface-container-high text-left mb-space-md">
+<div class="flex items-center justify-between pb-space-xs mb-space-xs border-b border-surface-container-low">
+<div class="flex items-center space-x-space-xs">
+<span class="material-symbols-outlined text-outline text-[18px]">cell_tower</span>
+<span class="font-label-md text-label-md text-on-surface">Network status</span>
+</div>
+<span class="inline-flex items-center font-label-md text-label-md text-error bg-error-container px-space-xs py-0.5 rounded-full">
+            Disconnected / Airplane Mode
+          </span>
+</div>
+<div class="flex items-center justify-between py-space-2xs">
+<div class="flex items-center space-x-space-xs">
+<span class="material-symbols-outlined text-outline text-[18px]">history_toggle_off</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Last synced</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">2 minutes ago</span>
+</div>
+<div class="flex items-center justify-between pt-space-2xs">
+<div class="flex items-center space-x-space-xs">
+<span class="material-symbols-outlined text-secondary-container text-[18px]">drafts</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Pending messages</span>
+</div>
+<span class="inline-flex items-center space-x-1 font-label-sm text-label-sm text-secondary bg-secondary-fixed px-space-xs py-0.5 rounded-md font-semibold">
+<span>1 draft saved locally</span>
+</span>
+</div>
+</div>
+<!-- Troubleshooting Checklist Tips (High-end modern card) -->
+<div class="w-full bg-surface-container-low rounded-xl p-space-md text-left">
+<h2 class="font-label-md text-label-md text-on-surface uppercase tracking-wider mb-space-xs flex items-center space-x-space-2xs">
+<span class="material-symbols-outlined text-primary text-[18px]">lightbulb</span>
+<span>Troubleshooting Tips</span>
+</h2>
+<ul class="space-y-space-xs">
+<li class="flex items-start space-x-space-xs">
+<span class="material-symbols-outlined text-outline text-[18px] mt-0.5">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Check your Wi-Fi or cellular data switch</span>
+</li>
+<li class="flex items-start space-x-space-xs">
+<span class="material-symbols-outlined text-outline text-[18px] mt-0.5">vpn_lock</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Disable VPN or proxy if enabled</span>
+</li>
+<li class="flex items-start space-x-space-xs">
+<span class="material-symbols-outlined text-outline text-[18px] mt-0.5">location_on</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Ensure location permissions are active</span>
+</li>
+</ul>
+</div>
+</main>
+<!-- Interactive Actions & Build Details Footer -->
+<footer class="w-full flex flex-col items-center space-y-space-sm pt-space-xs">
+<!-- Primary Action: Retry Connection with Reload Spinner Icon -->
+<button class="w-full h-touch-target-min bg-primary-container hover:bg-primary active:scale-95 transition-transform duration-150 text-on-primary-container rounded-full font-label-lg text-label-lg flex items-center justify-center space-x-space-xs shadow-md shadow-primary-container/20" id="retry-btn" onclick="triggerRetry()">
+<span class="material-symbols-outlined text-[20px]" id="retry-icon">refresh</span>
+<span id="retry-text">Retry Connection</span>
+</button>
+<!-- Secondary Action: Open Android Network Settings (Itch.io Android context) -->
+<button class="w-full h-touch-target-min bg-surface-container hover:bg-surface-container-high active:scale-95 transition-transform duration-150 text-on-surface rounded-full font-label-lg text-label-lg flex items-center justify-center space-x-space-xs" onclick="simulateAndroidSettings()">
+<span class="material-symbols-outlined text-outline text-[20px]">settings</span>
+<span>Open Android Network Settings</span>
+</button>
+<!-- Read-Only Cached State Informational Banner -->
+<p class="font-body-sm text-body-sm text-on-surface-variant/70 text-center pt-space-xs pb-space-2xs">
+        HobbyLink v1.0.0 • Offline Mode (Read-only cached assets)
+      </p>
+</footer>
+</div>
+<script>
+    function triggerRetry() {
+      const icon = document.getElementById('retry-icon');
+      const text = document.getElementById('retry-text');
+      const btn = document.getElementById('retry-btn');
+      
+      icon.classList.add('spin-active');
+      text.textContent = 'Checking Radar & Peers...';
+      btn.classList.add('opacity-90');
+
+      setTimeout(() => {
+        icon.classList.remove('spin-active');
+        text.textContent = 'Retry Connection';
+        btn.classList.remove('opacity-90');
+      }, 1800);
+    }
+
+    function simulateAndroidSettings() {
+      const btn = event.currentTarget;
+      btn.classList.add('bg-surface-container-highest');
+      setTimeout(() => {
+        btn.classList.remove('bg-surface-container-highest');
+      }, 300);
+    }
+  </script>
+</body></html>

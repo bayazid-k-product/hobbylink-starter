@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HobbyLink - Sign In &amp; Account Access</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght,opsz@100..1000,8..144&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-surface-variant": "#5b403d",
+            "tertiary-fixed-dim": "#78dc77",
+            "on-primary-fixed-variant": "#93000d",
+            "on-primary-fixed": "#410002",
+            "primary-container": "#db322f",
+            "background": "#fcf9f8",
+            "on-primary": "#ffffff",
+            "on-secondary-fixed": "#2c1600",
+            "on-primary-container": "#fffbff",
+            "tertiary-container": "#1e862d",
+            "on-secondary-fixed-variant": "#693c00",
+            "on-tertiary-container": "#f7fff1",
+            "on-surface": "#1b1c1c",
+            "secondary-container": "#ff9800",
+            "inverse-primary": "#ffb4ac",
+            "surface-container": "#f0eded",
+            "tertiary-fixed": "#94f990",
+            "surface-container-high": "#eae7e7",
+            "inverse-surface": "#303030",
+            "surface-variant": "#e5e2e1",
+            "primary": "#b7131a",
+            "on-secondary-container": "#653900",
+            "secondary": "#8b5000",
+            "surface-dim": "#dcd9d9",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-fixed": "#002204",
+            "surface-container-low": "#f6f3f2",
+            "on-error": "#ffffff",
+            "surface-tint": "#bb171c",
+            "surface": "#fcf9f8",
+            "primary-fixed": "#ffdad6",
+            "inverse-on-surface": "#f3f0ef",
+            "surface-container-lowest": "#ffffff",
+            "tertiary": "#006b1b",
+            "on-error-container": "#93000a",
+            "surface-bright": "#fcf9f8",
+            "secondary-fixed": "#ffdcbe",
+            "outline": "#906f6c",
+            "secondary-fixed-dim": "#ffb870",
+            "surface-container-highest": "#e5e2e1",
+            "outline-variant": "#e4beb9",
+            "primary-fixed-dim": "#ffb4ac",
+            "error-container": "#ffdad6",
+            "on-tertiary-fixed-variant": "#005313",
+            "on-secondary": "#ffffff",
+            "on-background": "#1b1c1c",
+            "error": "#ba1a1a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "touch-target-min": "48px",
+            "space-xs": "8px",
+            "space-2xs": "4px",
+            "space-lg": "24px",
+            "space-sm": "12px",
+            "margin-tablet": "24px",
+            "space-md": "16px",
+            "gutter": "16px",
+            "space-2xl": "48px",
+            "space-xl": "32px",
+            "margin-mobile": "16px"
+          },
+          "fontFamily": {
+            "label-sm": ["Roboto Flex"],
+            "body-lg": ["Roboto Flex"],
+            "body-md": ["Roboto Flex"],
+            "label-md": ["Roboto Flex"],
+            "headline-lg-mobile": ["Roboto Flex"],
+            "display-lg": ["Roboto Flex"],
+            "label-lg": ["Roboto Flex"],
+            "headline-sm": ["Roboto Flex"],
+            "body-sm": ["Roboto Flex"],
+            "headline-lg": ["Roboto Flex"],
+            "headline-md": ["Roboto Flex"]
+          },
+          "fontSize": {
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased min-h-full flex flex-col justify-between selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Mobile Container Wrapper -->
+<div class="w-full max-w-[480px] mx-auto min-h-full flex flex-col justify-between bg-surface shadow-sm">
+<!-- Top App Bar (Task-Focused: Suppresses standard bottom navigation shell) -->
+<header class="w-full flex items-center justify-between px-margin-mobile h-touch-target-min bg-surface sticky top-0 z-30">
+<button aria-label="Go back" class="flex items-center justify-center w-touch-target-min h-touch-target-min text-on-surface hover:bg-surface-container rounded-full active:scale-95 transition-transform duration-150 -ml-2" type="button">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<!-- Brand Compass Logo & Name -->
+<div class="flex items-center space-x-space-xs">
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">explore</span>
+</div>
+<span class="text-headline-sm font-headline-sm font-bold text-primary tracking-tight">HobbyLink</span>
+</div>
+<!-- Action placeholder for symmetry & 48px touch target -->
+<div class="w-touch-target-min h-touch-target-min flex items-center justify-end -mr-2">
+<button aria-label="Help &amp; Info" class="flex items-center justify-center w-touch-target-min h-touch-target-min text-on-surface-variant hover:bg-surface-container rounded-full active:scale-95 transition-transform duration-150" type="button">
+<span class="material-symbols-outlined text-[22px]">help_outline</span>
+</button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 px-margin-mobile pt-space-md pb-space-lg flex flex-col justify-start">
+<!-- Greeting Header -->
+<div class="mb-space-lg">
+<div class="inline-flex items-center gap-space-2xs px-space-sm py-1 bg-surface-container-high rounded-full mb-space-xs">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="text-label-sm font-label-sm text-tertiary">Live Discovery Network</span>
+</div>
+<h1 class="text-headline-lg-mobile font-headline-lg-mobile text-on-surface mb-space-2xs tracking-tight">
+          Welcome Back!
+        </h1>
+<p class="text-body-md font-body-md text-on-surface-variant">
+          Sign in to reconnect with your hobby circles and activity partners.
+        </p>
+</div>
+<!-- Sign In Form -->
+<form class="space-y-space-md" onsubmit="event.preventDefault();">
+<!-- Field 1: Email or Username -->
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1" for="identifier">
+            Email or Username
+          </label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-space-md text-on-surface-variant pointer-events-none text-[20px]">
+              mail
+            </span>
+<input class="w-full h-[52px] pl-12 pr-space-md bg-surface-container-lowest text-on-surface text-body-md font-body-md rounded-lg border border-outline-variant focus:border-2 focus:border-primary focus:outline-none transition-colors duration-150" id="identifier" name="identifier" placeholder="e.g. alex@hobbylink.com or @alex_skater" required="" type="text"/>
+</div>
+</div>
+<!-- Field 2: Password -->
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1" for="password">
+            Password
+          </label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-space-md text-on-surface-variant pointer-events-none text-[20px]">
+              lock
+            </span>
+<input class="w-full h-[52px] pl-12 pr-12 bg-surface-container-lowest text-on-surface text-body-md font-body-md rounded-lg border border-outline-variant focus:border-2 focus:border-primary focus:outline-none transition-colors duration-150" id="password" name="password" placeholder="Enter your password" required="" type="password"/>
+<button aria-label="Toggle password visibility" class="absolute right-1 w-touch-target-min h-touch-target-min flex items-center justify-center text-on-surface-variant hover:text-on-surface active:scale-95 transition-transform" id="togglePassword" type="button">
+<span class="material-symbols-outlined text-[20px]" id="eyeIcon">visibility</span>
+</button>
+</div>
+</div>
+<!-- Remember Me & Forgot Password -->
+<div class="flex items-center justify-between pt-1">
+<label class="flex items-center gap-space-xs cursor-pointer min-h-[44px] select-none">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary focus:ring-offset-surface cursor-pointer" name="remember" type="checkbox"/>
+<span class="text-body-md font-body-md text-on-surface-variant">Remember me</span>
+</label>
+<a class="min-h-[44px] flex items-center text-label-lg font-label-lg text-primary hover:text-primary-container active:underline transition-colors" href="#">
+            Forgot Password?
+          </a>
+</div>
+<!-- Primary Action Button -->
+<div class="pt-space-xs">
+<button class="w-full h-touch-target-min bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg rounded-xl shadow-sm hover:shadow-md flex items-center justify-center gap-space-xs active:scale-[0.98] transition-all duration-150" type="submit">
+<span>Sign In</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</form>
+<!-- Divider -->
+<div class="relative my-space-lg flex items-center justify-center">
+<div class="w-full border-t border-outline-variant"></div>
+<span class="absolute bg-surface px-space-sm text-body-sm font-body-sm text-on-surface-variant">
+          or continue with
+        </span>
+</div>
+<!-- Social Sign-in Buttons -->
+<div class="space-y-space-sm">
+<!-- Google Sign-in -->
+<button class="w-full h-touch-target-min bg-surface-container-lowest border border-outline-variant hover:bg-surface-container text-on-surface rounded-xl flex items-center justify-center gap-space-sm px-space-md shadow-sm active:scale-[0.98] transition-all duration-150" type="button">
+<!-- Exact Google 'G' Mark SVG -->
+<svg aria-hidden="true" class="w-5 h-5 flex-shrink-0" viewbox="0 0 24 24">
+<path d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z" fill="#4285F4"></path>
+<path d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.26v3.15C3.25 21.37 7.33 24 12 24z" fill="#34A853"></path>
+<path d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.26C.46 8.16 0 9.94 0 12s.46 3.84 1.26 5.42l4.02-3.15z" fill="#FBBC05"></path>
+<path d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.25 2.63 1.26 6.58l4.02 3.15c.95-2.83 3.6-4.98 6.72-4.98z" fill="#EA4335"></path>
+</svg>
+<span class="text-label-lg font-label-lg text-on-surface">Continue with Google</span>
+</button>
+<!-- Microsoft Sign-in -->
+<button class="w-full h-touch-target-min bg-surface-container-lowest border border-outline-variant hover:bg-surface-container text-on-surface rounded-xl flex items-center justify-center gap-space-sm px-space-md shadow-sm active:scale-[0.98] transition-all duration-150" type="button">
+<!-- Microsoft 4-Color Square Mark SVG -->
+<svg aria-hidden="true" class="w-5 h-5 flex-shrink-0" viewbox="0 0 21 21">
+<rect fill="#F25022" height="9" width="9" x="1" y="1"></rect>
+<rect fill="#7FBA00" height="9" width="9" x="11" y="1"></rect>
+<rect fill="#00A4EF" height="9" width="9" x="1" y="11"></rect>
+<rect fill="#FFB900" height="9" width="9" x="11" y="11"></rect>
+</svg>
+<span class="text-label-lg font-label-lg text-on-surface">Continue with Microsoft</span>
+</button>
+</div>
+</main>
+<!-- Bottom Footer Section -->
+<footer class="px-margin-mobile pb-space-lg pt-space-xs text-center">
+<!-- Sign Up Prompt -->
+<p class="text-body-md font-body-md text-on-surface-variant mb-space-md">
+        Don't have an account? 
+        <a class="font-label-lg text-label-lg text-primary hover:text-primary-container font-semibold inline-flex items-center min-h-[44px] pl-1" href="#">
+          Sign Up
+        </a>
+</p>
+<!-- Trust Badge & Shield Note -->
+<div class="inline-flex items-center justify-center gap-1.5 py-1 px-space-sm bg-surface-container-low rounded-full border border-outline-variant">
+<span class="material-symbols-outlined text-[16px] text-tertiary" style="font-variation-settings: 'FILL' 1;">
+          verified_user
+        </span>
+<span class="text-label-sm font-label-sm text-on-surface-variant tracking-normal">
+          Protected by HobbyLink Trust &amp; Community Shield
+        </span>
+</div>
+</footer>
+</div>
+<!-- Interactive script for show/hide password toggle -->
+<script>
+    const toggleBtn = document.getElementById('togglePassword');
+    const pwdInput = document.getElementById('password');
+    const eyeIcon = document.getElementById('eyeIcon');
+
+    if (toggleBtn && pwdInput && eyeIcon) {
+      toggleBtn.addEventListener('click', () => {
+        const isPassword = pwdInput.getAttribute('type') === 'password';
+        pwdInput.setAttribute('type', isPassword ? 'text' : 'password');
+        eyeIcon.textContent = isPassword ? 'visibility_off' : 'visibility';
+      });
+    }
+  </script>
+</body></html>

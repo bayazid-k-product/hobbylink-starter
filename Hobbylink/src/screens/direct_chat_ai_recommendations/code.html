@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HobbyLink - Chat with Karim Mostafa</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Roboto Flex -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with form & container query plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-variant": "#e5e2e1",
+            "surface-container": "#f0eded",
+            "on-primary-fixed": "#410002",
+            "surface-tint": "#bb171c",
+            "on-surface-variant": "#5b403d",
+            "on-background": "#1b1c1c",
+            "surface-container-highest": "#e5e2e1",
+            "tertiary-fixed-dim": "#78dc77",
+            "on-secondary-fixed": "#2c1600",
+            "on-secondary": "#ffffff",
+            "on-tertiary-fixed": "#002204",
+            "tertiary-container": "#1e862d",
+            "error": "#ba1a1a",
+            "surface-dim": "#dcd9d9",
+            "secondary-fixed-dim": "#ffb870",
+            "secondary": "#8b5000",
+            "on-primary": "#ffffff",
+            "tertiary-fixed": "#94f990",
+            "surface-container-high": "#eae7e7",
+            "surface": "#fcf9f8",
+            "primary-fixed": "#ffdad6",
+            "on-secondary-container": "#653900",
+            "on-primary-fixed-variant": "#93000d",
+            "error-container": "#ffdad6",
+            "inverse-primary": "#ffb4ac",
+            "on-tertiary-fixed-variant": "#005313",
+            "inverse-surface": "#303030",
+            "on-error-container": "#93000a",
+            "background": "#fcf9f8",
+            "on-tertiary-container": "#f7fff1",
+            "tertiary": "#006b1b",
+            "primary-container": "#db322f",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f6f3f2",
+            "secondary-container": "#ff9800",
+            "on-secondary-fixed-variant": "#693c00",
+            "outline-variant": "#e4beb9",
+            "outline": "#906f6c",
+            "primary-fixed-dim": "#ffb4ac",
+            "inverse-on-surface": "#f3f0ef",
+            "on-tertiary": "#ffffff",
+            "primary": "#b7131a",
+            "on-surface": "#1b1c1c",
+            "on-error": "#ffffff",
+            "surface-bright": "#fcf9f8",
+            "on-primary-container": "#fffbff",
+            "secondary-fixed": "#ffdcbe"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "touch-target-min": "48px",
+            "space-md": "16px",
+            "space-lg": "24px",
+            "margin-mobile": "16px",
+            "space-2xs": "4px",
+            "space-2xl": "48px",
+            "space-xl": "32px",
+            "gutter": "16px",
+            "margin-tablet": "24px",
+            "space-xs": "8px",
+            "space-sm": "12px"
+          },
+          "fontFamily": {
+            "headline-sm": ["Roboto Flex"],
+            "headline-lg": ["Roboto Flex"],
+            "label-sm": ["Roboto Flex"],
+            "headline-lg-mobile": ["Roboto Flex"],
+            "body-md": ["Roboto Flex"],
+            "body-sm": ["Roboto Flex"],
+            "label-md": ["Roboto Flex"],
+            "body-lg": ["Roboto Flex"],
+            "display-lg": ["Roboto Flex"],
+            "label-lg": ["Roboto Flex"],
+            "headline-md": ["Roboto Flex"]
+          },
+          "fontSize": {
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.25); opacity: 0.8; }
+    }
+    .animate-radar-dot {
+      animation: pulse-dot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-variant text-on-surface antialiased selection:bg-primary selection:text-on-primary">
+<div class="mx-auto min-h-screen max-w-md bg-background flex flex-col shadow-2xl relative overflow-hidden">
+<!-- Top App Bar (Chat Header) -->
+<header class="sticky top-0 z-40 bg-surface shadow-sm px-margin-mobile py-space-xs flex items-center justify-between min-h-touch-target-min border-b border-surface-container">
+<div class="flex items-center space-x-space-xs">
+<button aria-label="Back" class="w-touch-target-min h-touch-target-min flex items-center justify-center rounded-full text-on-surface hover:bg-surface-container active:scale-95 transition-transform duration-150 -ml-2" type="button">
+<span class="material-symbols-outlined text-headline-md">arrow_back</span>
+</button>
+<!-- User Profile Info -->
+<div class="flex items-center space-x-space-xs cursor-pointer">
+<div class="relative w-10 h-10 flex-shrink-0">
+<img class="w-10 h-10 rounded-full object-cover shadow-sm ring-1 ring-surface-variant" data-alt="Close up portrait photograph of Karim Mostafa, an energetic Egyptian man smiling warmly wearing athletic sportswear in bright natural sunlight. Clean crisp light mode aesthetic with vivid natural tones and neutral backgrounds." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL3pmwV4zwwyV6vBSGjd0v4leHKkMKH9JndxyrFoQscSKy4Vci3-aGe_3zuPDBvktpeJFEHurfXmqmQsrGANS9zJuYm9YfQnQow4NoidZAonT4yYoyQaaBUprZjI5VEUX00N2m26eu4N16Lk_WXzkKSGYwy6svaxhdzMKxVDG2DiByeZjWpX7Pqe05n3zBTGdYUEZaujiHhAY73LN9KhB9UidP_74i_xvoFa_mj1V26BmZtSSxdcjjAw"/>
+<!-- Radar status online dot -->
+<span class="absolute bottom-0 right-0 w-3 h-3 bg-tertiary-container rounded-full ring-2 ring-surface-container-lowest animate-radar-dot"></span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center space-x-1">
+<span class="font-headline-sm text-headline-sm text-on-surface leading-tight">Karim Mostafa</span>
+<!-- Trust Verified Shield/Checkmark -->
+<span class="material-symbols-outlined material-symbols-fill text-tertiary text-body-md" title="Verified Member">verified</span>
+</div>
+<div class="flex items-center space-x-1.5 mt-0.5">
+<!-- VIP Pro Badge -->
+<span class="inline-flex items-center px-1.5 py-0.2 bg-primary text-on-primary rounded font-label-sm text-label-sm tracking-wide">
+                PRO
+              </span>
+<span class="text-tertiary font-label-sm text-label-sm">Active now</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Icons -->
+<div class="flex items-center space-x-0.5">
+<button aria-label="Voice Call" class="w-touch-target-min h-touch-target-min flex items-center justify-center rounded-full text-primary hover:bg-surface-container active:scale-95 transition-transform duration-150" type="button">
+<span class="material-symbols-outlined text-headline-sm">call</span>
+</button>
+<button aria-label="More Options" class="w-touch-target-min h-touch-target-min flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container active:scale-95 transition-transform duration-150" type="button">
+<span class="material-symbols-outlined text-headline-sm">more_vert</span>
+</button>
+</div>
+</header>
+<!-- Safety Banner (Trust Anchor) -->
+<div class="bg-surface-container-low px-margin-mobile py-2.5 flex items-center justify-between border-b border-surface-container">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-primary text-body-lg">shield</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+<strong class="font-label-md text-on-surface">Safety First:</strong> Meet in public places. Report suspicious behavior.
+        </p>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface p-1" type="button">
+<span class="material-symbols-outlined text-body-sm">close</span>
+</button>
+</div>
+<!-- Live Agora Voice Bar -->
+<div class="bg-surface-container-lowest px-margin-mobile py-2 shadow-sm flex items-center justify-between border-b border-surface-container">
+<div class="flex items-center space-x-2">
+<span class="flex h-2.5 w-2.5 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary-fixed-dim opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-tertiary"></span>
+</span>
+<span class="font-label-md text-label-md text-on-surface">HD Voice Room Ready (Agora)</span>
+</div>
+<button class="inline-flex items-center space-x-1 px-3 py-1 bg-tertiary-container text-on-tertiary font-label-md text-label-md rounded-full active:scale-95 transition-transform" type="button">
+<span class="material-symbols-outlined text-body-md">phone_in_talk</span>
+<span>Start Voice</span>
+</button>
+</div>
+<!-- Message Stream -->
+<main class="flex-1 overflow-y-auto px-margin-mobile py-space-md space-y-space-md">
+<!-- Timestamp Pill -->
+<div class="flex justify-center">
+<span class="px-3 py-1 bg-surface-container text-on-surface-variant rounded-full font-label-sm text-label-sm">
+          Today, October 24
+        </span>
+</div>
+<!-- Handshake System Message -->
+<div class="flex flex-col items-center justify-center p-space-sm bg-surface-container-low rounded-xl border border-outline-variant/40 text-center shadow-sm max-w-xs mx-auto">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center mb-1 text-on-primary-fixed">
+<span class="text-lg leading-none">👋</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface">
+          Karim accepted your <span class="font-label-md text-primary">connection request</span>. Say hi!
+        </p>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">7:12 PM</span>
+</div>
+<!-- AI Activity Match Recommendation Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md border border-outline-variant shadow-sm relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1.5 h-full bg-primary"></div>
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-primary text-headline-sm">smart_toy</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">AI Activity Match</span>
+</div>
+<span class="px-2 py-0.5 bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm rounded-full">
+            95% Compatibility
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-3">
+          Based on your shared interest in <span class="font-label-md text-on-surface">Paddle Tennis</span> &amp; <span class="font-label-md text-on-surface">Coffee</span>, we suggest:
+        </p>
+<!-- Suggested Item Pill Card -->
+<div class="bg-surface-container-low rounded-lg p-space-sm flex flex-col space-y-2.5 mb-3 border border-surface-container">
+<div class="flex items-start space-x-2">
+<span class="material-symbols-outlined text-primary text-headline-sm mt-0.5">sports_tennis</span>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Match at Smash Club (Nasr City)</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Tonight • 8:00 PM • Court 3 Reserved</p>
+</div>
+</div>
+</div>
+<div class="flex items-center space-x-2">
+<button class="flex-1 min-h-[40px] px-space-md bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg rounded-xl flex items-center justify-center space-x-1.5 shadow-sm active:scale-95 transition-transform duration-150" type="button">
+<span class="material-symbols-outlined text-body-md">schedule</span>
+<span>Propose Time</span>
+</button>
+<button class="w-10 h-10 border border-outline-variant rounded-xl flex items-center justify-center text-on-surface-variant hover:bg-surface-container active:scale-95 transition-transform duration-150" type="button">
+<span class="material-symbols-outlined text-body-md">bookmark</span>
+</button>
+</div>
+</div>
+<!-- Received Message -->
+<div class="flex items-end space-x-2 max-w-[85%]">
+<img class="w-7 h-7 rounded-full object-cover flex-shrink-0 mb-1" data-alt="Small thumbnail avatar of Karim Mostafa displaying a friendly expression outdoors with athletic wear, high-key clean lighting and modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBp58CRNxCaMr9wzCQps_5bnNNV4M_cf-VptpAg7NtwdcMBFp6LWmcTorEHVHsAEVb0Yp4qX98ZjWD6KmeNtD9LD--ih4OjB_75VDAlPpuvpj9wRtVAzYOU50-WkxWqyeay8lHogXWTM-MRmniun8WbemOKukCBq1moSpDW_bkP0Ou-iPh5K_XdAgfHyIgLpw0ojIpIsZht8lddcNTClfg2X6o3_dPULOuNFcP7eR9iCs2XFfG3zabu5Q"/>
+<div class="flex flex-col items-start">
+<div class="bg-surface-container-highest text-on-surface px-space-md py-2.5 rounded-2xl rounded-bl-sm shadow-sm">
+<p class="font-body-md text-body-md leading-relaxed">
+              Hey Ahmed! Down for a paddle match tonight? Court 3 is available at 8.
+            </p>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant ml-1 mt-1">7:15 PM</span>
+</div>
+</div>
+<!-- Sent Message -->
+<div class="flex flex-col items-end max-w-[85%] ml-auto">
+<div class="bg-primary text-on-primary px-space-md py-2.5 rounded-2xl rounded-br-sm shadow-sm">
+<p class="font-body-md text-body-md leading-relaxed">
+            Awesome! Let's do it. I'll bring the balls.
+          </p>
+</div>
+<div class="flex items-center space-x-1 mr-1 mt-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">7:16 PM</span>
+<span class="material-symbols-outlined text-primary text-body-sm font-bold">done_all</span>
+</div>
+</div>
+<!-- Quick Response Activity Chips -->
+<div class="pt-2 flex items-center space-x-2 overflow-x-auto no-scrollbar py-1">
+<button class="flex-shrink-0 px-3 py-1.5 bg-surface-container-lowest border border-outline-variant hover:border-primary text-on-surface font-label-md text-label-md rounded-full shadow-sm active:scale-95 transition-all" type="button">
+          📍 Send Smash Club Pin
+        </button>
+<button class="flex-shrink-0 px-3 py-1.5 bg-surface-container-lowest border border-outline-variant hover:border-primary text-on-surface font-label-md text-label-md rounded-full shadow-sm active:scale-95 transition-all" type="button">
+          ☕ Coffee afterwards?
+        </button>
+<button class="flex-shrink-0 px-3 py-1.5 bg-surface-container-lowest border border-outline-variant hover:border-primary text-on-surface font-label-md text-label-md rounded-full shadow-sm active:scale-95 transition-all" type="button">
+          👍 Confirmed 8 PM
+        </button>
+</div>
+</main>
+<!-- Bottom Input Dock -->
+<footer class="sticky bottom-0 left-0 w-full bg-surface shadow-md px-margin-mobile py-space-xs border-t border-surface-container">
+<div class="flex items-center space-x-1.5">
+<!-- Emoji Button -->
+<button aria-label="Emoji picker" class="w-touch-target-min h-touch-target-min flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container active:scale-95 transition-transform duration-150 flex-shrink-0" type="button">
+<span class="material-symbols-outlined text-headline-sm">sentiment_satisfied</span>
+</button>
+<!-- Attachment Button -->
+<button aria-label="Attach file or photo" class="w-touch-target-min h-touch-target-min flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container active:scale-95 transition-transform duration-150 flex-shrink-0 -ml-2" type="button">
+<span class="material-symbols-outlined text-headline-sm">attach_file</span>
+</button>
+<!-- Input Field Container -->
+<div class="flex-1 relative flex items-center">
+<input class="w-full h-11 bg-surface-container-low border border-outline-variant rounded-full pl-4 pr-10 font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" placeholder="Type a message..." type="text" value=""/>
+<!-- Voice Note Button inside input right -->
+<button aria-label="Voice Note" class="absolute right-1 w-9 h-9 flex items-center justify-center rounded-full text-on-surface-variant hover:text-primary active:scale-95 transition-transform" type="button">
+<span class="material-symbols-outlined text-headline-sm">mic</span>
+</button>
+</div>
+<!-- Primary Red Send Button -->
+<button aria-label="Send message" class="w-touch-target-min h-touch-target-min flex items-center justify-center rounded-full bg-primary hover:bg-primary-container text-on-primary shadow-sm active:scale-95 transition-transform duration-150 flex-shrink-0" type="button">
+<span class="material-symbols-outlined text-headline-sm">send</span>
+</button>
+</div>
+</footer>
+</div>
+</body></html>

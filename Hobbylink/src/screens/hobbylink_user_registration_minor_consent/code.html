@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Create Your Account - HobbyLink</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-container": "#653900",
+            "outline-variant": "#e4beb9",
+            "surface": "#fcf9f8",
+            "tertiary-container": "#1e862d",
+            "surface-tint": "#bb171c",
+            "on-surface": "#1b1c1c",
+            "secondary": "#8b5000",
+            "on-secondary-fixed": "#2c1600",
+            "surface-container-lowest": "#ffffff",
+            "primary-fixed-dim": "#ffb4ac",
+            "on-primary": "#ffffff",
+            "error-container": "#ffdad6",
+            "surface-dim": "#dcd9d9",
+            "inverse-surface": "#303030",
+            "surface-container-low": "#f6f3f2",
+            "primary-fixed": "#ffdad6",
+            "on-surface-variant": "#5b403d",
+            "outline": "#906f6c",
+            "surface-bright": "#fcf9f8",
+            "on-background": "#1b1c1c",
+            "secondary-fixed": "#ffdcbe",
+            "surface-container-high": "#eae7e7",
+            "background": "#fcf9f8",
+            "primary": "#b7131a",
+            "on-primary-fixed-variant": "#93000d",
+            "on-secondary-fixed-variant": "#693c00",
+            "tertiary-fixed": "#94f990",
+            "tertiary-fixed-dim": "#78dc77",
+            "on-error": "#ffffff",
+            "inverse-primary": "#ffb4ac",
+            "error": "#ba1a1a",
+            "on-primary-fixed": "#410002",
+            "on-error-container": "#93000a",
+            "on-tertiary-container": "#f7fff1",
+            "surface-container-highest": "#e5e2e1",
+            "on-tertiary-fixed": "#002204",
+            "secondary-fixed-dim": "#ffb870",
+            "primary-container": "#db322f",
+            "surface-container": "#f0eded",
+            "inverse-on-surface": "#f3f0ef",
+            "surface-variant": "#e5e2e1",
+            "on-secondary": "#ffffff",
+            "on-tertiary-fixed-variant": "#005313",
+            "on-primary-container": "#fffbff",
+            "on-tertiary": "#ffffff",
+            "tertiary": "#006b1b",
+            "secondary-container": "#ff9800"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "24px",
+            "space-2xl": "48px",
+            "space-xs": "8px",
+            "gutter": "16px",
+            "margin-tablet": "24px",
+            "space-sm": "12px",
+            "space-md": "16px",
+            "space-xl": "32px",
+            "margin-mobile": "16px",
+            "space-2xs": "4px",
+            "touch-target-min": "48px"
+          },
+          "fontFamily": {
+            "label-md": ["Roboto Flex"],
+            "headline-md": ["Roboto Flex"],
+            "body-lg": ["Roboto Flex"],
+            "label-lg": ["Roboto Flex"],
+            "body-md": ["Roboto Flex"],
+            "display-lg": ["Roboto Flex"],
+            "body-sm": ["Roboto Flex"],
+            "label-sm": ["Roboto Flex"],
+            "headline-sm": ["Roboto Flex"],
+            "headline-lg-mobile": ["Roboto Flex"],
+            "headline-lg": ["Roboto Flex"]
+          },
+          "fontSize": {
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex justify-center selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Main Mobile App Frame (Screen-bounded for modern mobile view) -->
+<main class="w-full max-w-md bg-surface-container-lowest min-h-screen shadow-sm flex flex-col relative pb-space-2xl">
+<!-- Header: Focused Task Departure Navigation (No persistent BottomNavBar or TopAppBar shell per transactional destination rules) -->
+<header class="sticky top-0 z-40 bg-surface-container-lowest/90 backdrop-blur-md px-margin-mobile h-touch-target-min flex items-center justify-between shadow-sm">
+<button aria-label="Go back to previous page" class="min-w-touch-target-min min-h-touch-target-min flex items-center justify-center -ml-space-2xs text-on-surface hover:bg-surface-container rounded-full active:scale-95 transition-transform duration-150" type="button">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<h1 class="text-headline-sm font-headline-sm text-on-surface tracking-tight">Create Your Account</h1>
+<div class="w-touch-target-min h-touch-target-min flex items-center justify-end">
+<span class="material-symbols-outlined text-primary text-[24px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">explore</span>
+</div>
+</header>
+<!-- Content Container -->
+<div class="px-margin-mobile pt-space-md flex-1">
+<!-- Welcome Intro Microcopy & Trust Signal -->
+<div class="mb-space-lg">
+<p class="text-body-md font-body-md text-on-surface-variant">Join real-world hobbyists, crafters, and local sports clubs around you.</p>
+<div class="mt-space-2xs flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-tertiary text-[18px]" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="text-label-sm font-label-sm text-tertiary">Safe community guidelines strictly enforced (FR-3)</span>
+</div>
+</div>
+<!-- Registration Form -->
+<form class="space-y-space-md" id="signupForm" onsubmit="event.preventDefault();">
+<!-- Display Name Field -->
+<div class="relative">
+<input class="peer w-full h-[52px] px-space-md pt-space-xs text-body-lg font-body-lg text-on-surface bg-surface-container-lowest border border-outline-variant rounded-xl focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary placeholder-transparent transition-all" id="displayName" placeholder=" " required="" type="text"/>
+<label class="absolute left-space-md text-on-surface-variant text-label-md font-label-md duration-200 transform -translate-y-2.5 scale-90 top-3.5 z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-90 peer-focus:-translate-y-2.5 peer-focus:text-primary pointer-events-none" for="displayName">
+            Display Name
+          </label>
+</div>
+<!-- Unique Username Field with Live Availability Badge -->
+<div class="relative">
+<input class="peer w-full h-[52px] pl-space-md pr-[110px] pt-space-xs text-body-lg font-body-lg text-on-surface bg-surface-container-lowest border border-tertiary rounded-xl focus:outline-none focus:border-tertiary focus:ring-1 focus:ring-tertiary placeholder-transparent transition-all" id="username" placeholder=" " required="" type="text" value="alex_maker"/>
+<label class="absolute left-space-md text-tertiary text-label-md font-label-md duration-200 transform -translate-y-2.5 scale-90 top-3.5 z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-90 peer-focus:-translate-y-2.5 pointer-events-none" for="username">
+            Unique Username
+          </label>
+<!-- Green check availability badge -->
+<div class="absolute right-space-sm top-1/2 -translate-y-1/2 flex items-center gap-1 bg-surface-container-low px-space-xs py-1 rounded-full border border-tertiary-fixed-dim shadow-sm">
+<span class="material-symbols-outlined text-tertiary text-[16px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-label-sm font-label-sm text-tertiary">Available</span>
+</div>
+</div>
+<!-- Email Address Field -->
+<div class="relative">
+<input class="peer w-full h-[52px] px-space-md pt-space-xs text-body-lg font-body-lg text-on-surface bg-surface-container-lowest border border-outline-variant rounded-xl focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary placeholder-transparent transition-all" id="email" placeholder=" " required="" type="email"/>
+<label class="absolute left-space-md text-on-surface-variant text-label-md font-label-md duration-200 transform -translate-y-2.5 scale-90 top-3.5 z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-90 peer-focus:-translate-y-2.5 peer-focus:text-primary pointer-events-none" for="email">
+            Email Address
+          </label>
+</div>
+<!-- Password Field with Strength Indicator -->
+<div class="space-y-space-2xs">
+<div class="relative">
+<input class="peer w-full h-[52px] pl-space-md pr-space-2xl pt-space-xs text-body-lg font-body-lg text-on-surface bg-surface-container-lowest border border-outline-variant rounded-xl focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary placeholder-transparent transition-all" id="password" placeholder=" " required="" type="password" value="PassCraft123!"/>
+<label class="absolute left-space-md text-on-surface-variant text-label-md font-label-md duration-200 transform -translate-y-2.5 scale-90 top-3.5 z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-90 peer-focus:-translate-y-2.5 peer-focus:text-primary pointer-events-none" for="password">
+              Password
+            </label>
+<button aria-label="Toggle password visibility" class="absolute right-space-xs top-1/2 -translate-y-1/2 w-touch-target-min h-touch-target-min flex items-center justify-center text-on-surface-variant hover:text-on-surface" id="togglePasswordBtn" type="button">
+<span class="material-symbols-outlined text-[20px]" id="passwordVisibilityIcon">visibility</span>
+</button>
+</div>
+<!-- Password Visual Strength Indicator Meter -->
+<div class="pt-space-2xs px-space-2xs">
+<div class="flex items-center justify-between text-label-sm font-label-sm mb-1">
+<span class="text-on-surface-variant">Security Strength</span>
+<span class="text-secondary font-bold" id="strengthText">Medium</span>
+</div>
+<!-- Meter segmented bars -->
+<div class="grid grid-cols-3 gap-1.5 h-1.5 w-full">
+<div class="h-full rounded-full bg-secondary-container transition-colors duration-300"></div>
+<div class="h-full rounded-full bg-secondary-container transition-colors duration-300"></div>
+<div class="h-full rounded-full bg-surface-variant transition-colors duration-300"></div>
+</div>
+<p class="text-[11px] leading-3 text-on-surface-variant mt-1.5">Tip: Add numbers, symbols, and at least 8 characters.</p>
+</div>
+</div>
+<!-- Country Dropdown with Flag Icons -->
+<div class="relative">
+<div class="relative w-full">
+<select class="peer w-full h-[52px] pl-[46px] pr-space-xl pt-space-xs text-body-md font-body-md text-on-surface bg-surface-container-lowest border border-outline-variant rounded-xl focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary appearance-none transition-all cursor-pointer" id="country">
+<option selected="" value="US">United States (+1)</option>
+<option value="CA">Canada (+1)</option>
+<option value="GB">United Kingdom (+44)</option>
+<option value="DE">Germany (+49)</option>
+<option value="AU">Australia (+61)</option>
+<option value="JP">Japan (+81)</option>
+</select>
+<!-- Country Flag Representation (Material Flag glyph & styled chip) -->
+<div class="absolute left-space-md top-1/2 -translate-y-1/2 pointer-events-none flex items-center">
+<span aria-hidden="true" class="text-[20px] leading-none" id="flagDisplay">🇺🇸</span>
+</div>
+<label class="absolute left-space-md text-on-surface-variant text-label-md font-label-md duration-200 transform -translate-y-2.5 scale-90 top-3.5 z-10 origin-[0] pointer-events-none" for="country">
+              Country / Region
+            </label>
+<div class="absolute right-space-md top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant flex items-center">
+<span class="material-symbols-outlined text-[20px]">arrow_drop_down</span>
+</div>
+</div>
+</div>
+<!-- FR-3 Minor Protection Feature: Interactive Under 18 Toggle Card -->
+<div class="bg-surface-container-low rounded-xl p-space-md border border-outline-variant/60 shadow-sm transition-all duration-200">
+<label class="flex items-start gap-space-sm cursor-pointer select-none min-h-touch-target-min py-space-2xs">
+<div class="relative flex items-center justify-center pt-0.5">
+<input checked="" class="peer sr-only" id="minorCheckbox" type="checkbox"/>
+<div class="w-6 h-6 border-2 border-outline rounded-lg peer-checked:bg-primary peer-checked:border-primary transition-colors flex items-center justify-center bg-surface-container-lowest">
+<span class="material-symbols-outlined text-white text-[18px] opacity-0 peer-checked:opacity-100 font-bold transition-opacity">check</span>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-1.5">
+<span class="text-label-lg font-label-lg text-on-surface">I am under 18 years old</span>
+<span class="bg-secondary-fixed text-on-secondary-fixed text-label-sm font-label-sm px-1.5 py-0.5 rounded">FR-3 Safe Mode</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">Applies tailored privacy protections and requires verified parental supervision for physical hobby groups.</p>
+</div>
+</label>
+<!-- Conditional High-Priority Guardian Section (Revealed when under 18 is active) -->
+<div class="mt-space-sm pt-space-sm border-t border-outline-variant/40 space-y-space-sm transition-all" id="guardianSection">
+<div class="bg-surface-container-highest/80 rounded-xl p-space-sm flex items-start gap-space-xs border border-secondary-container/40">
+<span class="material-symbols-outlined text-secondary text-[20px] mt-0.5" style="font-variation-settings: 'FILL' 1;">shield_person</span>
+<p class="text-body-sm font-body-sm text-on-surface">
+<strong>Parental Consent Policy:</strong> In accordance with minor safety regulations, a verification confirmation will be sent to your guardian before joining in-person meetups or open host sessions.
+              </p>
+</div>
+<!-- Parent/Guardian Email Input -->
+<div class="relative">
+<input class="peer w-full h-[52px] px-space-md pt-space-xs text-body-lg font-body-lg text-on-surface bg-surface-container-lowest border-2 border-primary-container rounded-xl focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary placeholder-transparent transition-all shadow-sm" id="guardianEmail" placeholder=" " required="" type="email"/>
+<label class="absolute left-space-md text-primary font-bold text-label-md font-label-md duration-200 transform -translate-y-2.5 scale-90 top-3.5 z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-90 peer-focus:-translate-y-2.5 pointer-events-none" for="guardianEmail">
+                Parent / Guardian Email Address *
+              </label>
+</div>
+</div>
+</div>
+<!-- Primary Red CTA Button -->
+<div class="pt-space-xs">
+<button class="w-full h-touch-target-min bg-primary hover:bg-primary-container active:scale-[0.98] text-on-primary font-label-lg text-label-lg rounded-xl flex items-center justify-center gap-space-xs shadow-md transition-all duration-150" type="submit">
+<span>Create Account</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</form>
+<!-- Terms & Policy Notice -->
+<p class="text-center text-body-sm font-body-sm text-on-surface-variant mt-space-sm px-space-xs">
+        By registering, you agree to our <a class="text-primary font-label-sm underline hover:text-primary-container" href="#">Terms of Service</a> &amp; <a class="text-primary font-label-sm underline hover:text-primary-container" href="#">Hobby Safety Standards</a>.
+      </p>
+<!-- Divider -->
+<div class="relative flex py-space-md items-center">
+<div class="flex-grow border-t border-outline-variant/60"></div>
+<span class="flex-shrink mx-space-sm text-label-md font-label-md text-on-surface-variant">or continue with</span>
+<div class="flex-grow border-t border-outline-variant/60"></div>
+</div>
+<!-- Social Signup Buttons with 48px accessible touch targets -->
+<div class="grid grid-cols-2 gap-space-sm">
+<!-- Continue with Google -->
+<button class="h-touch-target-min px-space-sm border border-outline-variant bg-surface-container-lowest hover:bg-surface-container active:scale-[0.98] rounded-xl flex items-center justify-center gap-2.5 text-on-surface transition-all duration-150 shadow-sm" type="button">
+<svg class="w-5 h-5 shrink-0" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"></path>
+</svg>
+<span class="text-label-md font-label-md truncate">Google</span>
+</button>
+<!-- Continue with Microsoft -->
+<button class="h-touch-target-min px-space-sm border border-outline-variant bg-surface-container-lowest hover:bg-surface-container active:scale-[0.98] rounded-xl flex items-center justify-center gap-2.5 text-on-surface transition-all duration-150 shadow-sm" type="button">
+<svg class="w-5 h-5 shrink-0" viewbox="0 0 23 23">
+<path d="M1 1h10v10H1z" fill="#f35325"></path>
+<path d="M12 1h10v10H12z" fill="#81bc06"></path>
+<path d="M1 12h10v10H1z" fill="#05a6f0"></path>
+<path d="M12 12h10v10H12z" fill="#ffba08"></path>
+</svg>
+<span class="text-label-md font-label-md truncate">Microsoft</span>
+</button>
+</div>
+<!-- Sign In Anchor Row -->
+<div class="mt-space-lg text-center pb-space-sm">
+<p class="text-body-md font-body-md text-on-surface-variant">
+          Already have an account? 
+          <a class="text-primary font-bold text-label-lg underline hover:text-primary-container ml-1 inline-flex items-center min-h-[44px]" href="#">
+            Sign In
+          </a>
+</p>
+</div>
+</div>
+</main>
+<!-- Interaction Logic for Minor Checkbox, Country Dropdown Flag and Password Visibility -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Toggle Minor Guardian Input Field
+      const minorCheckbox = document.getElementById('minorCheckbox');
+      const guardianSection = document.getElementById('guardianSection');
+      const guardianEmail = document.getElementById('guardianEmail');
+
+      minorCheckbox.addEventListener('change', () => {
+        if (minorCheckbox.checked) {
+          guardianSection.classList.remove('hidden');
+          guardianEmail.setAttribute('required', 'true');
+        } else {
+          guardianSection.classList.add('hidden');
+          guardianEmail.removeAttribute('required');
+        }
+      });
+
+      // Flag updater for Country Dropdown
+      const countrySelect = document.getElementById('country');
+      const flagDisplay = document.getElementById('flagDisplay');
+      const flagMap = {
+        'US': '🇺🇸',
+        'CA': '🇨🇦',
+        'GB': '🇬🇧',
+        'DE': '🇩🇪',
+        'AU': '🇦🇺',
+        'JP': '🇯🇵'
+      };
+
+      countrySelect.addEventListener('change', (e) => {
+        flagDisplay.textContent = flagMap[e.target.value] || '🌐';
+      });
+
+      // Password Visibility Toggle
+      const togglePasswordBtn = document.getElementById('togglePasswordBtn');
+      const passwordInput = document.getElementById('password');
+      const passwordVisibilityIcon = document.getElementById('passwordVisibilityIcon');
+
+      togglePasswordBtn.addEventListener('click', () => {
+        const isPassword = passwordInput.type === 'password';
+        passwordInput.type = isPassword ? 'text' : 'password';
+        passwordVisibilityIcon.textContent = isPassword ? 'visibility_off' : 'visibility';
+      });
+    });
+  </script>
+</body></html>

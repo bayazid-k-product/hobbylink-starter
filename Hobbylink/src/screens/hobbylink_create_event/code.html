@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Create New Event - HobbyLink</title>
+<!-- Google Fonts: Roboto Flex & Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with Forms & Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface": "#fcf9f8",
+            "primary": "#b7131a",
+            "surface-container-high": "#eae7e7",
+            "surface-container-lowest": "#ffffff",
+            "inverse-surface": "#303030",
+            "on-surface-variant": "#5b403d",
+            "secondary-fixed-dim": "#ffb870",
+            "surface-variant": "#e5e2e1",
+            "on-secondary": "#ffffff",
+            "secondary": "#8b5000",
+            "on-primary": "#ffffff",
+            "outline-variant": "#e4beb9",
+            "primary-container": "#db322f",
+            "surface-tint": "#bb171c",
+            "secondary-fixed": "#ffdcbe",
+            "primary-fixed": "#ffdad6",
+            "on-primary-fixed": "#410002",
+            "surface-bright": "#fcf9f8",
+            "error-container": "#ffdad6",
+            "on-tertiary-fixed-variant": "#005313",
+            "on-primary-container": "#fffbff",
+            "on-secondary-fixed": "#2c1600",
+            "surface-container-low": "#f6f3f2",
+            "tertiary-container": "#1e862d",
+            "tertiary": "#006b1b",
+            "error": "#ba1a1a",
+            "on-tertiary": "#ffffff",
+            "primary-fixed-dim": "#ffb4ac",
+            "on-error-container": "#93000a",
+            "surface-dim": "#dcd9d9",
+            "on-tertiary-fixed": "#002204",
+            "on-primary-fixed-variant": "#93000d",
+            "surface-container": "#f0eded",
+            "on-background": "#1b1c1c",
+            "surface-container-highest": "#e5e2e1",
+            "secondary-container": "#ff9800",
+            "inverse-primary": "#ffb4ac",
+            "background": "#fcf9f8",
+            "on-error": "#ffffff",
+            "on-secondary-fixed-variant": "#693c00",
+            "outline": "#906f6c",
+            "on-secondary-container": "#653900",
+            "on-tertiary-container": "#f7fff1",
+            "on-surface": "#1b1c1c",
+            "inverse-on-surface": "#f3f0ef",
+            "tertiary-fixed": "#94f990",
+            "tertiary-fixed-dim": "#78dc77"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "12px",
+            "margin-tablet": "24px",
+            "margin-mobile": "16px",
+            "space-lg": "24px",
+            "space-xl": "32px",
+            "space-2xs": "4px",
+            "gutter": "16px",
+            "touch-target-min": "48px",
+            "space-2xl": "48px",
+            "space-md": "16px",
+            "space-xs": "8px"
+          },
+          "fontFamily": {
+            "headline-md": ["Roboto Flex"],
+            "label-lg": ["Roboto Flex"],
+            "body-sm": ["Roboto Flex"],
+            "body-lg": ["Roboto Flex"],
+            "label-sm": ["Roboto Flex"],
+            "display-lg": ["Roboto Flex"],
+            "body-md": ["Roboto Flex"],
+            "headline-lg-mobile": ["Roboto Flex"],
+            "headline-lg": ["Roboto Flex"],
+            "label-md": ["Roboto Flex"],
+            "headline-sm": ["Roboto Flex"]
+          },
+          "fontSize": {
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex justify-center selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Mobile Screen Container -->
+<main class="w-full max-w-[480px] bg-surface min-h-screen flex flex-col relative pb-space-2xl shadow-xl">
+<!-- Top Action Bar (Dedicated Linear Creation Flow with Cancel / Title / Publish CTA) -->
+<header class="sticky top-0 z-30 bg-surface flex items-center justify-between px-margin-mobile h-touch-target-min shadow-sm">
+<button class="min-w-touch-target-min min-h-touch-target-min flex items-center text-on-surface-variant font-label-lg text-label-lg active:scale-95 transition-transform duration-150" type="button">
+        Cancel
+      </button>
+<h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight text-center">
+        Create Event
+      </h1>
+<button class="bg-primary-container text-on-primary-container font-label-lg text-label-lg px-space-md py-space-2xs rounded-full min-h-[36px] flex items-center justify-center shadow-sm active:scale-95 transition-transform duration-150" type="button">
+        Publish
+      </button>
+</header>
+<!-- Sub-header Progress & Brand Micro-Anchor -->
+<div class="px-margin-mobile pt-space-xs pb-space-2xs flex items-center justify-between">
+<div class="flex items-center gap-space-2xs">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">HobbyLink Host Hub</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Step 1 of 1</span>
+</div>
+<!-- Creation Form Scroll Area -->
+<form class="px-margin-mobile space-y-space-lg pt-space-xs flex-1" onsubmit="event.preventDefault();">
+<!-- 1. Event Name Section -->
+<section class="space-y-space-2xs">
+<div class="flex justify-between items-center">
+<label class="font-label-lg text-label-lg text-on-surface" for="event-title">Event Name</label>
+<span class="font-label-sm text-label-sm text-on-surface-variant" id="char-counter">31 / 50</span>
+</div>
+<div class="relative">
+<input class="w-full h-[52px] px-space-md rounded-xl bg-surface-container-lowest text-on-surface border border-surface-variant focus:border-primary focus:ring-1 focus:ring-primary font-body-lg text-body-lg shadow-sm transition-colors" id="event-title" maxlength="50" type="text" value="Paddle Tennis &amp; Social Match"/>
+<span class="absolute right-space-md top-1/2 -translate-y-1/2 text-primary" data-icon="sports_tennis">
+<span class="material-symbols-outlined">sports_tennis</span>
+</span>
+</div>
+</section>
+<!-- 2. Category & Activity Tags -->
+<section class="space-y-space-xs">
+<div class="flex justify-between items-baseline">
+<label class="font-label-lg text-label-lg text-on-surface">Category &amp; Activity Tags</label>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Select up to 5</span>
+</div>
+<div class="flex flex-wrap gap-space-xs">
+<!-- Tag: Paddle Tennis (Selected) -->
+<button class="h-9 px-space-md rounded-full bg-primary text-on-primary font-label-md text-label-md flex items-center gap-space-2xs shadow-sm active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; font-size: 16px;">check</span>
+            Paddle Tennis
+          </button>
+<!-- Tag: Sports (Selected) -->
+<button class="h-9 px-space-md rounded-full bg-primary text-on-primary font-label-md text-label-md flex items-center gap-space-2xs shadow-sm active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; font-size: 16px;">check</span>
+            Sports
+          </button>
+<!-- Tag: Fitness -->
+<button class="h-9 px-space-md rounded-full bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high active:scale-95 transition-all" type="button">
+            + Fitness
+          </button>
+<!-- Tag: Coffee -->
+<button class="h-9 px-space-md rounded-full bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high active:scale-95 transition-all" type="button">
+            + Coffee
+          </button>
+<!-- Tag: Outdoor -->
+<button class="h-9 px-space-md rounded-full bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high active:scale-95 transition-all" type="button">
+            + Outdoor
+          </button>
+<!-- Tag: Gaming -->
+<button class="h-9 px-space-md rounded-full bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high active:scale-95 transition-all" type="button">
+            + Gaming
+          </button>
+</div>
+</section>
+<!-- 3. Location Selector & Draggable Map -->
+<section class="space-y-space-xs">
+<label class="font-label-lg text-label-lg text-on-surface">Location</label>
+<!-- Segmented Mode Switcher -->
+<div class="grid grid-cols-2 p-1 bg-surface-container rounded-xl gap-1">
+<button class="h-9 rounded-lg bg-surface-container-lowest text-primary font-label-md text-label-md shadow-sm flex items-center justify-center gap-space-2xs transition-all" id="tab-pin" type="button">
+<span class="material-symbols-outlined" style="font-size: 18px; font-variation-settings: 'FILL' 1;">location_on</span>
+            Use Map Pin
+          </button>
+<button class="h-9 rounded-lg text-on-surface-variant font-label-md text-label-md flex items-center justify-center gap-space-2xs hover:text-on-surface transition-all" id="tab-address" type="button">
+<span class="material-symbols-outlined" style="font-size: 18px;">edit_location_alt</span>
+            Enter Address
+          </button>
+</div>
+<!-- Address Text Field -->
+<div class="relative">
+<input class="w-full h-[52px] pl-space-md pr-space-2xl rounded-xl bg-surface-container-lowest text-on-surface border border-surface-variant focus:border-primary focus:ring-1 focus:ring-primary font-body-md text-body-md shadow-sm" type="text" value="City Club Court 4, Nasr City, Cairo"/>
+<button class="absolute right-space-xs top-1/2 -translate-y-1/2 w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-primary" type="button">
+<span class="material-symbols-outlined" style="font-size: 20px;">my_location</span>
+</button>
+</div>
+<!-- Interactive Map Preview Card with Live Radar Pin -->
+<div class="relative w-full h-44 rounded-xl overflow-hidden border border-surface-variant shadow-sm group">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A clean top-down architectural map view of a modern sports club complex in Nasr City Cairo featuring outdoor paddle tennis courts lush trees and clean access walkways. The imagery is bright crisp and shot in high-key daylight adhering to a minimalist red and neutral color palette." data-location="Cairo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMYlV-jTUUsLf2XnGEw4BW_a2ThYxXST1OBv4yA4J-HVF18eCnmU75Whgpx1vXdfrqFpNpEdCvU9K_zFm9IF56s9KggrS571sfYINqvkqsCOJ233wTD0N0ghBwuF1AS0__v1h3D1cw2Wwp5OeSs64zCVkROI6pircOg_itmHwVuucT0kYgX0r4DT-UpkmiQRjNTmZYkB0yiOySb4_j6GzG8WVjn_9CSh3Xd4ZUWSQdWcnkeiDb1gECJw"/>
+<!-- Translucent Gradient Overlay -->
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
+<!-- Draggable Pin Visual -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-full flex flex-col items-center cursor-pointer pointer-events-none drop-shadow-lg">
+<div class="bg-primary text-white p-2 rounded-full flex items-center justify-center shadow-md animate-bounce">
+<span class="material-symbols-outlined" style="font-size: 22px; font-variation-settings: 'FILL' 1;">sports_tennis</span>
+</div>
+<div class="w-2.5 h-2.5 bg-primary rotate-45 -mt-1.5 rounded-xs"></div>
+<div class="w-6 h-2 bg-black/30 rounded-full blur-[2px] mt-1"></div>
+</div>
+<!-- Map Badge / Instruction -->
+<div class="absolute bottom-space-xs left-space-xs bg-surface-container-lowest/90 backdrop-blur-md px-space-sm py-space-2xs rounded-lg flex items-center gap-space-2xs shadow-sm">
+<span class="w-2 h-2 rounded-full bg-tertiary-container animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">City Club Court 4 (Auto-detected)</span>
+</div>
+</div>
+</section>
+<!-- 4. Date & Time Pickers -->
+<section class="grid grid-cols-2 gap-space-sm">
+<!-- Date Selector -->
+<div class="space-y-space-2xs">
+<label class="font-label-lg text-label-lg text-on-surface" for="event-date">Date</label>
+<div class="relative">
+<input class="w-full h-[52px] pl-space-md pr-10 rounded-xl bg-surface-container-lowest text-on-surface border border-surface-variant font-body-md text-body-md shadow-sm cursor-pointer" id="event-date" readonly="" type="text" value="Sat, Oct 18, 2026"/>
+<span class="absolute right-space-sm top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">
+<span class="material-symbols-outlined" style="font-size: 20px;">calendar_today</span>
+</span>
+</div>
+</div>
+<!-- Time Picker -->
+<div class="space-y-space-2xs">
+<label class="font-label-lg text-label-lg text-on-surface" for="event-time">Time</label>
+<div class="relative">
+<input class="w-full h-[52px] pl-space-md pr-10 rounded-xl bg-surface-container-lowest text-on-surface border border-surface-variant font-body-md text-body-md shadow-sm cursor-pointer" id="event-time" readonly="" type="text" value="07:30 PM"/>
+<span class="absolute right-space-sm top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">
+<span class="material-symbols-outlined" style="font-size: 20px;">schedule</span>
+</span>
+</div>
+</div>
+</section>
+<!-- 5. Maximum Participants Counter -->
+<section class="bg-surface-container-lowest p-space-md rounded-xl border border-surface-variant shadow-sm flex items-center justify-between">
+<div>
+<h2 class="font-label-lg text-label-lg text-on-surface">Maximum Participants</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Recommended 4–8 for double courts</p>
+</div>
+<!-- Stepper Controller -->
+<div class="flex items-center gap-space-sm">
+<button aria-label="Decrease participants" class="w-10 h-10 rounded-full border border-surface-variant flex items-center justify-center text-on-surface hover:bg-surface-container active:scale-90 transition-transform" id="decrement-btn" type="button">
+<span class="material-symbols-outlined" style="font-size: 20px;">remove</span>
+</button>
+<span class="font-headline-sm text-headline-sm text-primary w-6 text-center" id="counter-value">8</span>
+<button aria-label="Increase participants" class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-sm hover:bg-primary-container active:scale-90 transition-transform" id="increment-btn" type="button">
+<span class="material-symbols-outlined" style="font-size: 20px;">add</span>
+</button>
+</div>
+</section>
+<!-- 6. Event Description -->
+<section class="space-y-space-2xs">
+<label class="font-label-lg text-label-lg text-on-surface" for="event-desc">Event Description</label>
+<textarea class="w-full p-space-md rounded-xl bg-surface-container-lowest text-on-surface border border-surface-variant focus:border-primary focus:ring-1 focus:ring-primary font-body-md text-body-md shadow-sm transition-colors resize-none" id="event-desc" placeholder="Add details about court fees, skill level, rackets, rules..." rows="4"></textarea>
+<div class="flex items-center gap-space-xs text-on-surface-variant pt-1">
+<span class="material-symbols-outlined" style="font-size: 16px; font-variation-settings: 'FILL' 1;">info</span>
+<span class="font-body-sm text-body-sm">Matches with complete descriptions fill 40% faster.</span>
+</div>
+</section>
+<!-- 7. Privacy & Sharing Toggles -->
+<section class="bg-surface-container-lowest p-space-md rounded-xl border border-surface-variant shadow-sm space-y-space-md">
+<h2 class="font-label-lg text-label-lg text-on-surface">Privacy &amp; Sharing</h2>
+<!-- Toggle 1 -->
+<div class="flex items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary mt-0.5" style="font-size: 22px;">handshake</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Allow matched partners to join directly</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Verified players matching your skill level bypass host approval.</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="h-px bg-surface-variant/60"></div>
+<!-- Toggle 2 -->
+<div class="flex items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary mt-0.5" style="font-size: 22px;">link</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Generate shareable invite link</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Create a fast RSVP link to invite friends via WhatsApp or Telegram.</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</section>
+<!-- Trust Accent / Verified Badge Notice -->
+<div class="p-space-sm bg-surface-container-low rounded-xl flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-tertiary-container shrink-0" style="font-variation-settings: 'FILL' 1; font-size: 20px;">verified_user</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Your event will carry the <span class="font-semibold text-on-surface">HobbyLink Safety Guarantee</span> with live check-in verification.
+        </p>
+</div>
+<!-- Bottom Prominent Action Button -->
+<div class="pt-space-xs pb-space-lg">
+<button class="w-full h-touch-target-min bg-primary text-on-primary font-headline-sm text-headline-sm rounded-xl shadow-md hover:bg-primary-container active:scale-[0.98] transition-all flex items-center justify-center gap-space-xs" type="submit">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+          Publish Event &amp; Create Group
+        </button>
+</div>
+</form>
+</main>
+<!-- Interactive Logic for Stepper & Counter -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const counterValueEl = document.getElementById('counter-value');
+      const decrementBtn = document.getElementById('decrement-btn');
+      const incrementBtn = document.getElementById('increment-btn');
+      const titleInput = document.getElementById('event-title');
+      const charCounter = document.getElementById('char-counter');
+
+      let currentParticipants = 8;
+      const minParticipants = 2;
+      const maxParticipants = 30;
+
+      decrementBtn.addEventListener('click', () => {
+        if (currentParticipants > minParticipants) {
+          currentParticipants--;
+          counterValueEl.textContent = currentParticipants;
+        }
+      });
+
+      incrementBtn.addEventListener('click', () => {
+        if (currentParticipants < maxParticipants) {
+          currentParticipants++;
+          counterValueEl.textContent = currentParticipants;
+        }
+      });
+
+      titleInput.addEventListener('input', (e) => {
+        charCounter.textContent = `${e.target.value.length} / 50`;
+      });
+    });
+  </script>
+</body></html>

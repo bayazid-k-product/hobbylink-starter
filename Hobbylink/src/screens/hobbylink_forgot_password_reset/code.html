@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Reset Password - HobbyLink</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Roboto Flex (Theme Typography) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "background": "#fcf9f8",
+            "tertiary-fixed-dim": "#78dc77",
+            "primary-container": "#db322f",
+            "surface-tint": "#bb171c",
+            "on-secondary": "#ffffff",
+            "inverse-surface": "#303030",
+            "outline-variant": "#e4beb9",
+            "inverse-primary": "#ffb4ac",
+            "error": "#ba1a1a",
+            "surface-container-low": "#f6f3f2",
+            "surface-bright": "#fcf9f8",
+            "secondary-fixed": "#ffdcbe",
+            "surface-container-high": "#eae7e7",
+            "error-container": "#ffdad6",
+            "on-error": "#ffffff",
+            "on-surface-variant": "#5b403d",
+            "secondary-container": "#ff9800",
+            "on-secondary-fixed-variant": "#693c00",
+            "secondary-fixed-dim": "#ffb870",
+            "surface-container-highest": "#e5e2e1",
+            "on-primary-container": "#fffbff",
+            "on-tertiary": "#ffffff",
+            "surface-dim": "#dcd9d9",
+            "primary-fixed-dim": "#ffb4ac",
+            "outline": "#906f6c",
+            "on-primary": "#ffffff",
+            "on-primary-fixed-variant": "#93000d",
+            "primary": "#b7131a",
+            "primary-fixed": "#ffdad6",
+            "on-secondary-fixed": "#2c1600",
+            "on-tertiary-container": "#f7fff1",
+            "tertiary": "#006b1b",
+            "on-primary-fixed": "#410002",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-fixed-variant": "#005313",
+            "tertiary-fixed": "#94f990",
+            "surface": "#fcf9f8",
+            "tertiary-container": "#1e862d",
+            "on-tertiary-fixed": "#002204",
+            "inverse-on-surface": "#f3f0ef",
+            "on-secondary-container": "#653900",
+            "secondary": "#8b5000",
+            "on-background": "#1b1c1c",
+            "surface-container": "#f0eded",
+            "on-surface": "#1b1c1c",
+            "on-error-container": "#93000a",
+            "surface-variant": "#e5e2e1"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "16px",
+            "space-2xs": "4px",
+            "space-md": "16px",
+            "space-lg": "24px",
+            "space-sm": "12px",
+            "space-xs": "8px",
+            "margin-mobile": "16px",
+            "touch-target-min": "48px",
+            "space-xl": "32px",
+            "space-2xl": "48px",
+            "margin-tablet": "24px"
+          },
+          "fontFamily": {
+            "headline-sm": ["Roboto Flex"],
+            "body-md": ["Roboto Flex"],
+            "label-lg": ["Roboto Flex"],
+            "headline-lg-mobile": ["Roboto Flex"],
+            "headline-md": ["Roboto Flex"],
+            "body-lg": ["Roboto Flex"],
+            "label-md": ["Roboto Flex"],
+            "label-sm": ["Roboto Flex"],
+            "body-sm": ["Roboto Flex"],
+            "headline-lg": ["Roboto Flex"],
+            "display-lg": ["Roboto Flex"]
+          },
+          "fontSize": {
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex justify-center selection:bg-primary-fixed selection:text-on-primary-fixed-variant">
+<!-- Mobile Viewport Container (App Shell constraint) -->
+<div class="w-full max-w-[480px] min-h-screen bg-background flex flex-col relative shadow-2xl">
+<!-- Top Bar Component (Task-Focused: Suppresses BottomNavBar per Destination Rule) -->
+<header class="sticky top-0 z-30 bg-surface shadow-sm h-touch-target-min flex items-center justify-between px-margin-mobile">
+<button aria-label="Go back" class="w-touch-target-min h-touch-target-min flex items-center justify-center -ml-2 rounded-full hover:bg-surface-container active:scale-95 transition-transform" type="button">
+<span class="material-symbols-outlined text-on-surface" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="text-headline-sm font-headline-sm text-on-surface font-bold tracking-tight">
+        Reset Password
+      </h1>
+<button aria-label="Help &amp; Support" class="w-touch-target-min h-touch-target-min flex items-center justify-center -mr-2 rounded-full hover:bg-surface-container active:scale-95 transition-transform text-on-surface-variant" type="button">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-margin-mobile pt-space-md pb-space-2xl flex flex-col">
+<!-- Stepper and Status Header Section -->
+<div class="flex flex-col items-center text-center mt-space-xs mb-space-lg">
+<!-- Key / Lock Shield Icon Hero Badge with Breathing Ambient Halo -->
+<div class="relative mb-space-md flex items-center justify-center">
+<div class="w-20 h-20 rounded-full bg-primary-fixed flex items-center justify-center shadow-sm">
+<div class="w-14 h-14 rounded-full bg-primary flex items-center justify-center text-on-primary shadow-inner">
+<span class="material-symbols-outlined text-3xl fill-icon" data-icon="lock_reset" style="font-size: 32px; font-variation-settings: 'FILL' 1;">lock_reset</span>
+</div>
+</div>
+<!-- Live Security Status Indicator Pill -->
+<span class="absolute -bottom-1 bg-surface-container-lowest px-space-xs py-[2px] rounded-full border border-outline-variant shadow-sm flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">SSL Encrypted</span>
+</span>
+</div>
+<!-- Step Indicator Capsule -->
+<div class="inline-flex items-center gap-1.5 px-space-sm py-space-2xs rounded-full bg-surface-container-high text-on-surface-variant mb-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="text-label-sm font-label-sm font-bold tracking-wider uppercase text-primary">STEP 1 OF 2 • SECURITY RESET</span>
+</div>
+<!-- Title & Explanatory Text -->
+<h2 class="text-headline-lg-mobile font-headline-lg-mobile text-on-surface mt-space-2xs mb-space-xs font-bold">
+          Forgot Your Password?
+        </h2>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-[340px]">
+          Enter the registered email associated with your HobbyLink account. We will send a secure verification code to reset your password.
+        </p>
+</div>
+<!-- Step 1: Active Form -->
+<section aria-labelledby="email-reset-form" class="space-y-space-md">
+<div>
+<label class="block text-label-md font-label-md text-on-surface font-semibold mb-space-2xs" for="email">
+            Account Email Address
+          </label>
+<div class="relative flex items-center">
+<div class="absolute left-space-md pointer-events-none flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+</div>
+<input class="w-full h-[52px] pl-12 pr-12 rounded-lg bg-surface-container-lowest border-2 border-tertiary text-on-surface text-body-lg font-body-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-150" id="email" name="email" placeholder="name@domain.com" type="email" value="alex.maker@gmail.com"/>
+<div class="absolute right-space-md flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined fill-icon text-xl" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<p class="mt-1 text-label-sm font-label-sm text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="verified_user">verified_user</span>
+            Active HobbyLink profile found
+          </p>
+</div>
+<!-- Primary Action Button -->
+<button class="w-full h-touch-target-min bg-primary hover:bg-primary-container text-on-primary rounded-xl font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-md active:scale-95 transition-all duration-150" type="button">
+<span>Send Verification Code</span>
+<span class="material-symbols-outlined text-lg" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</section>
+<!-- Step 2 Preview: Expandable / Next Stage Mockup -->
+<section class="mt-space-lg pt-space-md border-t border-surface-container-highest">
+<div class="bg-surface-container-lowest rounded-xl p-space-md border border-outline-variant shadow-sm relative overflow-hidden">
+<!-- Step 2 Locked Header Bar -->
+<div class="flex items-center justify-between pb-space-sm mb-space-sm border-b border-surface-container-high">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-xl" data-icon="lock_clock">lock_clock</span>
+<span class="text-label-md font-label-md font-bold text-on-surface uppercase tracking-wide">
+                Step 2 Preview • New Password Setup
+              </span>
+</div>
+<span class="px-space-xs py-[2px] rounded text-label-sm font-label-sm bg-surface-container-high text-on-surface-variant font-semibold">
+              Pending Code
+            </span>
+</div>
+<div class="space-y-space-sm opacity-90">
+<!-- New Password Field (Simulated Active Preview) -->
+<div>
+<label class="block text-label-md font-label-md text-on-surface font-semibold mb-1">
+                New Password
+              </label>
+<div class="relative flex items-center">
+<div class="absolute left-space-md pointer-events-none text-on-surface-variant flex items-center">
+<span class="material-symbols-outlined" data-icon="key">key</span>
+</div>
+<input class="w-full h-[48px] pl-11 pr-11 rounded-lg bg-surface-container-low border border-outline text-on-surface text-body-md font-body-md cursor-not-allowed select-none" readonly="" type="text" value="HobbyCrafter#2024"/>
+<button aria-label="Toggle password visibility" class="absolute right-space-xs w-9 h-9 flex items-center justify-center text-on-surface-variant hover:text-on-surface" type="button">
+<span class="material-symbols-outlined text-lg" data-icon="visibility">visibility</span>
+</button>
+</div>
+</div>
+<!-- Password Strength Meter -->
+<div class="bg-surface-container-low p-space-xs rounded-lg border border-surface-container-high">
+<div class="flex items-center justify-between mb-1.5">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Security Strength</span>
+<span class="text-label-sm font-label-sm font-bold text-tertiary">Strong (4/4 rules met)</span>
+</div>
+<!-- Segmented Progress Bar -->
+<div class="grid grid-cols-4 gap-1.5 mb-2">
+<div class="h-1.5 rounded-full bg-tertiary"></div>
+<div class="h-1.5 rounded-full bg-tertiary"></div>
+<div class="h-1.5 rounded-full bg-tertiary"></div>
+<div class="h-1.5 rounded-full bg-tertiary"></div>
+</div>
+<!-- Rule Tags -->
+<div class="grid grid-cols-2 gap-1 text-label-sm font-label-sm text-on-surface">
+<span class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-xs fill-icon" data-icon="check" style="font-variation-settings: 'FILL' 1;">check</span>
+                  8+ characters
+                </span>
+<span class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-xs fill-icon" data-icon="check" style="font-variation-settings: 'FILL' 1;">check</span>
+                  Uppercase letter
+                </span>
+<span class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-xs fill-icon" data-icon="check" style="font-variation-settings: 'FILL' 1;">check</span>
+                  Lowercase letter
+                </span>
+<span class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-xs fill-icon" data-icon="check" style="font-variation-settings: 'FILL' 1;">check</span>
+                  Number or symbol
+                </span>
+</div>
+</div>
+<!-- Confirm Password Field -->
+<div>
+<label class="block text-label-md font-label-md text-on-surface font-semibold mb-1">
+                Confirm New Password
+              </label>
+<div class="relative flex items-center">
+<div class="absolute left-space-md pointer-events-none text-on-surface-variant flex items-center">
+<span class="material-symbols-outlined" data-icon="lock">lock</span>
+</div>
+<input class="w-full h-[48px] pl-11 pr-11 rounded-lg bg-surface-container-low border border-tertiary text-on-surface text-body-md font-body-md cursor-not-allowed select-none" readonly="" type="password" value="HobbyCrafter#2024"/>
+<div class="absolute right-space-md flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-lg fill-icon" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+</div>
+<!-- Disabled 'Reset & Log In' preview CTA -->
+<button class="w-full h-[44px] mt-2 rounded-lg bg-surface-container-high text-on-surface-variant font-label-lg text-label-lg cursor-not-allowed flex items-center justify-center gap-2" disabled="" type="button">
+<span class="material-symbols-outlined text-base" data-icon="lock_open">lock_open</span>
+<span>Reset &amp; Log In (Awaiting Step 1)</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Safety Notice Footer & Identity Recovery -->
+<footer class="mt-auto pt-space-lg flex flex-col items-center">
+<div class="w-full bg-surface-container-low rounded-xl p-space-sm flex items-start gap-3 border border-outline-variant/60 mb-space-md">
+<span class="material-symbols-outlined text-primary text-xl flex-shrink-0 mt-0.5 fill-icon" data-icon="security" style="font-variation-settings: 'FILL' 1;">security</span>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+<strong class="font-semibold text-on-surface">HobbyLink Security:</strong> If you do not have access to this email, contact <a class="text-primary font-semibold underline hover:text-primary-container" href="#">Support</a> for identity recovery.
+          </p>
+</div>
+<!-- Back to Sign In Link -->
+<a class="h-touch-target-min inline-flex items-center justify-center gap-1.5 text-label-lg font-label-lg text-primary hover:text-primary-container font-semibold transition-colors active:scale-95" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="arrow_back">arrow_back</span>
+<span>Back to Sign In</span>
+</a>
+</footer>
+</main>
+</div>
+</body></html>

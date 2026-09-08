@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Verify Your Email - HobbyLink</title>
+<!-- Google Fonts: Roboto Flex & Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-surface-variant": "#5b403d",
+            "tertiary-fixed-dim": "#78dc77",
+            "on-primary-fixed-variant": "#93000d",
+            "on-primary-fixed": "#410002",
+            "primary-container": "#db322f",
+            "background": "#fcf9f8",
+            "on-primary": "#ffffff",
+            "on-secondary-fixed": "#2c1600",
+            "on-primary-container": "#fffbff",
+            "tertiary-container": "#1e862d",
+            "on-secondary-fixed-variant": "#693c00",
+            "on-tertiary-container": "#f7fff1",
+            "on-surface": "#1b1c1c",
+            "secondary-container": "#ff9800",
+            "inverse-primary": "#ffb4ac",
+            "surface-container": "#f0eded",
+            "tertiary-fixed": "#94f990",
+            "surface-container-high": "#eae7e7",
+            "inverse-surface": "#303030",
+            "surface-variant": "#e5e2e1",
+            "primary": "#b7131a",
+            "on-secondary-container": "#653900",
+            "secondary": "#8b5000",
+            "surface-dim": "#dcd9d9",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-fixed": "#002204",
+            "surface-container-low": "#f6f3f2",
+            "on-error": "#ffffff",
+            "surface-tint": "#bb171c",
+            "surface": "#fcf9f8",
+            "primary-fixed": "#ffdad6",
+            "inverse-on-surface": "#f3f0ef",
+            "surface-container-lowest": "#ffffff",
+            "tertiary": "#006b1b",
+            "on-error-container": "#93000a",
+            "surface-bright": "#fcf9f8",
+            "secondary-fixed": "#ffdcbe",
+            "outline": "#906f6c",
+            "secondary-fixed-dim": "#ffb870",
+            "surface-container-highest": "#e5e2e1",
+            "outline-variant": "#e4beb9",
+            "primary-fixed-dim": "#ffb4ac",
+            "error-container": "#ffdad6",
+            "on-tertiary-fixed-variant": "#005313",
+            "on-secondary": "#ffffff",
+            "on-background": "#1b1c1c",
+            "error": "#ba1a1a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "touch-target-min": "48px",
+            "space-xs": "8px",
+            "space-2xs": "4px",
+            "space-lg": "24px",
+            "space-sm": "12px",
+            "margin-tablet": "24px",
+            "space-md": "16px",
+            "gutter": "16px",
+            "space-2xl": "48px",
+            "space-xl": "32px",
+            "margin-mobile": "16px"
+          },
+          "fontFamily": {
+            "label-sm": ["Roboto Flex"],
+            "body-lg": ["Roboto Flex"],
+            "body-md": ["Roboto Flex"],
+            "label-md": ["Roboto Flex"],
+            "headline-lg-mobile": ["Roboto Flex"],
+            "display-lg": ["Roboto Flex"],
+            "label-lg": ["Roboto Flex"],
+            "headline-sm": ["Roboto Flex"],
+            "body-sm": ["Roboto Flex"],
+            "headline-lg": ["Roboto Flex"],
+            "headline-md": ["Roboto Flex"]
+          },
+          "fontSize": {
+            "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700"}],
+            "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+            "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+            "headline-lg-mobile": ["26px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+            "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+            "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+            "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "headline-md": ["22px", {"lineHeight": "28px", "fontWeight": "700"}]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    .cursor-blink {
+      animation: blink 1s ease-in-out infinite;
+    }
+    @keyframes pulse-subtle {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.04); }
+    }
+    .badge-pulse {
+      animation: pulse-subtle 3s infinite ease-in-out;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col justify-between items-center selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Mobile App Frame Container (max-w-md for native phone feel) -->
+<div class="w-full max-w-md min-h-screen bg-background flex flex-col justify-between shadow-2xl relative">
+<!-- Top App Bar Navigation Shell (Derived from Shared Components JSON with Task-Focused Back Navigation) -->
+<header class="bg-surface shadow-sm flex justify-between items-center w-full px-margin-mobile h-touch-target-min z-20 sticky top-0">
+<div class="flex items-center gap-space-xs">
+<button aria-label="Go back" class="min-w-touch-target-min min-h-touch-target-min flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container active:scale-95 transition-transform duration-150" type="button">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<span class="text-headline-md font-headline-md font-bold text-primary tracking-tight">HobbyLink</span>
+</div>
+<div class="flex items-center">
+<button aria-label="Help and Support" class="min-w-touch-target-min min-h-touch-target-min flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container active:scale-95 transition-transform duration-150" type="button">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col px-margin-mobile pt-space-md pb-space-lg">
+<!-- Header Icon Badge Section -->
+<div class="flex flex-col items-center justify-center mt-space-xs mb-space-lg">
+<div class="relative w-20 h-20 rounded-full bg-primary-fixed flex items-center justify-center badge-pulse">
+<!-- Primary Envelope Icon -->
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="mark_email_read" style="font-variation-settings: 'FILL' 1;">mark_email_read</span>
+<!-- Trust & Security Shield Badge overlay -->
+<div class="absolute -bottom-1 -right-1 w-8 h-8 rounded-full bg-surface-container-lowest shadow-md flex items-center justify-center border-2 border-surface-container-lowest">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="verified_user" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+</div>
+<!-- Verification Step Pill -->
+<div class="mt-space-md inline-flex items-center gap-space-2xs px-space-sm py-space-2xs rounded-full bg-surface-container text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-primary inline-block"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Step 2 of 3 • Security FR-4</span>
+</div>
+</div>
+<!-- Title & Subtitle Copy -->
+<div class="text-center px-space-xs mb-space-xl">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight">Verify Your Email</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs leading-relaxed">
+          We sent a 6-digit verification code to <span class="font-label-lg text-on-surface font-semibold">alex.maker@gmail.com</span>. Enter the code below to activate your account.
+        </p>
+</div>
+<!-- 6 Individual Square OTP Input Boxes -->
+<div class="w-full flex justify-center mb-space-xl">
+<div class="grid grid-cols-6 gap-space-2xs w-full max-w-xs justify-items-center">
+<!-- Box 1: '5' -->
+<div class="w-12 h-14 bg-surface-container-lowest border-2 border-outline-variant rounded-xl shadow-sm flex items-center justify-center">
+<span class="font-display-lg text-headline-md text-on-surface font-bold">5</span>
+</div>
+<!-- Box 2: '8' -->
+<div class="w-12 h-14 bg-surface-container-lowest border-2 border-outline-variant rounded-xl shadow-sm flex items-center justify-center">
+<span class="font-display-lg text-headline-md text-on-surface font-bold">8</span>
+</div>
+<!-- Box 3: '2' -->
+<div class="w-12 h-14 bg-surface-container-lowest border-2 border-outline-variant rounded-xl shadow-sm flex items-center justify-center">
+<span class="font-display-lg text-headline-md text-on-surface font-bold">2</span>
+</div>
+<!-- Box 4: '9' -->
+<div class="w-12 h-14 bg-surface-container-lowest border-2 border-outline-variant rounded-xl shadow-sm flex items-center justify-center">
+<span class="font-display-lg text-headline-md text-on-surface font-bold">9</span>
+</div>
+<!-- Box 5: Active slot with blinking cursor -->
+<div class="w-12 h-14 bg-surface-container-lowest border-2 border-primary-container rounded-xl shadow-md flex items-center justify-center relative">
+<div class="w-0.5 h-6 bg-primary-container cursor-blink rounded-full"></div>
+</div>
+<!-- Box 6: Empty slot -->
+<div class="w-12 h-14 bg-surface-container-low border border-surface-variant rounded-xl flex items-center justify-center">
+<span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+</div>
+</div>
+</div>
+<!-- Security Notice Banner -->
+<div class="mb-space-lg mx-auto w-full max-w-xs bg-error-container/40 border border-error-container rounded-lg p-space-sm flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-primary text-base mt-0.5 flex-shrink-0" data-icon="lock_clock">lock_clock</span>
+<p class="font-body-sm text-body-sm text-on-error-container leading-tight">
+<span class="font-label-md text-label-md">Security notice:</span> 3 attempts remaining before a temporary 15-minute security lockout.
+        </p>
+</div>
+<!-- Timer and Resend Row -->
+<div class="flex flex-col items-center gap-space-2xs text-center mb-space-xl">
+<div class="flex items-center gap-space-2xs font-label-md text-label-md text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+<span>Resend code in <strong class="text-primary font-bold">00:48</strong></span>
+</div>
+<button class="mt-1 font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1" type="button">
+<span>Didn't receive code? Check spam folder</span>
+<span class="material-symbols-outlined text-xs" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<!-- Primary Action CTA -->
+<div class="w-full flex flex-col items-center gap-space-md">
+<button class="w-full h-touch-target-min rounded-xl bg-primary-container hover:bg-primary active:scale-95 text-on-primary font-label-lg text-label-lg shadow-md flex items-center justify-center gap-space-xs transition-all duration-150 group" type="button">
+<span>Verify &amp; Activate Account</span>
+<span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<!-- Secondary Text Link -->
+<a class="min-h-touch-target-min flex items-center justify-center font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#change-email">
+          Wrong email address? <span class="font-bold text-primary ml-1 underline underline-offset-4">Change email</span>
+</a>
+</div>
+<!-- Trust Indicator Footer Guarantee -->
+<div class="mt-auto pt-space-lg flex items-center justify-center gap-space-xs text-on-surface-variant/80">
+<span class="material-symbols-outlined text-base text-tertiary" data-icon="security" style="font-variation-settings: 'FILL' 1;">security</span>
+<span class="font-label-sm text-label-sm">Protected by HobbyLink Identity Verification &amp; Encryption</span>
+</div>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HobbyLink - Event Discovery Hub</title>
+<!-- Material Symbols Outlined Font -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Roboto Flex -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration verbatim from Design System -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface": "#fcf9f8",
+            "primary": "#b7131a",
+            "surface-container-high": "#eae7e7",
+            "surface-container-lowest": "#ffffff",
+            "inverse-surface": "#303030",
+            "on-surface-variant": "#5b403d",
+            "secondary-fixed-dim": "#ffb870",
+            "surface-variant": "#e5e2e1",
+            "on-secondary": "#ffffff",
+            "secondary": "#8b5000",
+            "on-primary": "#ffffff",
+            "outline-variant": "#e4beb9",
+            "primary-container": "#db322f",
+            "surface-tint": "#bb171c",
+            "secondary-fixed": "#ffdcbe",
+            "primary-fixed": "#ffdad6",
+            "on-primary-fixed": "#410002",
+            "surface-bright": "#fcf9f8",
+            "error-container": "#ffdad6",
+            "on-tertiary-fixed-variant": "#005313",
+            "on-primary-container": "#fffbff",
+            "on-secondary-fixed": "#2c1600",
+            "surface-container-low": "#f6f3f2",
+            "tertiary-container": "#1e862d",
+            "tertiary": "#006b1b",
+            "error": "#ba1a1a",
+            "on-tertiary": "#ffffff",
+            "primary-fixed-dim": "#ffb4ac",
+            "on-error-container": "#93000a",
+            "surface-dim": "#dcd9d9",
+            "on-tertiary-fixed": "#002204",
+            "on-primary-fixed-variant": "#93000d",
+            "surface-container": "#f0eded",
+            "on-background": "#1b1c1c",
+            "surface-container-highest": "#e5e2e1",
+            "secondary-container": "#ff9800",
+            "inverse-primary": "#ffb4ac",
+            "background": "#fcf9f8",
+            "on-error": "#ffffff",
+            "on-secondary-fixed-variant": "#693c00",
+            "outline": "#906f6c",
+            "on-secondary-container": "#653900",
+            "on-tertiary-container": "#f7fff1",
+            "on-surface": "#1b1c1c",
+            "inverse-on-surface": "#f3f0ef",
+            "tertiary-fixed": "#94f990",
+            "tertiary-fixed-dim": "#78dc77"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "12px",
+            "margin-tablet": "24px",
+            "margin-mobile": "16px",
+            "space-lg": "24px",
+            "space-xl": "32px",
+            "space-2xs": "4px",
+            "gutter": "16px",
+            "touch-target-min": "48px",
+            "space-2xl": "48px",
+            "space-md": "16px",
+            "space-xs": "8px"
+          },
+          "fontFamily": {
+            "headline-md": ["Roboto Flex"],
+            "label-lg": ["Roboto Flex"],
+            "body-sm": ["Roboto Flex"],
+            "body-lg": ["Roboto Flex"],
+            "label-sm": ["Roboto Flex"],
+            "display-lg": ["Roboto Flex"],
+            "body-md": ["Roboto Flex"],
+            "headline-lg-mobile": ["Roboto Flex"],
+            "headline-lg": ["Roboto Flex"],
+            "label-md": ["Roboto Flex"],
+            "headline-sm": ["Roboto Flex"]
+          },
+          "fontSize": {
+            "headline-md": ["22px", {"lineHeight": "28px", "fontWeight": "700"}],
+            "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+            "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+            "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700"}],
+            "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+            "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+            "headline-lg-mobile": ["26px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+            "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      display: inline-block;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+    .shadow-level-1 {
+      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.08), 0px 1px 2px rgba(0, 0, 0, 0.05);
+    }
+    .shadow-level-2 {
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.10), 0px 2px 4px rgba(0, 0, 0, 0.06);
+    }
+    .shadow-level-3 {
+      box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.12), 0px 3px 6px rgba(0, 0, 0, 0.08);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased min-h-screen pb-28 selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Top App Bar (Shared Component Anchor Implementation) -->
+<header class="sticky top-0 z-40 bg-surface shadow-sm">
+<div class="flex justify-between items-center w-full px-margin-mobile h-touch-target-min max-w-full">
+<div class="flex items-center space-x-2">
+<button aria-label="Explore menu" class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-surface-container active:scale-95 transition-transform duration-150 text-primary">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+</button>
+<span class="text-headline-md font-headline-md font-bold text-primary tracking-tight">HobbyLink</span>
+</div>
+<!-- Center / Right Top Actions -->
+<div class="flex items-center space-x-1">
+<button aria-label="Notifications" class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-surface-container active:scale-95 transition-transform duration-150 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</div>
+<!-- Screen Title & Search / Filter Row -->
+<div class="px-margin-mobile pb-space-sm pt-space-2xs flex flex-col gap-space-xs">
+<div class="flex justify-between items-center">
+<div>
+<h1 class="text-headline-lg-mobile font-headline-lg-mobile text-on-surface tracking-tight">Explore Events</h1>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Find active meetups, niche clubs &amp; physical sessions</p>
+</div>
+<button aria-label="Filter events" class="w-touch-target-min h-touch-target-min flex items-center justify-center rounded-xl bg-surface-container hover:bg-surface-container-high active:scale-95 transition-all text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+</button>
+</div>
+<!-- Search Input -->
+<div class="relative w-full mt-space-2xs">
+<div class="absolute inset-y-0 left-0 pl-space-md flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]" data-icon="search">search</span>
+</div>
+<input class="w-full h-[48px] pl-11 pr-space-md bg-surface-container-lowest border border-surface-container-high rounded-xl text-body-md font-body-md text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all shadow-sm" placeholder="Search hobbies, hosts, locations..." type="text"/>
+</div>
+</div>
+<!-- Segmented Filter Tabs -->
+<div class="px-margin-mobile flex gap-space-xs overflow-x-auto no-scrollbar pb-space-xs pt-space-2xs">
+<button class="h-9 px-space-md rounded-full bg-primary text-on-primary text-label-md font-label-md flex items-center justify-center whitespace-nowrap active:scale-95 transition-transform shadow-sm">
+        Trending &amp; Popular
+      </button>
+<button class="h-9 px-space-md rounded-full bg-surface-container text-on-surface-variant hover:bg-surface-container-high text-label-md font-label-md flex items-center justify-center whitespace-nowrap active:scale-95 transition-transform">
+        My Events (2)
+      </button>
+<button class="h-9 px-space-md rounded-full bg-surface-container text-on-surface-variant hover:bg-surface-container-high text-label-md font-label-md flex items-center justify-center whitespace-nowrap active:scale-95 transition-transform">
+        Nearby (Within 5km)
+      </button>
+</div>
+</header>
+<!-- Main Content Layout -->
+<main class="px-margin-mobile max-w-lg mx-auto pt-space-md flex flex-col gap-space-lg">
+<!-- SPONSORED BANNER CARD -->
+<section aria-label="Sponsored Event" class="bg-surface-container-lowest rounded-xl p-space-md shadow-level-1 relative overflow-hidden border border-surface-container-high/60">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container text-label-sm font-label-sm tracking-wider uppercase">
+<span class="material-symbols-outlined text-[14px]" data-icon="stars" data-weight="fill" style="font-variation-settings: 'FILL' 1;">stars</span>
+          SPONSORED
+        </span>
+<span class="text-body-sm font-body-sm font-bold text-primary flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+          Filling Fast
+        </span>
+</div>
+<!-- Venue Photo Container -->
+<div class="relative w-full h-44 rounded-lg overflow-hidden my-space-xs">
+<img class="w-full h-full object-cover" data-alt="A modern, high-energy illuminated indoor Padel court club during an evening tournament in Nasr City. Dynamic athletes are engaged in an active rally against clear glass walls with subtle brand red and warm amber stadium accents, rendered in crisp, modern corporate photography lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDc5Bc9mlyVNAsO4kszLkv2TFhZfSYT5uZ0ruwkMhnu3jD23ACNf9Kzn1UBSl6pUCAQt9lWbTO1CwyEH3CLqO_HWMDUyhDHVX_WqNUsVf6wn8-JatWANzln5cS9uHcF987W4gOkgvBu0RqL1GeW0Vs35VO8tuQ-oiMon6nT8KqAplcCxuWr8V3LTNc92cORQPwcfXq09ePvdhLZW_bzdWfLQtW5L1mECMGyQBMIyR4X_7T5wGlmCFwF_Q"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex flex-col justify-end p-space-sm text-on-primary">
+<p class="text-label-sm font-label-sm uppercase tracking-wide opacity-90 text-secondary-fixed">Sat, Nov 18 • 6:00 PM</p>
+<h2 class="text-headline-sm font-headline-sm text-surface-container-lowest font-bold leading-tight">City Club Padel Tournament - Nasr City</h2>
+</div>
+</div>
+<!-- Details & Status Row -->
+<div class="flex items-center justify-between py-space-xs mt-space-2xs text-on-surface-variant text-body-sm font-body-sm">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-tertiary" data-icon="location_on">location_on</span>
+<span>City Club Arena, Nasr City</span>
+</div>
+<div class="flex items-center gap-1 font-semibold text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="groups">groups</span>
+<span>18/24 Joined</span>
+</div>
+</div>
+<!-- Progress bar -->
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden my-space-2xs">
+<div class="bg-primary-container h-full rounded-full" style="width: 75%"></div>
+</div>
+<!-- Card Action -->
+<div class="pt-space-xs">
+<button class="w-full h-11 bg-primary text-on-primary rounded-xl text-label-lg font-label-lg flex items-center justify-center gap-2 shadow-sm hover:bg-primary-container active:scale-[0.98] transition-all">
+<span>Join Event</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- SECTION TITLE -->
+<div class="flex items-center justify-between -mb-space-sm">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Upcoming Community Events</h3>
+</div>
+<span class="text-label-sm font-label-sm text-primary font-bold">See All (14)</span>
+</div>
+<!-- EVENT CARD 1: Sunset Photography Walk -->
+<article class="bg-surface-container-lowest rounded-xl p-space-md shadow-level-1 border border-surface-container-high/60 flex flex-col gap-space-sm transition-all hover:shadow-level-2">
+<!-- Author & Meta -->
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="relative w-11 h-11">
+<img class="w-11 h-11 rounded-full object-cover ring-2 ring-surface-container-high" data-alt="Close up portrait photograph of Kevin M, a smiling friendly young photographer outdoors during sunset holding a professional mirrorless camera, natural warm rim lighting, corporate modern editorial style with clean neutral tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpRNubms44U3SfdSctHlR2vUcsswL9aPw3D-nOToO-5Yp6nFJUfYRwTSfOPDsdZAn2TJ7tBkdjQdGS07_jFGz8n0fg8n8Lkz0JCh1W_ybrRWdVapE8KpukDlceGkhXvVQMRFmYZstoH8HT9_zCl4KI1KQTzZzJbUJD9JZBilzxDkFok3nxlRBbDPFhjUxR6oK3tktONKBGIDCflfzfFvQjt9UjJZSzSjOekne6aPxie6f4NM1DXd3M6g"/>
+<!-- Live Radar Status Dot (Online Now) -->
+<span class="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-[#4CAF50] ring-2 ring-surface-container-lowest" title="Active Now"></span>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-label-lg font-label-lg text-on-surface">Kevin M.</span>
+<span class="inline-flex items-center text-tertiary" title="Verified Host">
+<span class="material-symbols-outlined text-[16px]" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Host • 18 walks organized</p>
+</div>
+</div>
+<!-- Hobby Interest Pills -->
+<div class="flex gap-1">
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant text-label-sm font-label-sm">Photography</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant text-label-sm font-label-sm">Outdoor</span>
+</div>
+</div>
+<!-- Event Title & Image Banner -->
+<div class="relative rounded-lg overflow-hidden h-36">
+<img class="w-full h-full object-cover" data-alt="Golden hour urban sunset along the scenic Corniche walkway with gentle water reflections and photography enthusiasts taking pictures of architectural silhouettes. Modern clean photography aesthetic featuring subtle red rim light and golden reflections." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtJcrQtSTsrYGVaBV3HZLCan2kXTKr_0ZCKoBFk2_J41FppOEElINM-AVtOlDGrdxKia0_EZrjBRYNp8naWvWJmWJ5-RuvQkofQ5CIbAAzsw3nG5fH_Y8nxKARlRarQuCv66x8soMHfA-ae74oedeN78vBLod5sE2Bw85VLssEtYAtMG-idJDIanGnYlbKykJGklv8II1R8y1Y5fibWBz-Qqc2wxiuQF4FS8WqyRJRppAb4y5W81JaiQ"/>
+<div class="absolute top-2 left-2 px-2.5 py-1 rounded-md bg-inverse-surface/80 backdrop-blur-sm text-surface text-label-sm font-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary-fixed" data-icon="schedule">schedule</span>
+          Tomorrow, 5:30 PM
+        </div>
+</div>
+<div>
+<h4 class="text-headline-sm font-headline-sm text-on-surface">Sunset Photography Walk</h4>
+<div class="flex items-center gap-1 text-on-surface-variant text-body-sm font-body-sm mt-1">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="pin_drop">pin_drop</span>
+<span>Corniche Walkway (1.4 km away)</span>
+</div>
+</div>
+<!-- Attendees & Action Row -->
+<div class="pt-space-xs border-t border-surface-container flex items-center justify-between mt-space-2xs">
+<!-- Avatar Stack -->
+<div class="flex items-center">
+<div class="flex -space-x-2 overflow-hidden mr-2">
+<img class="inline-block h-7 w-7 rounded-full ring-2 ring-surface-container-lowest object-cover" data-alt="Portrait avatar of a female participant in outdoor apparel smiling, shot in soft studio lighting with warm neutral tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCohw8uV4nm2NGQ0tMLPu7VmdcdPaUz8oOWYS91dCVR0gVYWExviZrOB4C47KPh9NwZuLeR4CrVpPTZdWY1snBsOKP-O-mytOlS40AoQwjOi6iW1Zp4Yl6i00mpF15LAQU_MZ9ViFdmORiGO6ezS2JDrhba27ySuHpaTvf0WG8p4cvosshnF5tFJR6vy6vER6pVAu_2906w87CWXCkLbSU2b-gk1l4xbTeVVCsSSQQjl740jBou2DppiQ"/>
+<img class="inline-block h-7 w-7 rounded-full ring-2 ring-surface-container-lowest object-cover" data-alt="Headshot of a male hobby photographer with glasses outdoors, warm sunlight, crisp light mode corporate visual style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4GXEntqiBG63yqjN50hA-hUIDL7XZWmOZV-ZlEhH9FJguBBWlROeWGxwkdEYpLUhTOZITQF7bWg1l9aLg9O44B7UzM4uxyNc_wsr-9rB5zymPA6J6hji2amBoQoB1_qCkZ6w_S30Ep7ivebFVgEmlX8YzZqgzSUUUpNnpjw05u6VnwOHV0GqSUjflKVhGXENGom0tErFfGw0lShNbLMJ0IuPuFCTKM-YKCgPNgF4Yyxg1UWsgwBjsZA"/>
+<img class="inline-block h-7 w-7 rounded-full ring-2 ring-surface-container-lowest object-cover" data-alt="Close up face of a creative student with a compact camera smiling, high key lighting, vibrant red scarf accent." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCRAuAd7jAZ47LXTQ7REE2w7kR5mVl_HSupaexA7ws4HGjdSw-0xH-yBsu3iyToc7Lv4ukTHV5WzGdmRUBnPaQS3PhKWA7gADVQCcgX1w-Imqw8muHTAPSg-AzVvU8EGVI8SI_ue3ei6c9roh_f7VcPfYnyVcCyu8ok2te7MB2TnEIm8Nc8v9xHoUjO59vYnqI0BzbkEG-PdDi03m2Kiu5xEpkYrZdFx39tTnOVoEpYn58S3H-Z5yJbA"/>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">
+<strong class="text-on-surface">4/6 spots</strong> filled
+          </span>
+</div>
+<button class="h-10 px-space-md rounded-xl bg-primary text-on-primary text-label-md font-label-md hover:bg-primary-container active:scale-95 transition-all shadow-sm">
+          Request to Join
+        </button>
+</div>
+</article>
+<!-- EVENT CARD 2: Intermediate Board Game & Coffee Evening -->
+<article class="bg-surface-container-lowest rounded-xl p-space-md shadow-level-1 border border-surface-container-high/60 flex flex-col gap-space-sm transition-all hover:shadow-level-2">
+<!-- Author & Meta -->
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="relative w-11 h-11">
+<img class="w-11 h-11 rounded-full object-cover ring-2 ring-surface-container-high" data-alt="Portrait photo of an enthusiastic cafe board game host sitting with artisanal coffee cups, friendly warm expression, soft café interior background with clean modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUbUsuUaT6Wd6Dn-cT3E_0W6B56oNVS8zYSfFSOgU1hnZL-05LHdMuMJEzGmFYz8Lf6UhXsteaQ4XJ6iS8sqU1mCZL37HfLsSL1uz4JJ1gmVt4K0BDwiY3k1jqsjqQ37dhTbOJLHKTAdQsDFHF9dhr1e5AXkx_z2PgTQwYHmX6j-Tffo4naRFElFgsmrZJY-W9rHqI4e7arkW2f-gves_CVVzHoPt0leulQfvPbry7NKRA6Sdld6ppSw"/>
+<!-- Live Radar Status Dot (In session) -->
+<span class="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-[#FF9800] ring-2 ring-surface-container-lowest" title="In Session"></span>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-label-lg font-label-lg text-on-surface">Sara &amp; Youssef</span>
+<!-- Verified Host Badge -->
+<span class="inline-flex items-center gap-0.5 px-1.5 py-0.2 rounded bg-tertiary-fixed text-on-tertiary-fixed-variant text-[10px] font-bold">
+                ⭐ Verified Host
+              </span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Tabletop Guild • Maadi Chapter</p>
+</div>
+</div>
+<!-- Tags -->
+<div class="flex gap-1">
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant text-label-sm font-label-sm">Gaming</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant text-label-sm font-label-sm">Coffee</span>
+</div>
+</div>
+<!-- Event Title & Info -->
+<div>
+<h4 class="text-headline-sm font-headline-sm text-on-surface">Intermediate Board Game &amp; Coffee Evening</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">Playing Wingspan, Catan &amp; Ticket to Ride. Free coffee refills included with table reserve!</p>
+</div>
+<!-- Specs Box -->
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col gap-1.5 text-body-sm font-body-sm">
+<div class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="calendar_today">calendar_today</span>
+<span class="font-medium">Friday, 7:00 PM</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="store">store</span>
+<span>Bean Café, Maadi (3.2 km away)</span>
+</div>
+</div>
+<!-- Attendees & Action Row -->
+<div class="pt-space-xs border-t border-surface-container flex items-center justify-between mt-space-2xs">
+<div class="flex items-center">
+<div class="flex -space-x-2 overflow-hidden mr-2">
+<img class="inline-block h-7 w-7 rounded-full ring-2 ring-surface-container-lowest object-cover" data-alt="Headshot of a friendly man participating in an evening social hobby club, crisp modern lighting, clean presentation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuhZYlo7MOJmSWSUL4Kw7cCmtzOyRfo5g0JdX0SshsPIg_ytrvAsuG-BhAVfIoWalA4kC_fyB-AQm3ZVYCJ7RZdMI9SLJU93f0cjISq3GFSfNQbxnC8g-Ux3o8qD75jJyhLYNj10Bo5ChknezpQiazclJ2Y-GqQhU-Hz145LAjJmN1QFk2FyhATM3vf3ZzLWK5LETlW9BItn1wQSicKZOj-YGwU4B8rNzQXclKQKxhyylJON6Qb3Y9ZA"/>
+<img class="inline-block h-7 w-7 rounded-full ring-2 ring-surface-container-lowest object-cover" data-alt="Portrait of an art and game enthusiast with warm smile in a café atmosphere, bright neutral light with delicate warm red tints." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHsNlw6t-INhu0S3kvoEn0V4DRntSUDA91FIeDtt_260UN2c3IQlrkmeUMD_unz09dczppqR5wZgesj2TUjf99t5jKyFAyhRUX_VEi93tBilN-lG0Wtc4G4XxqAmiLXcLwMv8u_iZEFTkRUXj1g5_PKhc-Zc4ht7PoPcrF3FBJIUHzRvnObstaRdBrZ5sjc7vHI4Hjg4Kd4soCkIEYDmOTSEXh_q8JDtFa-zYSuynRBMJbfLjN4JLVRQ"/>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">
+<strong class="text-on-surface">5/8 spots</strong> filled
+          </span>
+</div>
+<button class="h-10 px-space-md rounded-xl bg-primary text-on-primary text-label-md font-label-md hover:bg-primary-container active:scale-95 transition-all shadow-sm">
+          Request to Join
+        </button>
+</div>
+</article>
+<!-- TRUST BANNER & VIP HIGHLIGHT -->
+<div class="rounded-xl p-space-md bg-secondary-fixed/30 border border-secondary-fixed-dim/40 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+</div>
+<div class="text-body-sm font-body-sm">
+<p class="font-bold text-on-surface">Community Safety Guarantee</p>
+<p class="text-on-surface-variant">All event hosts undergo verified ID checks and attendee feedback ratings.</p>
+</div>
+</div>
+</main>
+<!-- FLOATING ACTION BUTTON (+ Create Event) -->
+<!-- Anchored above BottomNavBar on the right with standard 48px touch target minimum -->
+<div class="fixed bottom-20 right-4 z-40">
+<button aria-label="Create Event" class="h-12 px-5 rounded-full bg-[#E53935] text-on-primary shadow-level-3 hover:bg-[#D32F2F] active:scale-95 transition-all duration-150 flex items-center gap-2 text-label-lg font-label-lg">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+<span>Create Event</span>
+</button>
+</div>
+<!-- BOTTOM NAVIGATION BAR (Shared Component Anchor Implementation) -->
+<!-- Contextual State: 'Events' is the active tab according to hierarchical mapping rule -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-margin-mobile py-space-xs min-h-touch-target-min bg-surface shadow-md">
+<!-- Home (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-space-xs py-space-2xs hover:bg-surface-container active:scale-95 transition-transform duration-150 min-w-[48px] min-h-[48px]">
+<span class="material-symbols-outlined text-[22px]" data-icon="home">home</span>
+<span class="text-label-sm font-label-sm mt-0.5">Home</span>
+</button>
+<!-- Radar (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-space-xs py-space-2xs hover:bg-surface-container active:scale-95 transition-transform duration-150 min-w-[48px] min-h-[48px]">
+<span class="material-symbols-outlined text-[22px]" data-icon="radar">radar</span>
+<span class="text-label-sm font-label-sm mt-0.5">Radar</span>
+</button>
+<!-- Events (ACTIVE NAVIGATION DESTINATION) -->
+<button class="flex flex-col items-center justify-center bg-primary-fixed text-on-primary-fixed rounded-full px-space-md py-space-2xs active:scale-95 transition-transform duration-150 min-h-[44px]">
+<span class="material-symbols-outlined text-[22px]" data-icon="event" data-weight="fill" style="font-variation-settings: 'FILL' 1;">event</span>
+<span class="text-label-sm font-label-sm font-bold mt-0.5">Events</span>
+</button>
+<!-- Messages (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-space-xs py-space-2xs hover:bg-surface-container active:scale-95 transition-transform duration-150 min-w-[48px] min-h-[48px]">
+<span class="material-symbols-outlined text-[22px]" data-icon="chat">chat</span>
+<span class="text-label-sm font-label-sm mt-0.5">Messages</span>
+</button>
+<!-- Profile (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-space-xs py-space-2xs hover:bg-surface-container active:scale-95 transition-transform duration-150 min-w-[48px] min-h-[48px]">
+<span class="material-symbols-outlined text-[22px]" data-icon="person">person</span>
+<span class="text-label-sm font-label-sm mt-0.5">Profile</span>
+</button>
+</nav>
+</body></html>

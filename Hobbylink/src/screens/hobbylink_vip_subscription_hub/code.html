@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HobbyLink VIP Subscription Hub</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Roboto Flex font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@100..1000&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-variant": "#e5e2e1",
+            "surface-container": "#f0eded",
+            "on-primary-fixed": "#410002",
+            "surface-tint": "#bb171c",
+            "on-surface-variant": "#5b403d",
+            "on-background": "#1b1c1c",
+            "surface-container-highest": "#e5e2e1",
+            "tertiary-fixed-dim": "#78dc77",
+            "on-secondary-fixed": "#2c1600",
+            "on-secondary": "#ffffff",
+            "on-tertiary-fixed": "#002204",
+            "tertiary-container": "#1e862d",
+            "error": "#ba1a1a",
+            "surface-dim": "#dcd9d9",
+            "secondary-fixed-dim": "#ffb870",
+            "secondary": "#8b5000",
+            "on-primary": "#ffffff",
+            "tertiary-fixed": "#94f990",
+            "surface-container-high": "#eae7e7",
+            "surface": "#fcf9f8",
+            "primary-fixed": "#ffdad6",
+            "on-secondary-container": "#653900",
+            "on-primary-fixed-variant": "#93000d",
+            "error-container": "#ffdad6",
+            "inverse-primary": "#ffb4ac",
+            "on-tertiary-fixed-variant": "#005313",
+            "inverse-surface": "#303030",
+            "on-error-container": "#93000a",
+            "background": "#fcf9f8",
+            "on-tertiary-container": "#f7fff1",
+            "tertiary": "#006b1b",
+            "primary-container": "#db322f",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f6f3f2",
+            "secondary-container": "#ff9800",
+            "on-secondary-fixed-variant": "#693c00",
+            "outline-variant": "#e4beb9",
+            "outline": "#906f6c",
+            "primary-fixed-dim": "#ffb4ac",
+            "inverse-on-surface": "#f3f0ef",
+            "on-tertiary": "#ffffff",
+            "primary": "#b7131a",
+            "on-surface": "#1b1c1c",
+            "on-error": "#ffffff",
+            "surface-bright": "#fcf9f8",
+            "on-primary-container": "#fffbff",
+            "secondary-fixed": "#ffdcbe"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "touch-target-min": "48px",
+            "space-md": "16px",
+            "space-lg": "24px",
+            "margin-mobile": "16px",
+            "space-2xs": "4px",
+            "space-2xl": "48px",
+            "space-xl": "32px",
+            "gutter": "16px",
+            "margin-tablet": "24px",
+            "space-xs": "8px",
+            "space-sm": "12px"
+          },
+          "fontFamily": {
+            "headline-sm": ["Roboto Flex"],
+            "headline-lg": ["Roboto Flex"],
+            "label-sm": ["Roboto Flex"],
+            "headline-lg-mobile": ["Roboto Flex"],
+            "body-md": ["Roboto Flex"],
+            "body-sm": ["Roboto Flex"],
+            "label-md": ["Roboto Flex"],
+            "body-lg": ["Roboto Flex"],
+            "display-lg": ["Roboto Flex"],
+            "label-lg": ["Roboto Flex"],
+            "headline-md": ["Roboto Flex"]
+          },
+          "fontSize": {
+            "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700"}],
+            "headline-lg-mobile": ["26px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+            "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+            "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+            "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+            "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+            "headline-md": ["22px", {"lineHeight": "28px", "fontWeight": "700"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-1 {
+      font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex justify-center selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Mobile Frame Container (Max Width centered) -->
+<div class="w-full max-w-md min-h-screen flex flex-col bg-surface shadow-lg relative pb-space-2xl">
+<!-- Top App Bar (Task-focused with Back Navigation, Shell Navigation Suppressed per destination rule) -->
+<header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md shadow-sm flex items-center justify-between px-margin-mobile h-touch-target-min">
+<button aria-label="Go back" class="flex items-center justify-center w-touch-target-min h-touch-target-min rounded-full text-on-surface hover:bg-surface-container active:scale-95 transition-transform duration-150 -ml-space-xs" type="button">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<!-- Brand Pro Lockup -->
+<div class="flex items-center justify-center h-8">
+<img alt="HobbyLink Pro" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsyxT6q8nL5poCeth-L5RTWmmziFmvjUUovNwPzToxNMPnapB_2fWtuHTzt52xleKjZ2bMaXQhyL6pub63WnbdWksUMOJbFh8Eo5qrB8YvcH834T2_0k4TS_tbXrirun69pa4yrqkFBmjf9-m7QjK-DDJwwGCbjjbnH92tc6GPgRVFp09r-A7-hi_LqMy3piuaFPcQNy425lwsBOFD7Amrs308hHXoOYl6tZ-EHHw3cR7MPHnD53W4pv_am_cPbs5Krs8"/>
+</div>
+<!-- Action / Close target placeholder for alignment -->
+<button aria-label="Close" class="flex items-center justify-center w-touch-target-min h-touch-target-min rounded-full text-on-surface-variant hover:bg-surface-container active:scale-95 transition-transform duration-150 -mr-space-xs" type="button">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</header>
+<!-- Main Scrollable Content -->
+<main class="flex-1 px-margin-mobile pt-space-xs space-y-space-md">
+<!-- Hero Banner & Glowing Crown Illustration -->
+<section class="relative overflow-hidden rounded-xl bg-gradient-to-b from-surface-container-lowest to-surface-container-low p-space-lg text-center shadow-sm">
+<!-- Ambient Radial Glow -->
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 w-44 h-44 bg-secondary-container/25 rounded-full blur-2xl pointer-events-none"></div>
+<div class="absolute -bottom-10 left-1/2 -translate-x-1/2 w-44 h-44 bg-primary/10 rounded-full blur-2xl pointer-events-none"></div>
+<!-- Crown Icon Badge Lockup -->
+<div class="relative mx-auto mb-space-sm w-16 h-16 rounded-full bg-gradient-to-tr from-secondary-container via-amber-400 to-amber-200 p-[2px] shadow-md active:scale-95 transition-transform">
+<div class="w-full h-full rounded-full bg-surface-container-lowest flex items-center justify-center">
+<span class="material-symbols-outlined fill-1 text-secondary-container text-3xl" data-icon="workspace_premium" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<!-- Sparkle accent -->
+<span class="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-on-primary shadow-sm">
+<span class="material-symbols-outlined text-xs fill-1" data-icon="sparkles" style="font-variation-settings: 'FILL' 1;">arrow_back_ios_new</span>
+</span>
+</div>
+<div class="inline-flex items-center gap-space-2xs px-space-sm py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed mb-space-xs">
+<span class="material-symbols-outlined text-sm fill-1" data-icon="stars" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-label-sm text-label-sm tracking-wide">PREMIUM PASS</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">
+          Upgrade to HobbyLink VIP
+        </h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-2xs max-w-xs mx-auto">
+          Unlock unlimited connections, custom messaging, and ad-free experience.
+        </p>
+</section>
+<!-- Feature Comparison Card -->
+<section class="rounded-xl bg-surface-container-lowest p-space-md shadow-sm">
+<div class="flex items-center justify-between pb-space-xs mb-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface">VIP Member Perks</span>
+<span class="font-label-sm text-label-sm bg-primary-fixed text-on-primary-fixed-variant px-space-xs py-0.5 rounded-full">Included</span>
+</div>
+<ul class="space-y-space-sm">
+<!-- Item 1 -->
+<li class="flex items-start gap-space-sm">
+<div class="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed">
+<span class="material-symbols-outlined text-base fill-1" data-icon="check" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div class="flex-1">
+<p class="font-label-lg text-label-lg text-on-surface">Send direct custom messages</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Free tier is limited to 👋 wave emoji only</p>
+</div>
+</li>
+<!-- Item 2 -->
+<li class="flex items-start gap-space-sm">
+<div class="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed">
+<span class="material-symbols-outlined text-base fill-1" data-icon="check" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div class="flex-1">
+<p class="font-label-lg text-label-lg text-on-surface">100% Ad-free experience</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Uninterrupted browsing across all radar &amp; event feeds</p>
+</div>
+</li>
+<!-- Item 3 -->
+<li class="flex items-start gap-space-sm">
+<div class="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed">
+<span class="material-symbols-outlined text-base fill-1" data-icon="check" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div class="flex-1">
+<p class="font-label-lg text-label-lg text-on-surface flex items-center gap-1.5">
+                Exclusive VIP badge 
+                <span class="inline-flex items-center text-secondary-container font-headline-sm leading-none">👑</span>
+</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Highlighted on your profile, chat rooms &amp; search results</p>
+</div>
+</li>
+<!-- Item 4 -->
+<li class="flex items-start gap-space-sm">
+<div class="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed">
+<span class="material-symbols-outlined text-base fill-1" data-icon="check" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div class="flex-1">
+<p class="font-label-lg text-label-lg text-on-surface">Priority ranking in Radar</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Top placement in Activity Partner searches &amp; Live Radar</p>
+</div>
+</li>
+<!-- Item 5 -->
+<li class="flex items-start gap-space-sm">
+<div class="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed">
+<span class="material-symbols-outlined text-base fill-1" data-icon="check" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div class="flex-1">
+<p class="font-label-lg text-label-lg text-on-surface">Unlimited weekly contacts</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Free tier limited to 5 new friend invites/week</p>
+</div>
+</li>
+<!-- Item 6 -->
+<li class="flex items-start gap-space-sm">
+<div class="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed">
+<span class="material-symbols-outlined text-base fill-1" data-icon="check" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div class="flex-1">
+<p class="font-label-lg text-label-lg text-on-surface">See who viewed your profile</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Real-time hobbyist visitor insights and frequency</p>
+</div>
+</li>
+</ul>
+</section>
+<!-- Subscription Plan Selector Cards -->
+<section aria-label="Subscription Plans" class="space-y-space-sm">
+<div class="flex items-center justify-between px-space-2xs">
+<span class="font-label-lg text-label-lg text-on-surface">Select Membership Term</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">14-Day Free Trial</span>
+</div>
+<!-- Radio Group -->
+<div class="space-y-space-sm" id="plans-container">
+<!-- Plan 1: Monthly -->
+<label class="plan-card relative flex items-center justify-between p-space-md rounded-xl bg-surface-container-lowest border-2 border-surface-variant cursor-pointer transition-all duration-150 hover:border-outline active:scale-[0.99] min-h-touch-target-min">
+<input class="sr-only" name="subscription_plan" type="radio" value="monthly"/>
+<div class="flex items-center gap-space-md">
+<div class="radio-indicator flex items-center justify-center w-5 h-5 rounded-full border-2 border-outline-variant bg-surface-container-lowest">
+<div class="dot w-2.5 h-2.5 rounded-full bg-transparent"></div>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface">Monthly Plan</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">14-Day Free Trial included</div>
+</div>
+</div>
+<div class="text-right">
+<div class="font-headline-sm text-headline-sm text-on-surface">$9.99</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">/ month</div>
+</div>
+</label>
+<!-- Plan 2: Quarterly (Most Popular) -->
+<label class="plan-card active-plan relative flex items-center justify-between p-space-md rounded-xl bg-surface-container-lowest border-2 border-primary cursor-pointer transition-all duration-150 hover:border-primary active:scale-[0.99] min-h-touch-target-min shadow-sm">
+<!-- Badge -->
+<div class="absolute -top-3 right-4 bg-primary text-on-primary font-label-sm text-label-sm px-2.5 py-0.5 rounded-full shadow-sm">
+              Most Popular
+            </div>
+<input checked="" class="sr-only" name="subscription_plan" type="radio" value="quarterly"/>
+<div class="flex items-center gap-space-md">
+<div class="radio-indicator flex items-center justify-center w-5 h-5 rounded-full border-2 border-primary bg-primary">
+<div class="dot w-2.5 h-2.5 rounded-full bg-on-primary"></div>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface">Quarterly Plan</div>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="font-label-sm text-label-sm text-primary font-bold">Save 17%</span>
+<span class="text-on-surface-variant text-xs">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Billed quarterly</span>
+</div>
+</div>
+</div>
+<div class="text-right">
+<div class="font-headline-sm text-headline-sm text-primary">$24.99</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">/ 3 months</div>
+</div>
+</label>
+<!-- Plan 3: Annual (Best Value) -->
+<label class="plan-card relative flex items-center justify-between p-space-md rounded-xl bg-surface-container-lowest border-2 border-surface-variant cursor-pointer transition-all duration-150 hover:border-outline active:scale-[0.99] min-h-touch-target-min">
+<!-- Badge -->
+<div class="absolute -top-3 right-4 bg-secondary-container text-on-surface font-label-sm text-label-sm px-2.5 py-0.5 rounded-full shadow-sm">
+              Best Value
+            </div>
+<input class="sr-only" name="subscription_plan" type="radio" value="annual"/>
+<div class="flex items-center gap-space-md">
+<div class="radio-indicator flex items-center justify-center w-5 h-5 rounded-full border-2 border-outline-variant bg-surface-container-lowest">
+<div class="dot w-2.5 h-2.5 rounded-full bg-transparent"></div>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface">Annual Plan</div>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="font-label-sm text-label-sm text-tertiary font-bold">Save 33%</span>
+<span class="text-on-surface-variant text-xs">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">$6.66 / mo</span>
+</div>
+</div>
+</div>
+<div class="text-right">
+<div class="font-headline-sm text-headline-sm text-on-surface">$79.99</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">/ year</div>
+</div>
+</label>
+</div>
+</section>
+<!-- Safety & Trust Guarantee Note -->
+<section class="rounded-xl bg-surface-container p-space-md flex items-start gap-space-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-tertiary flex-shrink-0 mt-0.5" data-icon="verified_user">verified_user</span>
+<div class="space-y-0.5">
+<p class="font-label-md text-label-md text-on-surface">Guaranteed Safe &amp; Instant Cancellation</p>
+<p class="font-body-sm text-body-sm">
+            Cancel anytime in Google Play Store / Itch.io account. No lock-in. You won't be charged until trial ends.
+          </p>
+</div>
+</section>
+<!-- Primary CTA Area -->
+<section class="pt-space-xs space-y-space-sm">
+<button class="w-full h-touch-target-min rounded-xl bg-primary-container hover:bg-primary text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-space-xs shadow-md active:scale-98 transition-all duration-150" type="button">
+<span>Start 14-Day Free Trial</span>
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<!-- Secondary Legal & Utility Links -->
+<div class="text-center pt-space-2xs">
+<div class="flex items-center justify-center gap-space-sm text-on-surface-variant font-label-sm text-label-sm">
+<button class="hover:text-primary transition-colors py-1" type="button">Restore Purchases</button>
+<span class="text-outline-variant">•</span>
+<button class="hover:text-primary transition-colors py-1" type="button">Terms of Service</button>
+<span class="text-outline-variant">•</span>
+<button class="hover:text-primary transition-colors py-1" type="button">Privacy Policy</button>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- Interactive script for plan card switching -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.plan-card');
+      cards.forEach(card => {
+        card.addEventListener('click', () => {
+          cards.forEach(c => {
+            c.classList.remove('border-primary', 'shadow-sm');
+            c.classList.add('border-surface-variant');
+            const dot = c.querySelector('.radio-indicator .dot');
+            const indicator = c.querySelector('.radio-indicator');
+            if (dot && indicator) {
+              dot.classList.remove('bg-on-primary');
+              dot.classList.add('bg-transparent');
+              indicator.classList.remove('border-primary', 'bg-primary');
+              indicator.classList.add('border-outline-variant', 'bg-surface-container-lowest');
+            }
+          });
+
+          card.classList.remove('border-surface-variant');
+          card.classList.add('border-primary', 'shadow-sm');
+          const activeRadio = card.querySelector('input[type="radio"]');
+          if (activeRadio) activeRadio.checked = true;
+          
+          const dot = card.querySelector('.radio-indicator .dot');
+          const indicator = card.querySelector('.radio-indicator');
+          if (dot && indicator) {
+            dot.classList.remove('bg-transparent');
+            dot.classList.add('bg-on-primary');
+            indicator.classList.remove('border-outline-variant', 'bg-surface-container-lowest');
+            indicator.classList.add('border-primary', 'bg-primary');
+          }
+        });
+      });
+    });
+  </script>
+</body></html>

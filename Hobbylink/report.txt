@@ -1,0 +1,2468 @@
+HobbyLink - Complete Application Technical Report
+1. Executive Summary
+HobbyLink is a global social networking mobile application designed to connect people based on shared interests, hobbies, and activities in real-world settings. The application bridges the gap between digital connections and physical interactions by enabling users to find activity partners, create events, and build meaningful relationships with like-minded individuals in their geographic vicinity.
+
+Tagline: "Same interests, real connections"
+
+The platform serves as a facilitator for real-world meetups, offering features ranging from activity partner matching to event creation and management, all powered by artificial intelligence for enhanced user experience and safety.
+
+2. Target Audience & Demographics
+Primary Users
+Age Range: 18-35 years
+
+Geographic Reach: Global (all countries supported)
+
+Interests: Individuals seeking to engage in activities, hobbies, and social events with others who share similar passions
+
+Minor Users (Under 18)
+Special Conditions:
+
+Must provide parent/guardian email address during registration
+
+Parental consent is mandatory
+
+When meeting someone in person, must be accompanied by an adult
+
+Additional safety measures and monitoring are implemented
+
+User Personas
+Persona 1: Ahmed (27, Egypt)
+Works remotely as a software developer
+
+Wants to play paddle tennis but his friends are too busy
+
+Uses HobbyLink to find regular playing partners
+
+Active in evenings and weekends
+
+Tech-savvy, prefers digital solutions
+
+Persona 2: Sarah (24, USA)
+Recently moved to a new city for work
+
+Wants to explore hiking and outdoor activities
+
+Looking to build a new social circle
+
+Uses HobbyLink to find hiking groups and nature enthusiasts
+
+Prefers outdoor activities on weekends
+
+Persona 3: Kevin (19, UK)
+University student
+
+Interested in photography and urban exploration
+
+Wants to find companions for city tours and photography walks
+
+Active during semester breaks and holidays
+
+Budget-conscious, uses free features primarily
+
+Persona 4: Layla (16, Egypt) - Minor User
+High school student
+
+Interested in book clubs and reading
+
+Must have parental supervision for meetups
+
+Uses HobbyLink with parent consent
+
+Limited to specific activity types
+
+3. Core Features Breakdown
+3.1 User Registration & Authentication
+Splash Screen
+Duration: 2 seconds
+
+Displays HobbyLink logo and tagline
+
+Background: Red theme (primary brand color)
+
+Smooth transition animation to Onboarding/Login Screen
+
+Onboarding Screen (Intro Screen)
+Brief explanation of the application:
+
+"Find people who share your interests"
+
+"Create or join activities and events"
+
+"Connect in real life with like-minded individuals"
+
+Two primary buttons:
+
+Sign In (navigates to Login Screen)
+
+Create Account (navigates to Registration Screen)
+
+Registration Screen (Sign Up)
+Fields Required:
+
+Display Name
+
+Text field
+
+Required
+
+Max length: 30 characters
+
+Validation: Cannot be empty, no special characters (except spaces)
+
+Username
+
+Text field
+
+Required
+
+Must be unique globally
+
+Max length: 20 characters
+
+Validation: Alphanumeric only, no spaces
+
+Real-time availability check (green check/red X indicator)
+
+Password
+
+Text field (hidden characters)
+
+Required
+
+Minimum: 8 characters
+
+Must contain: uppercase, lowercase, number, special character
+
+Strength indicator: Weak/Medium/Strong
+
+Confirm Password
+
+Text field (hidden characters)
+
+Required
+
+Must match Password field exactly
+
+Real-time match/mismatch indicator
+
+Country Selection
+
+Dropdown menu
+
+Required
+
+All countries listed alphabetically
+
+Flag icon next to country name
+
+Default: None selected
+
+Profile Picture
+
+Optional but encouraged
+
+Upload from gallery or take photo
+
+Crop functionality included
+
+Circle crop (profile photo style)
+
+Max size: 5MB
+
+Supported formats: JPG, PNG, WEBP
+
+Actions:
+
+Create Account Button (validates all fields, then proceeds)
+
+Already have an account? (navigates to Sign In)
+
+Special Case - Minor Users (Under 18):
+
+Additional field appears: Guardian Email
+
+Required
+
+Must be different from user's email
+
+Verification email sent to guardian
+
+Account not activated until guardian approves
+
+Email Verification Screen
+Single field: Email Address
+
+Required
+
+Format validation (must be valid email format)
+
+Send OTP Button triggers email verification
+
+OTP (One-Time Password) sent via email
+
+5-minute expiry for OTP
+
+OTP Verification Screen
+Single field: OTP Code
+
+6-digit numeric code
+
+Auto-submit when 6 digits entered
+
+Resend OTP Button (only after 60 seconds cooldown)
+
+Verify Button (validates code)
+
+3 attempts allowed, then lockout for 15 minutes
+
+Sign In Screen
+Options:
+
+Email/Username Login
+
+Field: Email or Username
+
+Field: Password
+
+Show/Hide password toggle
+
+Sign In Button
+
+Forgot Password
+
+Link below password field
+
+Opens Forgot Password Screen
+
+Enter email → OTP sent → Reset password screen
+
+Social Login Options
+
+Continue with Google
+
+Uses Firebase Auth
+
+Automatically extracts: Name, Email, Profile Photo (if available)
+
+User prompted to complete missing fields (username, country)
+
+Continue with Microsoft
+
+Uses Firebase Auth
+
+Automatically extracts: Name, Email
+
+User prompted to complete missing fields (username, country, profile photo)
+
+Forgot Password Flow
+User enters email address
+
+OTP sent to email
+
+User enters OTP code
+
+User creates new password (twice)
+
+Password updated successfully
+
+Redirected to Sign In
+
+3.2 Profile Completion & Management
+Profile Creation/Edit Screen
+Sections:
+
+Profile Photo
+
+Displayed in circular frame
+
+Edit icon (camera) overlay
+
+Change/Update functionality
+
+Personal Information
+
+Display Name (editable)
+
+Username (editable - checks uniqueness)
+
+Country (editable)
+
+Bio/About Me
+
+Text area
+
+Max: 500 characters
+
+Placeholder: "Tell others about yourself..."
+
+Interests Section
+
+Searchable list of pre-defined interests
+
+Categories:
+
+Sports (Football, Basketball, Paddle Tennis, Tennis, Running, Swimming, Gym, Yoga, Cycling, Hiking, Squash, Golf, Boxing, Martial Arts, etc.)
+
+Arts & Culture (Photography, Painting, Drawing, Acting, Dancing, Music, Singing, Writing, Poetry, Cinema, Theatre, Museums, etc.)
+
+Lifestyle (Cooking, Baking, Reading, Gaming, Programming, Tech, Travel, Fashion, Beauty, DIY, Gardening, Pets, etc.)
+
+Adventure (Camping, Snorkeling, Scuba Diving, Paragliding, Surfing, Skiing, Snowboarding, Rock Climbing, etc.)
+
+Social (Dining, Coffee, Nightlife, Clubbing, Networking, Volunteering, etc.)
+
+Learning (Languages, Online Courses, Workshops, Seminars, etc.)
+
+Multi-select (click to add/remove)
+
+Chips display for selected interests
+
+Minimum: 3 interests
+
+Maximum: 15 interests
+
+Social Media Links (Optional)
+
+Facebook (username/URL)
+
+Instagram (username/URL)
+
+Twitter/X (username/URL)
+
+WhatsApp (phone number with country code)
+
+Each field has validation for correct format
+
+Actions:
+
+Save Profile (validates all fields, saves to database)
+
+Cancel (discards changes)
+
+Delete Account (danger zone - requires confirmation)
+
+3.3 Home Page (Main Dashboard)
+Top Section
+Welcome Notification
+
+"Welcome back, [DisplayName]!"
+
+Personalized greeting
+
+Appears for 3 seconds then disappears or can be dismissed
+
+Top Right: App Logo
+
+HobbyLink main logo
+
+Clicking returns to Home Page (if not already there)
+
+Top Left: Burger Menu (Hamburger Menu)
+
+Opens side drawer navigation
+
+Contains:
+
+User profile summary (photo + name)
+
+Quick links to all major screens
+
+Logout option
+
+Dark Mode toggle
+
+App version
+
+Middle Section
+"Complete Your Profile" Banner
+
+Only appears if user hasn't completed profile
+
+Full-width banner with gradient background
+
+Text: "Complete your profile to get better matches!"
+
+Complete Profile Button → navigates to Profile Edit Screen
+
+Disappears after profile is 100% complete
+
+Activity Partner Search (Main Feature)
+
+Title: "Find an Activity Partner" or "Search for activity partners"
+
+Text Box: Large, multi-line text input
+
+Placeholder: "Describe what you want to do... (e.g., 'Looking for 2 people to play paddle tennis at 8 PM in Nasr City')"
+
+Character limit: 1,000 characters
+
+Auto-resize as user types
+
+Accepts natural language
+
+Search Button (Primary action)
+
+Triggers AI analysis of text
+
+Extracts: activity type, location, time, preferences
+
+Navigates to Search Results Screen
+
+Secondary Action Buttons (Below Search Box)
+
+Right Side: "Create Event" Button
+
+Prominent button with icon
+
+Navigates to Event Creation Screen
+
+For users who want to organize group activities
+
+Left Side: "AI Assistant" Button
+
+Chat with AI icon
+
+Navigates to AI Chat Screen
+
+Doesn't save conversations
+
+Gives recommendations based on user's location
+
+Bottom Navigation Bar (Fixed, 5 Tabs)
+Profile (User icon)
+
+Events (Calendar icon)
+
+Home (House icon - default selected)
+
+Messages (Envelope/chat icon)
+
+Settings (Gear icon)
+
+3.4 Search Results Screen (Activity Partner Discovery)
+Results Display
+List view (scrollable)
+
+Items sorted by:
+
+Primary: Proximity (closest first)
+
+Secondary: Rating (highest first)
+
+Tertiary: Compatibility score (AI-based)
+
+Each Result Card Displays:
+Profile Photo (circular)
+
+Display Name
+
+Username (smaller text, grey)
+
+Rating (stars + number)
+
+Example: ⭐ 4.8 (27 ratings)
+
+Distance
+
+"2.3 km away" or "1.5 miles away"
+
+Based on user's current location
+
+Common Interests (chips)
+
+Shows up to 3 common interests
+
+Green highlight for exact matches
+
+Status Indicator
+
+Green dot: Online now
+
+Yellow dot: Online within last hour
+
+Grey dot: Offline/Inactive
+
+"Contact" Button
+
+Primary action button
+
+When clicked:
+
+Sends a greeting emoji (👋) to the user
+
+Cannot send another message until the other user responds
+
+Shows "Request sent" status
+
+Cancel option appears (sends ❌ emoji, cancels the request)
+
+Filter Options (Top)
+Filter icon (funnel)
+
+Opens filter drawer:
+
+Age Range (Slider: 18-65)
+
+Gender (Male/Female/All)
+
+Activity Type (filter by specific activity)
+
+Distance Radius (1km, 5km, 10km, 25km, 50km, Unlimited)
+
+3.5 Chat & Communication System
+Chat Start Process
+User clicks Contact on search result
+
+Emoji (👋) sent automatically
+
+Recipient receives notification
+
+Recipient views sender's full profile
+
+Recipient decides:
+
+Accept: Chat opens, free communication begins
+
+Reject: No response needed, sender cannot message again
+
+Chat Screen Features
+Header:
+
+Back arrow
+
+Recipient's name
+
+Online status indicator
+
+Message Area:
+
+Text messages
+
+Emojis
+
+Images (optional)
+
+Timestamps
+
+Read receipts (optional)
+
+Input Area:
+
+Text input field
+
+Send button
+
+Attachment button (optional)
+
+Voice note button (optional)
+
+Chat Rules
+After mutual acceptance, chat is permanently open
+
+No automatic expiration
+
+Users can exchange phone numbers
+
+Users can coordinate details freely
+
+Report User option available if needed
+
+Voice Call Feature (Optional - If feasible)
+Implemented using Agora or Vonage API
+
+Only voice calls (no video)
+
+Call button appears in chat after mutual acceptance
+
+End-to-end encrypted (if possible)
+
+Chat List (Messages Tab)
+Shows all active chats
+
+Sorted by latest message
+
+Shows:
+
+Contact photo
+
+Contact name
+
+Last message preview
+
+Timestamp
+
+Unread message count badge
+
+Swipe to delete/archive chat
+
+3.6 Event Creation & Management
+Event Creation Screen
+Fields:
+
+Event Name
+
+Text field
+
+Required
+
+Max: 50 characters
+
+Example: "Paddle Tennis Night - Nasr City Club"
+
+Interests/Activity Tags
+
+Same interest list as profile
+
+Multi-select (up to 5)
+
+Helps with search and discovery
+
+Event Location
+
+Two options:
+
+Use Map: Google Maps integration, drag pin to location
+
+Enter Address: Text input for manual entry
+
+Required
+
+Address displayed prominently
+
+Date & Time
+
+Date picker
+
+Time picker
+
+Required
+
+Cannot be in the past
+
+Timezone based on user's location
+
+Maximum Participants
+
+Number picker (2-30)
+
+Default: 10
+
+For large events, users accept responsibility
+
+Event Description (Optional)
+
+Text area
+
+Max: 2000 characters
+
+Additional details for participants
+
+Event Publishing
+Publish Event Button
+
+Event becomes visible in search results
+
+Notifications sent to relevant users
+
+Share options appear
+
+Event Sharing
+Share with Matched Users
+
+Show list of users user has connected with
+
+Select individuals to invite
+
+Share via Link
+
+Generate unique event link
+
+Link can be shared anywhere (WhatsApp, Facebook, etc.)
+
+Non-users can view event page but must register to join
+
+Share on Social Media
+
+WhatsApp
+
+Facebook
+
+Twitter/X
+
+Instagram
+
+Telegram
+
+Copy link to clipboard
+
+Event Discovery (Events Tab)
+Popular Events
+
+Events with most participants
+
+Events trending in user's area
+
+My Events
+
+Events user has created
+
+Events user has joined
+
+Event Search
+
+Search by: Name, Interest, Location, Date
+
+Filter by distance
+
+Joining an Event
+User finds event in search
+
+Clicks "Join Event"
+
+Request sent to Event Manager
+
+Manager approves/denies
+
+User added to Event Group upon approval
+
+Event Group (Group Chat)
+Created automatically when event has 2+ participants
+
+Members: All approved participants + Manager
+
+Features:
+
+Group chat with all members
+
+Event details pinned at top
+
+Share updates, photos, questions
+
+Member list visible
+
+Only Event Manager has admin privileges
+
+Event Management (Manager Only)
+Manager Privileges:
+
+Cancel Event
+
+Can cancel anytime before the event day
+
+Cannot cancel on the same day
+
+Cancellation triggers:
+
+Notifications to all participants
+
+Option for participants to apply as new manager
+
+AI randomly selects new manager from applicants
+
+If no applicants within 24 hours → event permanently cancelled
+
+New manager sets new time and location
+
+Edit Event
+
+Change time
+
+Change location
+
+Change participant limit
+
+Update description
+
+Remove Participant
+
+Can remove any participant
+
+Notification sent to removed user
+
+Send Announcements
+
+Mass message to all members
+
+Appears as announcement in group
+
+3.7 AI Assistant (Chatbot)
+AI Assistant Screen
+Dedicated chat interface
+
+Purpose: Provide activity recommendations based on user's location
+
+Conversation Style: Natural, human-like
+
+Capabilities
+Answers questions about activities (e.g., "Where can I play paddle tennis near me?")
+
+Suggests local places for activities (e.g., "Best gyms in Cairo")
+
+Provides general activity advice
+
+Engages in casual conversation (optional)
+
+Limitations
+Does NOT save conversations (100% ephemeral)
+
+Each session starts fresh
+
+Does not remember user preferences
+
+Does not use conversation history
+
+Cannot make matches between users
+
+AI Rules
+If user asks about matching with people → redirect to search feature
+
+If user asks anything non-activity related → responds but gently redirects
+
+Location-based suggestions use user's current location
+
+Uses Google Gemini or OpenAI API
+
+3.8 Ratings & Reviews System
+Rating Trigger
+After a meetup/activity or event
+
+App prompts both users to rate each other
+
+Can be skipped (but encouraged)
+
+Notification: "Rate your experience with [Username]"
+
+Rating Interface
+Star Rating (1-5)
+
+Clickable stars
+
+Required for rating submission
+
+1 = Poor, 5 = Excellent
+
+Comment (Optional)
+
+Text area
+
+Max: 300 characters
+
+Not required to submit rating
+
+Rating Tags (Optional)
+
+Pre-set tags: Punctual, Fun, Friendly, Organized, etc.
+
+Click to add
+
+Rating Calculation
+Each user has: Average Rating (out of 5)
+
+Total number of ratings
+
+Updated in real-time with each new rating
+
+Low ratings are averaged with all others (no permanent penalty)
+
+Rating Display
+Shown on user's profile
+
+Shown in search results
+
+Visible to all users (public)
+
+No Reply Feature
+Users cannot reply to ratings
+
+Maintains simplicity and reduces conflict
+
+3.9 Profile Page
+Profile View
+Public (anyone can view)
+
+Content:
+
+Profile Photo (large, circular)
+Display Name
+Username (with @ symbol)
+Rating (stars + number)
+Country (flag icon)
+Bio (if filled)
+Interests (chips)
+Social Media Links (clickable icons)
+Join Date
+Activity History (recent activities/events participated in)
+Profile Actions (For the user)
+Edit Profile (pencil icon)
+
+Share Profile (share link)
+
+Logout
+
+Profile Actions (For others viewing)
+Contact (same as search results - sends 👋 emoji)
+
+Report User (opens report dialog)
+
+3.10 Messages & Notifications
+Messages Tab (Inbox)
+Categories:
+
+Chats (active conversations)
+Requests (pending contact requests)
+Notifications (system messages)
+Chat List Items
+Contact photo
+
+Contact name
+
+Last message preview
+
+Timestamp
+
+Unread badge (number)
+
+Online/Offline indicator
+
+Swipe Actions
+Delete → remove chat
+
+Archive → move to archived
+
+Mute → disable notifications
+
+Notifications System
+Push Notifications (via FCM)
+
+In-App Notifications
+
+Trigger Events:
+
+New message received
+
+Contact request accepted
+
+Contact request received
+
+Event joined
+
+Event cancelled
+
+New event near user
+
+Rating received
+
+System announcements
+
+Notification Preferences
+Can be configured in Settings
+
+Toggle: On/Off for each category
+
+3.11 Settings Screen
+Settings Categories
+1. Language Settings
+
+Dropdown with all world languages (100+)
+
+Default: English
+
+Change affects entire app
+
+Persists after app restart
+
+Interface immediately updates
+
+2. Country Settings
+
+Update country
+
+Affects: Location-based search, timezone, currency
+
+3. Account Settings
+
+Change Password
+
+Current password required
+
+New password + confirmation
+
+OTP verification (optional)
+
+Change Email
+
+New email required
+
+OTP sent to new email
+
+OTP verification required
+
+Delete Account
+
+Danger zone
+
+Requires confirmation
+
+Deletes all user data
+
+Irreversible
+
+4. Privacy & Security
+
+Blocked Users (list and unblock)
+
+Reported Content (status)
+
+Two-Factor Authentication (optional)
+
+Session Management (view active sessions)
+
+5. Notifications Settings
+
+Toggle each notification type
+
+Sound preferences
+
+Vibration preferences
+
+6. Appearance
+
+Dark Mode Toggle
+
+Theme Color (primary color selection)
+
+Font Size (Small/Medium/Large)
+
+7. Help & Support
+
+FAQ
+
+Contact Support (email/chat)
+
+Report a Problem
+
+8. About HobbyLink
+
+App version
+
+Privacy Policy
+
+Terms of Service
+
+Acknowledgments
+
+3.12 VIP Subscription System
+Subscription Tiers
+Free Tier (Basic):
+
+Send only emoji (👋) to contact others
+
+See ads (banner/native ads)
+
+Normal search ranking
+
+Limited to 5 active contacts per week
+
+Basic support
+
+VIP Tier (Premium):
+
+Send text messages (custom messages)
+
+No ads (entirely ad-free)
+
+Exclusive VIP badge (👑) next to name
+
+Priority in search results
+
+Unlimited contacts
+
+Premium support
+
+Highlighted profile
+
+Can see who viewed their profile
+
+Subscription Plans
+Monthly: $9.99/month
+
+Quarterly: $24.99 (Save 17%)
+
+Annual: $79.99 (Save 33%) - available later
+
+No lifetime subscription
+
+Free Trial
+Initial: 14 days free trial
+
+Subsequent: 7 days free trial
+
+For new users only
+
+Auto-renews unless cancelled
+
+Reminder sent 3 days before trial ends
+
+Payment Methods
+Google Play In-App Purchase (Android)
+
+Apple App Store In-App Purchase (iOS)
+
+(Future) Direct credit card via Stripe
+
+Subscription Management
+View subscription status
+
+Upgrade/Downgrade options
+
+Cancel subscription
+
+Billing history
+
+3.13 Advertising System
+Ad Placement Strategy
+Goal: Generate revenue without annoying users
+
+1. Banner Ads
+
+Location: Bottom of Home Screen (above bottom nav)
+
+Location: Bottom of Search Results
+
+Size: 320x50 (mobile banner)
+
+Frequency: Limited to 3 per session
+
+2. Native Ads
+
+Blends with app content
+
+Appears in: Search results (every 5th result)
+
+Appears in: Event listings
+
+Looks natural and non-intrusive
+
+3. Sponsored Events
+
+Paid promotions by venues/businesses
+
+Featured at top of Events tab
+
+Clearly labeled "Sponsored"
+
+Ad-Free Experience:
+
+VIP subscribers see no ads at all
+
+Ad slots hidden completely
+
+3.14 Safety & Moderation System
+Content Moderation
+Automated profanity filter in all chat messages
+
+Image scanning for inappropriate content
+
+Report system for users to flag content/behavior
+
+Reporting Flow
+User clicks Report on profile or message
+
+Select reason from dropdown:
+
+Harassment/Bullying
+
+Inappropriate content
+
+Fake account
+
+Underage user (misrepresented)
+
+Suspicious behavior
+
+Other (with description)
+
+Submit report
+
+Admin/moderator reviews within 24-48 hours
+
+Penalty System
+First Offense: Warning (Notification)
+Second Offense: Temporary ban (7 days)
+Third Offense: Permanent account suspension
+
+Safety Guidelines (Displayed)
+"Meet in public, crowded places"
+
+"Avoid meeting at night or in isolated areas"
+
+"Inform a friend or family member of your location"
+
+"Trust your instincts - if something feels wrong, leave"
+
+"In case of emergency, call your local police"
+
+"HobbyLink is not responsible for any incidents outside the platform"
+
+Account Verification (Optional)
+Identity verification (photo ID)
+
+Verified badge for trusted users
+
+Increases trust and safety
+
+4. Technical Architecture
+4.1 Technology Stack
+Frontend
+Framework: Flutter (cross-platform)
+
+Language: Dart
+
+Platforms: Android & iOS
+
+State Management: Provider or Riverpod
+
+Navigation: GetX or GoRouter
+
+Backend
+Database: Firebase Firestore (NoSQL, real-time)
+
+Authentication: Firebase Auth
+
+Storage: Firebase Storage (images, files)
+
+Push Notifications: Firebase Cloud Messaging (FCM)
+
+Hosting: Firebase Hosting (for web dashboard)
+
+APIs & Services
+Google Maps API: Location selection, map integration
+
+Geolocator: User location detection
+
+GeoFire: Location-based queries (nearby search)
+
+Google Gemini API: AI text analysis for search
+
+Google Gemini API: AI Assistant (chatbot)
+
+Agora/Vonage API: Voice calling (optional)
+
+AdMob: In-app advertising
+
+RevenueCat: Subscription management (optional)
+
+Third-Party Integrations
+Google Sign-In
+
+Microsoft Sign-In
+
+Social Media Sharing SDKs
+
+Firebase Crashlytics: Error reporting
+
+Firebase Analytics: User analytics
+
+4.2 Database Schema
+users Collection
+json
+{
+  "uid": "string (Firebase Auth UID)",
+  "displayName": "string",
+  "username": "string (unique)",
+  "email": "string",
+  "phoneNumber": "string (optional)",
+  "country": "string",
+  "profileImage": "string (URL)",
+  "bio": "string (max 500 chars)",
+  "interests": ["array of interest IDs"],
+  "socialMedia": {
+    "facebook": "string",
+    "instagram": "string",
+    "twitter": "string",
+    "whatsapp": "string"
+  },
+  "location": {
+    "latitude": "number",
+    "longitude": "number"
+  },
+  "city": "string",
+  "isVIP": "boolean",
+  "subscriptionEnd": "timestamp",
+  "rating": "number (average)",
+  "totalRatings": "number",
+  "isMinor": "boolean",
+  "guardianEmail": "string (optional)",
+  "isVerified": "boolean",
+  "isBanned": "boolean",
+  "createdAt": "timestamp",
+  "lastActive": "timestamp",
+  "onlineStatus": "boolean"
+}
+interests Collection
+json
+{
+  "interestId": "string",
+  "name": "string",
+  "category": "string (Sports, Arts, etc.)",
+  "icon": "string (emoji or URL)"
+}
+activitySearch Collection (Search Requests)
+json
+{
+  "requestId": "string",
+  "userId": "string (FK)",
+  "text": "string (original search text)",
+  "parsedData": {
+    "activity": "string",
+    "location": "string",
+    "time": "string",
+    "preferences": {
+      "gender": "string",
+      "ageMin": "number",
+      "ageMax": "number"
+    },
+    "keywords": ["array of strings"]
+  },
+  "location": {
+    "latitude": "number",
+    "longitude": "number"
+  },
+  "status": "string (open/matched/expired)",
+  "matchedUserId": "string (optional)",
+  "createdAt": "timestamp",
+  "expiresAt": "timestamp"
+}
+searchResults Collection (Matches)
+json
+{
+  "resultId": "string",
+  "requestId": "string (FK)",
+  "userId": "string (FK - matched user)",
+  "score": "number (compatibility score)",
+  "distance": "number (in meters)",
+  "viewed": "boolean",
+  "contacted": "boolean",
+  "createdAt": "timestamp"
+}
+chatRequests Collection (Contact Requests)
+json
+{
+  "requestId": "string",
+  "fromUserId": "string (FK)",
+  "toUserId": "string (FK)",
+  "status": "string (pending/accepted/rejected/cancelled)",
+  "message": "string (👋 default)",
+  "createdAt": "timestamp",
+  "respondedAt": "timestamp (optional)"
+}
+chats Collection
+json
+{
+  "chatId": "string",
+  "participants": ["uid1", "uid2"],
+  "lastMessage": "string",
+  "lastMessageTime": "timestamp",
+  "unreadCount": {
+    "uid1": "number",
+    "uid2": "number"
+  },
+  "createdAt": "timestamp",
+  "isActive": "boolean"
+}
+messages Collection
+json
+{
+  "messageId": "string",
+  "chatId": "string (FK)",
+  "senderId": "string (FK)",
+  "text": "string",
+  "type": "string (text/image/voice)",
+  "mediaUrl": "string (optional)",
+  "timestamp": "timestamp",
+  "readBy": ["array of UIDs"]
+}
+events Collection
+json
+{
+  "eventId": "string",
+  "managerId": "string (FK)",
+  "name": "string",
+  "interests": ["array of interest IDs"],
+  "description": "string (optional)",
+  "location": {
+    "address": "string",
+    "latitude": "number",
+    "longitude": "number"
+  },
+  "dateTime": "timestamp",
+  "maxParticipants": "number",
+  "currentParticipants": ["array of UIDs"],
+  "status": "string (active/cancelled/completed)",
+  "shareLink": "string (unique)",
+  "cancelledAt": "timestamp (optional)",
+  "cancellationReason": "string (optional)",
+  "createdAt": "timestamp",
+  "cancellationEligible": "boolean (true if not event day)"
+}
+eventGroups Collection
+json
+{
+  "eventId": "string (FK)",
+  "messages": [
+    {
+      "senderId": "string",
+      "text": "string",
+      "timestamp": "timestamp",
+      "isAnnouncement": "boolean"
+    }
+  ],
+  "members": ["array of UIDs"],
+  "pendingMembers": ["array of UIDs"],
+  "createdAt": "timestamp"
+}
+eventJoinRequests Collection
+json
+{
+  "requestId": "string",
+  "eventId": "string (FK)",
+  "userId": "string (FK)",
+  "status": "string (pending/accepted/rejected)",
+  "createdAt": "timestamp",
+  "respondedAt": "timestamp (optional)"
+}
+eventCancellationQueue Collection
+json
+{
+  "eventId": "string (FK)",
+  "cancelledAt": "timestamp",
+  "applicants": ["array of UIDs"],
+  "status": "string (pending/assigned/expired)",
+  "newManagerId": "string (optional - after random selection)",
+  "expiresAt": "timestamp (24 hours later)"
+}
+aiConversations Collection (Temporary - Auto-delete)
+json
+{
+  "sessionId": "string",
+  "userId": "string (FK)",
+  "messages": [
+    {
+      "role": "string (user/assistant)",
+      "content": "string",
+      "timestamp": "timestamp"
+    }
+  ],
+  "location": {
+    "latitude": "number",
+    "longitude": "number"
+  },
+  "createdAt": "timestamp (expires after 24 hours)"
+}
+ratings Collection
+json
+{
+  "ratingId": "string",
+  "fromUserId": "string (FK)",
+  "toUserId": "string (FK)",
+  "requestId": "string (optional - FK to search)",
+  "eventId": "string (optional - FK to event)",
+  "rating": "number (1-5)",
+  "comment": "string (optional)",
+  "tags": ["array of strings"],
+  "createdAt": "timestamp"
+}
+reports Collection
+json
+{
+  "reportId": "string",
+  "reporterId": "string (FK)",
+  "reportedId": "string (FK)",
+  "type": "string (user/message/event)",
+  "reason": "string",
+  "description": "string",
+  "status": "string (pending/resolved/dismissed)",
+  "createdAt": "timestamp",
+  "resolvedAt": "timestamp (optional)",
+  "resolvedBy": "string (admin ID)"
+}
+bans Collection
+json
+{
+  "banId": "string",
+  "userId": "string (FK)",
+  "reason": "string",
+  "type": "string (warning/temporary/permanent)",
+  "duration": "number (days - optional)",
+  "expiresAt": "timestamp (optional - if temporary)",
+  "createdAt": "timestamp",
+  "adminId": "string (FK)"
+}
+subscriptions Collection
+json
+{
+  "subscriptionId": "string",
+  "userId": "string (FK)",
+  "plan": "string (monthly/quarterly/annual)",
+  "startDate": "timestamp",
+  "endDate": "timestamp",
+  "status": "string (active/expired/cancelled)",
+  "paymentMethod": "string",
+  "transactionId": "string",
+  "autoRenew": "boolean",
+  "cancelledAt": "timestamp (optional)"
+}
+notifications Collection
+json
+{
+  "notificationId": "string",
+  "userId": "string (FK)",
+  "title": "string",
+  "body": "string",
+  "type": "string (chat/request/event/rating/system)",
+  "data": {
+    "chatId": "string (optional)",
+    "eventId": "string (optional)",
+    "requestId": "string (optional)"
+  },
+  "read": "boolean",
+  "createdAt": "timestamp"
+}
+userDevices Collection (For FCM)
+json
+{
+  "deviceId": "string",
+  "userId": "string (FK)",
+  "fcmToken": "string",
+  "platform": "string (android/ios)",
+  "deviceModel": "string",
+  "appVersion": "string",
+  "createdAt": "timestamp",
+  "updatedAt": "timestamp"
+}
+5. User Flow Diagrams
+5.1 Registration Flow
+text
+Open App → Splash Screen (2s) → Onboarding Screen
+│
+├── Create Account → Sign Up Screen
+│   ├── Fill: Display Name, Username, Password, Confirm Password, Country
+│   ├── Upload: Profile Picture (optional)
+│   ├── Minor: Guardian Email
+│   └── Submit → Email Verification Screen
+│       └── Enter Email → OTP Screen
+│           └── Enter OTP → Complete Profile Screen
+│               └── Bio + Interests + Social Media
+│                   └── Save → Home Page
+│
+└── Sign In → Login Screen
+    ├── Email/Username + Password → Home Page
+    ├── Forgot Password → Email OTP → Reset Password → Login
+    ├── Google Sign-In → Complete Missing Fields → Home Page
+    └── Microsoft Sign-In → Complete Missing Fields → Home Page
+5.2 Activity Partner Search Flow
+text
+Home Page → "Find Activity Partner" Text Box
+│
+├── User writes: "Need 2 people for paddle tennis at 8 PM, Nasr City"
+│
+├── Click "Search" → AI analyzes text
+│   ├── Extracts: Activity (Paddle Tennis), Time (8 PM), Location (Nasr City)
+│   └── Determines: Gender (All), Age (18-35 default)
+│
+├── Search Results Screen
+│   ├── List of users sorted by: Distance, Rating
+│   ├── Each user: Photo, Name, Rating, Distance, Common Interests
+│   └── Filter options: Age, Gender, Radius
+│
+└── User clicks "Contact" on a profile
+    ├── Sends 👋 emoji
+    ├── Recipient receives notification
+    ├── Recipient views profile → Accept/Reject
+    ├── If Accept → Chat opens
+    └── If Reject → Request ends
+5.3 Event Creation & Management Flow
+text
+Home Page → "Create Event" Button
+│
+├── Event Form
+│   ├── Name, Interests, Location (Map/Address), Date/Time, Max Participants, Description
+│   └── Publish → Event Created
+│
+├── Share Event
+│   ├── With Matched Users (select individuals)
+│   ├── Via Link (generate unique link)
+│   └── Social Media (WhatsApp, Facebook, etc.)
+│
+├── Users discover event via Search/Feed
+│   ├── Click "Join Event" → Request to Manager
+│   └── Manager approves/denies
+│
+├── After Approval → Added to Event Group
+│   ├── Group chat with all participants
+│   └── Manager has admin privileges
+│
+└── Manager Actions
+    ├── Cancel Event (before event day)
+    │   ├── Notify all participants
+    │   ├── Participants can apply to be new manager
+    │   └── If no applications in 24 hours → event cancelled
+    ├── Edit Event (time/location)
+    └── Remove Participant
+5.4 Ratings Flow
+text
+Activity/Event Completed → Notification: "Rate your experience"
+│
+├── Rating Screen
+│   ├── Star rating (1-5)
+│   ├── Comment (optional)
+│   └── Tags (optional)
+│
+├── Submit Rating
+│   ├── Average rating updated
+│   └── Total ratings count updated
+│
+└── Rating displayed on profile and search results
+6. UI/UX Design Guidelines
+6.1 Brand Identity
+Name: HobbyLink
+Tagline: "Same interests, real connections"
+Logo Concepts
+Primary: Interlocking circles representing connection
+
+Secondary: Abstract "H" formed by two linked elements
+
+Color Palette:
+
+Primary: Red (#E53935 or #D32F2F) - Energy, passion, urgency
+
+Secondary: White (#FFFFFF) - Clean, modern
+
+Accent: Dark Gray (#2D2D2D) - Text, contrast
+
+Success: Green (#4CAF50) - Accept, positive actions
+
+Warning: Orange (#FF9800) - Alerts, warnings
+
+Background: Light Gray (#F5F5F5) - Clean UI
+
+Typography
+Primary Font: Roboto (Modern, clean, readable)
+
+Headings: Bold 24-32px
+
+Subheadings: Medium 16-20px
+
+Body: Regular 14-16px
+
+Small text: Light 12px
+
+Design Style
+Material Design (Google's design system)
+
+Flat Design with subtle shadows
+
+Rounded corners (8-12px radius)
+
+Consistent spacing (8px grid system)
+
+Minimalist icons (Material Icons)
+
+High contrast for accessibility
+
+6.2 Screen Designs
+Splash Screen
+Full red background
+
+Centered white logo
+
+Tagline below logo in white
+
+Smooth fade-in animation
+
+Duration: 2 seconds
+
+Onboarding Screen
+Three slides (swipeable):
+
+"Find activity partners nearby"
+"Create or join events"
+"Build real connections"
+Dots indicator at bottom
+
+Skip button (top right)
+
+Get Started / Create Account button at bottom
+
+Home Screen
+Top Bar:
+
+Left: Burger icon (menu)
+
+Center: App name or logo
+
+Right: Notifications icon (bell)
+
+Greeting Banner:
+
+"Welcome back, [Name]!"
+
+Disappears after 3 seconds
+
+Search Section:
+
+Title: "Find an activity partner"
+
+Large text box with placeholder text
+
+Search button (red, full-width)
+
+Action Buttons:
+
+Left: "AI Assistant" (bot icon)
+
+Right: "Create Event" (plus icon)
+
+Bottom Navigation Bar:
+
+5 tabs with labels and icons
+
+Active tab: Red indicator
+
+Search Results Screen
+Top: Search input + Filter icon
+
+Results in scrollable list
+
+Each card: Photo, Name, Rating, Distance, Interests chips
+
+Contact button on each card
+
+Chat Screen
+Top bar: Back arrow, contact name, status
+
+Messages area: Bubbles (sender = red, receiver = grey)
+
+Input area: Text field + Send button
+
+Optional: Voice call button
+
+Event Creation Screen
+Form fields with labels
+
+Map view for location (if using map)
+
+Publish button (bottom)
+
+Cancel button (top)
+
+Profile Screen
+Top: Cover photo area (optional)
+
+Profile photo (large, center)
+
+Name + Username
+
+Rating display
+
+Bio
+
+Interests chips
+
+Social media icons
+
+Edit button (if owner)
+
+Settings Screen
+Grouped categories with icons
+
+Toggle switches for toggles
+
+Dropdowns for selections
+
+Danger zone (delete account) at bottom
+
+6.3 Dark Mode
+Toggle in Settings
+
+Inverts colors: Red accent remains, background becomes dark gray (#121212)
+
+Text becomes white/light gray
+
+All screens support dark mode
+
+Follows Material Design dark theme guidelines
+
+6.4 Accessibility
+Font size adjustment
+
+High contrast mode (optional)
+
+Screen reader compatibility
+
+Suitable touch targets (minimum 48px)
+
+Clear labels for all interactive elements
+
+6.5 Animations & Transitions
+Smooth page transitions (slide from right)
+
+Button feedback (touch ripple effect)
+
+Loading spinners for async operations
+
+Success/error toast messages (bottom)
+
+Pull-to-refresh on lists
+
+Infinite scroll on search results
+
+7. Offline Behavior
+No Internet Connection
+App requires internet to function
+
+Offline Screen:
+
+Pop-up modal
+
+"No internet connection" message
+
+"Please connect to the internet to use HobbyLink"
+
+"Retry" button
+
+No offline caching (except images)
+
+User cannot access any feature offline
+
+Data Usage Optimization
+Images loaded with compression
+
+Lazy loading for lists
+
+Pagination for search results (20 per page)
+
+Caching of: User profiles, Interests list, Country list
+
+8. Security & Privacy
+8.1 Authentication Security
+Passwords hashed with bcrypt (via Firebase)
+
+Email verification required
+
+OTP 5-minute expiry
+
+Rate limiting on login attempts (5 attempts, then 15-min lockout)
+
+Session management (auto-logout after 30 days of inactivity)
+
+8.2 Data Security
+All data encrypted in transit (HTTPS)
+
+Firestore security rules (read/write permissions)
+
+User data only accessible to authorized users
+
+Profile photos stored in Firebase Storage (private)
+
+8.3 Privacy Policy
+Clear privacy policy displayed during registration
+
+User data not shared with third parties (except payment processors)
+
+Users can delete their data at any time
+
+GDPR/CCPA compliance (for users in applicable regions)
+
+8.4 Moderation
+Automated content moderation (profanity filter)
+
+User reporting system
+
+Admin dashboard for managing reports
+
+Temporary and permanent bans
+
+9. Monetization Strategy
+9.1 Revenue Streams
+VIP Subscriptions (Primary Revenue)
+
+Monthly: $9.99
+
+Quarterly: $24.99 (Save 17%)
+
+14-day free trial → 7 days later
+
+In-App Advertising
+
+Banner ads (non-VIP users)
+
+Native ads (non-VIP users)
+
+Sponsored content/events
+
+Business Partnerships (Future)
+
+Venue partnerships (gyms, clubs, cafes)
+
+Commission on bookings
+
+Featured listings
+
+9.2 Pricing Strategy
+Feature	Free	VIP
+Contact Users	👋 Emoji only	Any message
+Ads	✅ Yes	❌ No ads
+Badge	❌ No	✅ 👑 VIP
+Search Ranking	Normal	Priority
+Active Contacts	5/week	Unlimited
+Support	Basic	Premium
+Profile Highlight	❌ No	✅ Yes
+Viewed By	❌ No	✅ See who viewed
+9.3 Revenue Projections (Estimate)
+Year 1: 10,000 users → 1,000 VIP subscriptions → ~$120,000/year
+
+Year 2: 50,000 users → 5,000 VIP subscriptions → ~$600,000/year
+
+Ad Revenue: ~$2,000/month (10,000 users)
+
+Total Year 2: ~$624,000/year
+
+10. Marketing & Growth Strategy
+10.1 Pre-Launch
+Landing page with email collection
+
+Social media teasers (Instagram, TikTok)
+
+Influencer partnerships (travel/hobby influencers)
+
+Referral program (invite friends → get 1 month free)
+
+10.2 Launch
+App Store/Google Play optimized listing
+
+Launch PR (tech blogs, lifestyle blogs)
+
+University partnerships (student ambassador program)
+
+Localized marketing (customized for each country)
+
+10.3 Post-Launch
+User referral program
+
+Social media challenges (#HobbyLinkChallenge)
+
+Monthly featured events
+
+Email newsletters
+
+Loyalty program (discounts for long-term users)
+
+11. Technical Requirements
+11.1 Platform Support
+Android: 5.0 (API 21) and above
+
+iOS: 12.0 and above
+
+Responsive: Supports all screen sizes
+
+11.2 Performance Requirements
+Launch time: <3 seconds
+
+App size: <50MB (without assets)
+
+Battery efficient (minimal background usage)
+
+60fps smooth scrolling
+
+11.3 Testing Requirements
+Unit testing (80% coverage)
+
+Integration testing
+
+UI testing (automated)
+
+Beta testing (TestFlight + Play Console)
+
+User Acceptance Testing (UAT)
+
+12. Development Timeline (MVP - 8 Weeks)
+Week	Milestone
+Week 1	Project setup, Firebase configuration, Database design
+Week 2	Registration, Login, Profile completion
+Week 3	Home Page, Search functionality, AI integration
+Week 4	Search Results, Contact Request, Basic Chat
+Week 5	Full Chat system, Notifications
+Week 6	Event creation, Event discovery, Event Groups
+Week 7	Ratings, Profile View, Settings
+Week 8	VIP subscription, Ads integration, Testing & Polish
+Post-Launch (Month 9-12)
+Voice call integration
+
+Event booking system (B2B)
+
+In-app payments (Stripe)
+
+Analytics dashboard
+
+13. Success Metrics (KPIs)
+User Metrics
+Daily Active Users (DAU): 15% of total users
+
+Monthly Active Users (MAU): 40% of total users
+
+User Retention (Day 30): 25%
+
+Time Spent (Daily): 15-20 minutes
+
+Engagement Metrics
+Search Actions per User: 5x/week
+
+Event Creation Rate: 3x/month
+
+Chat Open Rate: 70%
+
+Rating Submission Rate: 60%
+
+Business Metrics
+Conversion Rate (Free → VIP): 8-12%
+
+Monthly Recurring Revenue (MRR): $5,000+ (Year 1)
+
+Customer Lifetime Value (LTV): $75
+
+Customer Acquisition Cost (CAC): $5
+
+Safety Metrics
+Reported Users: <2% of all users
+
+Ban Rate: <0.5%
+
+Positive Feedback: >85%
+
+14. Future Enhancements (Roadmap)
+Version 2.0 (Month 6-9)
+□ Voice calling integration
+□ In-app payments for bookings
+□ Business accounts (venues, organizations)
+□ Live streaming of events
+□ Premium analytics for users
+Version 3.0 (Year 2)
+□ AI-powered event recommendations
+□ AR-based location finding
+□ Group video calls
+□ Cryptocurrency payments
+□ NFT rewards system (for early adopters)
+Version 4.0 (Year 3)
+□ Wearable integration (smartwatch)
+□ Integration with fitness apps (Strava, Fitbit)
+□ Machine learning for better matching
+□ Community forums
+□ Multi-language support (100+ languages - already planned)
+15. Risk Management
+15.1 Identified Risks
+Risk	Probability	Impact	Mitigation
+User safety issues	Medium	High	Strict moderation, reporting system, safety guidelines
+Low user adoption	Medium	High	Strong marketing, referral program, influencers
+Technical downtime	Low	Medium	Redundant infrastructure, regular backups
+Payment failure	Low	Low	Multiple payment providers, retry mechanisms
+Legal issues	Medium	High	Clear ToS, privacy policy, legal review
+Competition	Medium	Medium	Unique AI features, community building
+15.2 Contingency Plans
+Dedicated moderation team
+
+24/7 technical support
+
+Automated backups (daily)
+
+Escalation procedures for safety issues
+
+Insurance (for events/liability)
+
+16. Conclusion
+HobbyLink presents a comprehensive solution to the modern problem of finding compatible activity partners and building real-world connections through shared interests. With its combination of AI-powered matching, event management, and community building features, the application has the potential to become a leading platform in the social discovery space.
+
+The detailed user journey, robust technical architecture, and thoughtful monetization strategy position HobbyLink for sustainable growth and profitability. The focus on safety, user experience, and community building will be key differentiators in the market.
+
+Ready for development!
+
+Appendix
+A. Glossary of Terms
+OTP: One-Time Password
+
+FCM: Firebase Cloud Messaging
+
+MVP: Minimum Viable Product
+
+UI/UX: User Interface / User Experience
+
+B2B: Business-to-Business
+
+AI: Artificial Intelligence
+
+API: Application Programming Interface
+
+Firestore: Firebase's NoSQL database
+
+Gemini: Google's AI model
+
+Agora: Voice/Video calling API
+
+B. References
+Google Firebase Documentation
+
+Flutter Development Guide
+
+Material Design Guidelines
+
+App Store/Google Play Guidelines
+
+GDPR Compliance Requirements
+
+End of Technical Report
+
+This comprehensive report contains everything needed to begin development of the HobbyLink application. The document includes all user flows, database schemas, technical specifications, and business strategy elements required for a successful launch.
+
+اضافات نسيت احطها بس محتاجنها جدا:
+Section 4.14: نظام السمعة والثقة (Trust & Safety Rating)
+FR-25: نظام التقييم الأمني المتقدم
+Priority: High
+Description: نظام تقييم دقيق بعد كل خروجة لضمان السلامة وبناء الثقة في المجتمع
+Acceptance Criteria:
+
+معايير التقييم (4 محاور رئيسية):
+الالتزام بالمواعيد (Punctuality)
+
+وصول في المعاد المحدد (5 نجوم)
+
+تأخير بسيط (3 نجوم)
+
+تأخير كبير أو عدم حضور (نجمة واحدة)
+
+السلوك والأدب (Behavior & Respect)
+
+شخص محترم ولطيف (5 نجوم)
+
+محادثة جيدة (3-4 نجوم)
+
+سلوك غير لائق (نجمة واحدة)
+
+الأمان والثقة (Safety & Trust)
+
+شخص آمن وموثوق (5 نجوم)
+
+محايد (3 نجوم)
+
+تصرف مريب (نجمة واحدة)
+
+التواصل (Communication)
+
+تواصل ممتاز قبل وبعد الخروجة (5 نجوم)
+
+تواصل بسيط (3 نجوم)
+
+عدم تواصل (نجمة واحدة)
+
+نظام الألوان والتقييم:
+التقييم	اللون	المعنى
+4.5 - 5.0	🟢 أخضر	موثوق جداً (آمن)
+3.5 - 4.4	🟡 أصفر	جيد (يحتاج حذر)
+2.5 - 3.4	🟠 برتقالي	متوسط (يفضل الحذر)
+1.0 - 2.4	🔴 أحمر	غير موثوق (تجنب)
+مميزات إضافية:
+تقييم إجباري بعد كل خروجة (لا يمكن تخطيه)
+
+إمكانية الرد على التقييمات (توضيح الموقف)
+
+تقييم الطرفين مجهول (الاسم مش بيظهر للتقييم، بس بيظهر للطرف التاني)
+
+تقييم فوري (المستخدم يقدر يقيّم خلال ساعة من انتهاء الخروجة)
+
+تحديث التقييم (متوسط التقييمات يظهر على البروفايل)
+
+تحذيرات أمنية:
+إذا نزل التقييم عن 2.5 → يظهر تحذير "هذا المستخدم غير موثوق" للآخرين
+
+إذا نزل عن 1.5 → يتم تعليق الحساب مؤقتاً لحين التحقيق
+
+إذا تكرر التقييم المنخفض → حظر نهائي
+
+واجهة التقييم:
+text
+┌─────────────────────────────┐
+│  🌟 قيم تجربتك مع [Username] │
+├─────────────────────────────┤
+│  ⏰ الالتزام بالمواعيد       │
+│  ★★★★☆                       │
+│                               │
+│  🤝 السلوك والأدب             │
+│  ★★★★★                       │
+│                               │
+│  🛡️ الأمان والثقة             │
+│  ★★★★★                       │
+│                               │
+│  💬 التواصل                   │
+│  ★★★★☆                       │
+│                               │
+│  📝 تعليق إضافي (اختياري)     │
+│  [_____________________]      │
+│                               │
+│  [إرسال التقييم]              │
+└─────────────────────────────┘
+Section 4.15: الخريطة الحية الفورية (Live Activity Radar)
+FR-26: خريطة الأنشطة القريبة
+Priority: High
+Description: واجهة رئيسية تعرض خريطة تفاعلية مع نقاط حمراء وصفراء للأنشطة القريبة
+Acceptance Criteria:
+
+مكونات الخريطة:
+نقاط الأنشطة (Activity Dots)
+
+🔴 نقطة حمراء: شخص يبحث عن شريك نشاط في هذه اللحظة
+
+🟡 نقطة صفراء: شخص مستعد للقاء خلال ساعة
+
+🟢 نقطة خضراء: شخص نشط حالياً (يمكن التواصل معه)
+
+⚪ نقطة بيضاء: شخص غير نشط (غير متاح)
+
+عند الضغط على نقطة:
+
+يظهر بروفايل مصغر للشخص
+
+النشاط المطلوب
+
+المسافة
+
+التقييم
+
+زر "تواصل"
+
+الفلترة المباشرة:
+
+فلتر حسب النشاط (رياضة، قراءة، الخ)
+
+فلتر حسب المسافة (1-10 كم)
+
+فلتر حسب التقييم (4+ نجوم فقط)
+
+التحديث الفوري:
+
+الخريطة تتحدث كل 5 ثواني (Live)
+
+النقاط تتحرك مع المستخدمين
+
+النقاط تختفي بعد 30 دقيقة من عدم النشاط
+
+واجهة الخريطة:
+text
+┌─────────────────────────────┐
+│  🔍 [البحث عن نشاط]  🎯      │
+├─────────────────────────────┤
+│                               │
+│    🗺️ [خريطة جوجل]           │
+│                               │
+│       🔴 (أنشطة فورية)       │
+│      🟡 (متاحة خلال ساعة)    │
+│                               │
+│    📍 أنت هنا (نقطة زرقاء)   │
+│                               │
+│  ⚡ 3 أنشطة قريبة منك        │
+│  [رادار يبحث...]             │
+├─────────────────────────────┤
+│  🏠 📅 💬 👤               │
+└─────────────────────────────┘
+مميزات إضافية:
+زر "تحديث" لتحميل الأنشطة الجديدة
+
+زر "مركز الخريطة" للرجوع لموقعك الحالي
+
+إشعار فوري عند ظهور نشاط جديد قريب منك
+
+يمكن التبديل بين (Map View) و (List View)
+
+Section 4.16: نظام الشارات والإنجازات (Gamification)
+FR-27: نظام المكافآت والشارات
+Priority: Medium
+Description: تحفيز المستخدمين للتفاعل باستمرار من خلال شارات وألقاب
+Acceptance Criteria:
+
+أنواع الشارات:
+1. شارات النشاط (Activity Badges):
+
+الشارة	الشرط	المكافأة
+🏸 مدمن بادل	10 جلسات بادل	100 نقطة
+🏋️ حريف جيم	15 جلسة جيم	150 نقطة
+🚴 دراج محترف	10 رحلات دراجة	100 نقطة
+📚 قارئ نهم	5 جلسات قراءة	50 نقطة
+🎮 حريف جيمينج	5 جلسات ألعاب	50 نقطة
+✈️ رحالة أسبوعي	5 خروجات في أسبوع	200 نقطة
+🌍 مستكشف	3 أنشطة في مدن مختلفة	300 نقطة
+2. شارات المجتمع (Community Badges):
+
+الشارة	الشرط	المكافأة
+🤝 سفير التطبيق	دعوة 10 أصدقاء للتطبيق	500 نقطة
+⭐ موثوق	تقييم 4.5+ من 20 تقييم	200 نقطة
+🏅 نشط أسبوعياً	7 أيام متتالية نشاط	100 نقطة
+🌟 نجم التطبيق	50 تقييم 5 نجوم	500 نقطة
+💬 تواصلي	100 رسالة مرسلة	100 نقطة
+👑 ملك الحفلات	تنظيم 10 حفلات	300 نقطة
+3. شارات الأحداث (Event Badges):
+
+الشارة	الشرط	المكافأة
+🎉 منظم أول	أول حفلة ينظمها	50 نقطة
+🎊 ضيف دائم	حضور 5 حفلات	100 نقطة
+🏆 بطل الحفلة	تنظيم حفلة بأكثر من 20 شخص	200 نقطة
+🎭 رائد الأنشطة	حضور 3 حفلات مختلفة	150 نقطة
+نظام النقاط والمستويات:
+المستوى	النقاط المطلوبة	اللقب
+Bronze	0 - 500	مبتدئ (Newbie)
+Silver	501 - 1,500	نشط (Active)
+Gold	1,501 - 5,000	خبير (Expert)
+Platinum	5,001 - 15,000	محترف (Pro)
+Diamond	15,001 - 50,000	أسطورة (Legend)
+Elite	50,001+	أيقونة (Icon)
+واجهة الشارات:
+text
+┌─────────────────────────────┐
+│  🏆 إنجازاتي                 │
+├─────────────────────────────┤
+│  مستوى: Gold (خبير)          │
+│  النقاط: 3,245               │
+├─────────────────────────────┤
+│  الشارات التي حصلت عليها:    │
+│  🏸 مدمن بادل      ✅        │
+│  📚 قارئ نهم        ✅        │
+│  🤝 سفير التطبيق   🔒        │
+│  ⭐ موثوق           ✅        │
+│  🌟 نجم التطبيق    🔒        │
+│                               │
+│  الشارات القادمة:             │
+│  🏋️ حريف جيم (12/15)         │
+│  🎉 منظم أول (0/1)           │
+├─────────────────────────────┤
+│  [عرض كل الشارات]            │
+└─────────────────────────────┘
+مميزات إضافية:
+يظهر اللقب بجانب الاسم (مثلاً: أحمد - خبير 🥇)
+
+إشعار عند الحصول على شارة جديدة
+
+يمكن مشاركة الإنجازات على وسائل التواصل
+
+الشارات تظهر في البروفايل للجميع
+
+المكافآت:
+كل 1,000 نقطة = يوم VIP مجاني
+
+وصول لمستوى Platinum = أسبوع VIP مجاني
+
+وصول لمستوى Diamond = شهر VIP مجاني
+
+Section 4.17: اقتراحات الذكاء الاصطناعي للأنشطة
+FR-28: AI Recommendations
+Priority: Medium
+Description: ذكاء اصطناعي يقترح أنشطة مشتركة بناءً على اهتمامات المستخدمين
+Acceptance Criteria:
+
+آلية العمل:
+عندما يتطابق شخصان (يقبلوا التواصل مع بعض)
+
+يظهر اقتراح AI في الشات:
+
+text
+💡 بناءً على اهتماماتكما المشتركة:
+- أحمد يحب: 🏸 بادل، 📚 قراءة
+- سارة تحب: 🏸 بادل، 🎨 رسم
+
+نقترح عليكما:
+1. 🏸 لعب بادل في نادي الجزيرة (الأكثر توافقاً)
+2. 🎨 معرض فني + كوفي (نشاط ممتع)
+3. 📚 نادي قراءة + مناقشة (بديل هادئ)
+اقتراحات بناءً على التاريخ:
+
+لو عملوا نشاط قبل كده، يقترح نشاط جديد مختلف
+
+"آخر مرة لعبتما بادل، نقترح هذه المرة مشاهدة مباراة"
+
+اقتراحات بناءً على الوقت والمكان:
+
+لو الجو حار → يقترح أنشطة داخلية
+
+لو الجو لطيف → يقترح أنشطة خارجية
+
+لو في حدث قريب → يقترح حضور الحدث
+
+أنواع الاقتراحات:
+النوع	الوصف	مثال
+نشاط رياضي	رياضة مشتركة	بادل، تنس، جري
+نشاط ثقافي	فنون، متاحف	معرض، مسرح
+نشاط ترفيهي	ترفيه، ألعاب	سينما، بولينج
+نشاط اجتماعي	مقابلات، لقاءات	كوفي، عشاء
+نشاط تعليمي	تعلم، ورش	ورشة رسم، لغة
+واجهة الاقتراحات:
+text
+┌─────────────────────────────┐
+│  🤖 اقتراحات الذكاء الاصطناعي│
+├─────────────────────────────┤
+│  اهتماماتكما المتقاطعة:     │
+│  🏸 بادل، 📚 قراءة، 🎨 رسم  │
+├─────────────────────────────┤
+│  نقترح عليكما:               │
+│                               │
+│  🥇 1. 🏸 بادل في نادي          │
+│      الجزيرة (تناسب 95%)      │
+│      📍 2.3 كم منك             │
+│      ⏰ 8 مساءً                │
+│      [تفاصيل] [انضم]          │
+│                               │
+│  🥈 2. 🎨 معرض فني + كوفي     │
+│      (تناسب 78%)              │
+│      📍 1.5 كم منك             │
+│      ⏰ 6 مساءً                │
+│      [تفاصيل] [انضم]          │
+│                               │
+│  🥉 3. 📚 نادي قراءة           │
+│      (تناسب 65%)              │
+│      📍 4.1 كم منك             │
+│      ⏰ 7 مساءً                │
+│      [تفاصيل] [انضم]          │
+├─────────────────────────────┤
+│  [اطلب اقتراح آخر]            │
+└─────────────────────────────┘
+مميزات إضافية:
+نسبة التوافق (Match Score): من 0% لـ 100%
+
+اقتراحات متعددة: 3 اقتراحات على الأقل
+
+إمكانية رفض الاقتراح → يظهر اقتراح جديد
+
+تقييم الاقتراح (هل عجبك؟) → يتحسن مع الوقت
+
+التعلم من السلوك: كلما اختار المستخدم اقتراحات معينة، الذكاء الاصطناعي يتعلم تفضيلاته
+
+📋 تحديث الجدول الزمني (MVP Timeline) مع الأفكار الجديدة
+الأسبوع	المهام
+Week 1	Project setup, Firebase configuration, Database design
+Week 2	Registration, Login, Profile completion
+Week 3	Home Page, Search functionality, AI integration
+Week 4	Search Results, Contact Request, Basic Chat
+Week 5	Full Chat system, Notifications
+Week 6	Event creation, Event discovery, Event Groups
+Week 7	Ratings, Profile View, Settings
+Week 8	VIP subscription, Ads integration
+Week 9	📍 Live Activity Radar (Map View)
+Week 10	🏅 Gamification (Badges & Achievements)
+Week 11	🤖 AI Recommendations
+Week 12	🔒 Trust & Safety System
+Week 13	Testing, Bug fixes, Polish
+Week 14	Launch
+💡 الأولوية (Priority)
+الميزة	الأولوية	السبب
+نظام السمعة والثقة	🔴 P0 (Critical)	الأمان هو أهم حاجة في التطبيق
+الخريطة الحية	🟠 P1 (High)	تجربة مستخدم مميزة وجذابة
+نظام الشارات	🟡 P2 (Medium)	تحفيز وتشجيع المستخدمين
+اقتراحات AI	🟡 P2 (Medium)	تحسين تجربة المستخدم
+
+صح نسيت اقولك انه كل شخص بيبقا ليه لينك للبروفايل بتاعه يبعته لصحابه الي بيستخدموا نفس التطبيق  عشان يعملو فولو لبعض وهكذا وكمان من جوا التطبيق في الصفحه الرئيسيه من فوق جنب لوجو التطبيق هيبقا في زرار سيرش لما يدوس عليه يودي لشاشه فيها تيكستبوكس للسيرش وتحته في الناس الي هما فريندس او الي عاملهم فولو ولما والناس دي بتتغير كل ما تكتب حرف جديد فاهمني بتتغير على حسب الحرف وبرضو اللين ك بتاع البروفايل لو حد مش مسجل في التطبيق يقدر يخش اللينك ويشوف من المتصفح لاكن لو عايز يعمل فولو لازم ينزل التطبيق ويعمل حساب 
+صح معلومه قولت اقولهالك معرفش هتفيدك ب اي هيا ان التطبيق هيبقا اندوريد بس وكمان مش هننزله على جوجل بلاي احنا هنزله على itch.io وكمان هنعمل موقع للتطبيق الناس تقدر نزل التطبيق منه

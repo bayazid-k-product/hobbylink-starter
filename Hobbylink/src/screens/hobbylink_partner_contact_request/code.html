@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HobbyLink - Connect with Sarah Jenkins</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght,GRAD@100..1000,-200..150&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-highest": "#e5e2e1",
+            "tertiary-fixed-dim": "#78dc77",
+            "primary-container": "#db322f",
+            "tertiary": "#006b1b",
+            "secondary-container": "#ff9800",
+            "secondary-fixed": "#ffdcbe",
+            "primary-fixed": "#ffdad6",
+            "on-error-container": "#93000a",
+            "surface-container-low": "#f6f3f2",
+            "tertiary-fixed": "#94f990",
+            "on-primary-container": "#fffbff",
+            "on-surface-variant": "#5b403d",
+            "surface-variant": "#e5e2e1",
+            "primary-fixed-dim": "#ffb4ac",
+            "background": "#fcf9f8",
+            "surface-dim": "#dcd9d9",
+            "on-error": "#ffffff",
+            "on-tertiary-fixed-variant": "#005313",
+            "secondary": "#8b5000",
+            "outline-variant": "#e4beb9",
+            "on-secondary": "#ffffff",
+            "on-secondary-fixed-variant": "#693c00",
+            "surface-container-high": "#eae7e7",
+            "on-primary": "#ffffff",
+            "surface-container": "#f0eded",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-fixed": "#002204",
+            "error": "#ba1a1a",
+            "secondary-fixed-dim": "#ffb870",
+            "tertiary-container": "#1e862d",
+            "on-secondary-fixed": "#2c1600",
+            "inverse-primary": "#ffb4ac",
+            "on-tertiary-container": "#f7fff1",
+            "surface-bright": "#fcf9f8",
+            "primary": "#b7131a",
+            "surface-container-lowest": "#ffffff",
+            "on-surface": "#1b1c1c",
+            "on-primary-fixed-variant": "#93000d",
+            "surface": "#fcf9f8",
+            "on-primary-fixed": "#410002",
+            "on-background": "#1b1c1c",
+            "surface-tint": "#bb171c",
+            "inverse-surface": "#303030",
+            "error-container": "#ffdad6",
+            "on-secondary-container": "#653900",
+            "outline": "#906f6c",
+            "inverse-on-surface": "#f3f0ef"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "24px",
+            "space-2xl": "48px",
+            "space-2xs": "4px",
+            "space-md": "16px",
+            "space-xl": "32px",
+            "gutter": "16px",
+            "space-sm": "12px",
+            "space-xs": "8px",
+            "margin-mobile": "16px",
+            "touch-target-min": "48px",
+            "margin-tablet": "24px"
+          },
+          "fontFamily": {
+            "body-sm": ["Roboto Flex"],
+            "body-lg": ["Roboto Flex"],
+            "label-sm": ["Roboto Flex"],
+            "label-lg": ["Roboto Flex"],
+            "label-md": ["Roboto Flex"],
+            "headline-lg-mobile": ["Roboto Flex"],
+            "body-md": ["Roboto Flex"],
+            "headline-lg": ["Roboto Flex"],
+            "display-lg": ["Roboto Flex"],
+            "headline-sm": ["Roboto Flex"],
+            "headline-md": ["Roboto Flex"]
+          },
+          "fontSize": {
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body-md text-on-surface antialiased min-h-screen flex justify-center items-end sm:items-center p-0 sm:p-4">
+<!-- Background App Screen Simulation (Level 0 / Level 1) -->
+<div aria-hidden="true" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-30 transition-opacity"></div>
+<div class="hidden sm:block fixed inset-0 z-10 overflow-hidden pointer-events-none opacity-40">
+<div class="max-w-md mx-auto p-4 space-y-4 pt-12">
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm">
+<div class="h-6 bg-surface-container rounded w-3/4 mb-2"></div>
+<div class="h-4 bg-surface-container-low rounded w-1/2"></div>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm">
+<div class="h-40 bg-surface-container-low rounded-lg mb-2"></div>
+<div class="h-5 bg-surface-container rounded w-2/3"></div>
+</div>
+</div>
+</div>
+<!-- Bottom Sheet Modal Container (Level 4 Elevation, Mobile Viewport Locked) -->
+<main class="relative z-40 w-full max-w-md bg-surface-container-lowest rounded-t-[28px] sm:rounded-[28px] shadow-[0px_12px_24px_rgba(0,0,0,0.16),0px_4px_8px_rgba(0,0,0,0.10)] overflow-hidden flex flex-col max-h-[813px]">
+<!-- Drag Handle Area -->
+<div class="w-full flex items-center justify-center pt-space-xs pb-space-2xs cursor-grab active:cursor-grabbing">
+<div class="w-10 h-1.5 rounded-full bg-surface-container-highest"></div>
+</div>
+<!-- Header Section -->
+<header class="px-margin-mobile pt-space-2xs pb-space-sm flex items-center justify-between">
+<div>
+<span class="text-label-sm font-label-sm text-primary uppercase tracking-wider">New Handshake Request</span>
+<h1 class="text-headline-sm font-headline-sm text-on-surface">Connect with Sarah Jenkins</h1>
+</div>
+<button aria-label="Close sheet" class="w-touch-target-min h-touch-target-min rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container active:scale-95 transition-transform duration-150" type="button">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</header>
+<!-- Scrollable Modal Body Content -->
+<div class="px-margin-mobile overflow-y-auto space-y-space-md pb-space-lg">
+<!-- Sarah's Mini Profile Preview Card (Level 1 Elevation) -->
+<section class="bg-surface-container-low p-space-md rounded-xl border border-surface-container-highest relative">
+<div class="flex items-start gap-space-sm">
+<!-- Avatar with Live Radar Activity Indicator -->
+<div class="relative shrink-0">
+<img class="w-14 h-14 rounded-full object-cover border-2 border-surface-container-lowest shadow-sm" data-alt="A portrait photo of a cheerful athletic woman outdoors in sportswear with bright sunny daylight, light-mode natural aesthetic with warm energy and pristine sharpness." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ3fwNJhZmM0BDGaeXbeODYcONrw14gfuA7Ytm6srRWw_NfXyxTREGxDAl6Nq1OZa-MWlgWXB24CsM36oFS8eN3dVNdK28_9W7Ov_hh1ixpEYMJjwPNZOrKWns8UfcXkvmwBYi-J7HSiPZGVtvSpTcFmGAv6TdTSzwtw6Kr8oBq9zbq8m11VyP7ZmNJRFU7n3tUHfGeqA1_LDIFeK_sEoE8x-DYk068KXyo-7eaYOrzCjlnolrJjDrqA"/>
+<span class="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-tertiary border-2 border-surface-container-lowest" title="Active Now"></span>
+</div>
+<!-- User Details -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="text-headline-sm font-headline-sm text-on-surface truncate">Sarah Jenkins</span>
+<!-- Verified Trust Badge -->
+<span class="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[14px]" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+                Verified
+              </span>
+</div>
+<!-- Trust Rating & Distance Row -->
+<div class="flex items-center gap-space-sm mt-1 text-label-md font-label-md text-on-surface-variant">
+<span class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[16px] text-secondary" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<strong class="font-bold text-on-surface">4.9</strong> Trust Rating
+              </span>
+<span class="inline-block w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[15px]" data-icon="near_me">near_me</span>
+                1.4 km away
+              </span>
+</div>
+<!-- Mutual Interest Pill -->
+<div class="mt-2.5 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[16px]" data-icon="sports_tennis">sports_tennis</span>
+<span class="text-body-sm font-body-sm text-on-surface truncate">
+                Mutual Interest: <strong class="font-semibold text-on-surface">Paddle Tennis &amp; 5k Running</strong>
+</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Connection Mechanics Explanation Header -->
+<div>
+<h2 class="text-label-lg font-label-lg text-on-surface">Choose Connection Handshake</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Select how you want to introduce yourself to Sarah.</p>
+</div>
+<!-- Handshake Options (Interactive Form Radio Selection) -->
+<fieldset class="space-y-space-sm" id="handshake-group">
+<legend class="sr-only">Handshake Tier Options</legend>
+<!-- Option 1: Free Tier / Default (Friendly Wave) -->
+<label class="group relative block p-space-md rounded-xl border-2 border-primary bg-primary-fixed/20 cursor-pointer transition-all duration-150 shadow-sm" id="label-free">
+<input checked="" class="sr-only" id="tier-free" name="handshake_tier" onchange="handleTierChange('free')" type="radio" value="free"/>
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-start gap-space-sm">
+<span aria-hidden="true" class="text-2xl select-none leading-none mt-0.5">👋</span>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-label-lg font-label-lg text-on-surface">Send Friendly Wave</span>
+<span class="px-2 py-0.5 bg-surface-container-highest text-on-surface-variant rounded-full text-label-sm font-label-sm">Free</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1 leading-relaxed">
+                  Free basic greeting. Sarah will see your profile and decide whether to accept and open direct chat.
+                </p>
+<!-- Quota Counter -->
+<div class="mt-2.5 inline-flex items-center gap-1.5 px-2.5 py-1 bg-surface-container-highest/80 rounded-md text-label-sm font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]" data-icon="counter_3">counter_3</span>
+<span>Free tier limit: <strong class="text-on-surface">3/5 contacts</strong> remaining this week</span>
+</div>
+</div>
+</div>
+<!-- Custom Radio Dot -->
+<div class="w-5 h-5 rounded-full border-2 border-primary flex items-center justify-center shrink-0 mt-0.5" id="radio-indicator-free">
+<div class="w-2.5 h-2.5 rounded-full bg-primary"></div>
+</div>
+</div>
+</label>
+<!-- Option 2: HobbyLink VIP Pro (Custom Message) -->
+<label class="group relative block p-space-md rounded-xl border border-secondary/40 bg-surface-container-lowest hover:border-secondary transition-all duration-150 cursor-pointer" id="label-vip">
+<input class="sr-only" id="tier-vip" name="handshake_tier" onchange="handleTierChange('vip')" type="radio" value="vip"/>
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-start gap-space-sm w-full">
+<!-- Golden VIP Crown Badge Icon -->
+<div class="w-7 h-7 rounded-lg bg-secondary-container flex items-center justify-center text-on-secondary-container shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]" data-icon="crown" data-weight="fill" style="font-variation-settings: 'FILL' 1;">crown</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="text-label-lg font-label-lg text-on-surface">Send Custom Message with VIP</span>
+<span class="px-2 py-0.5 bg-secondary text-on-secondary rounded-full text-label-sm font-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="bolt">bolt</span>
+                    VIP Pro
+                  </span>
+</div>
+<!-- VIP Pro Perks Badge -->
+<div class="mt-1.5 flex items-center gap-1.5 text-label-sm font-label-sm text-secondary">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span>
+<span>Skips emoji limitation • 3x higher response rate</span>
+</div>
+<!-- Textarea for Custom Message -->
+<div class="mt-3">
+<label class="sr-only" for="custom-vip-message">Direct introduction message to Sarah</label>
+<div class="relative rounded-lg border border-surface-container-highest focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all">
+<textarea class="w-full bg-surface-container-low text-on-surface rounded-lg p-3 text-body-sm font-body-sm border-0 focus:ring-0 resize-none placeholder:text-on-surface-variant/70" id="custom-vip-message" placeholder="Hi Sarah! Saw you play paddle tennis near Nasr City, would love to join your next match..." rows="3"></textarea>
+</div>
+<div class="mt-1 flex justify-between items-center text-label-sm font-label-sm text-on-surface-variant">
+<span>Includes direct notifications to Sarah</span>
+<span id="char-count">0 / 250</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Custom Radio Dot -->
+<div class="w-5 h-5 rounded-full border-2 border-outline-variant flex items-center justify-center shrink-0 mt-0.5" id="radio-indicator-vip">
+<div class="w-2.5 h-2.5 rounded-full bg-transparent"></div>
+</div>
+</div>
+</label>
+</fieldset>
+<!-- Safety Reminder Banner -->
+<aside aria-label="Safety Reminder" class="p-space-sm bg-surface-container-low rounded-xl border border-surface-container-highest flex items-start gap-space-xs text-on-surface-variant" role="note">
+<span class="material-symbols-outlined text-tertiary shrink-0 text-[20px] mt-0.5" data-icon="shield">shield</span>
+<p class="text-body-sm font-body-sm leading-tight text-on-surface-variant">
+<strong class="font-bold text-on-surface">Safety First:</strong> Always coordinate first meetups in public verified sporting clubs or cafes.
+        </p>
+</aside>
+</div>
+<!-- Bottom Fixed Actions Footer -->
+<footer class="p-margin-mobile bg-surface-container-lowest border-t border-surface-container-highest/60 flex flex-col gap-space-xs">
+<!-- Primary Action Button (Touch Target min 48px) -->
+<button class="w-full h-touch-target-min rounded-full bg-primary text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-2 hover:bg-primary-container active:scale-[0.98] transition-all shadow-md" id="submit-button" type="button">
+<span>Send Wave Request 👋</span>
+</button>
+<!-- Cancel Action Button -->
+<button class="w-full h-touch-target-min rounded-full bg-transparent text-on-surface-variant font-label-lg text-label-lg flex items-center justify-center hover:bg-surface-container active:scale-[0.98] transition-all" type="button">
+        Cancel
+      </button>
+</footer>
+</main>
+<script>
+    function handleTierChange(tier) {
+      const freeLabel = document.getElementById('label-free');
+      const vipLabel = document.getElementById('label-vip');
+      const freeIndicator = document.getElementById('radio-indicator-free');
+      const vipIndicator = document.getElementById('radio-indicator-vip');
+      const submitBtn = document.getElementById('submit-button');
+
+      if (tier === 'free') {
+        freeLabel.className = 'group relative block p-space-md rounded-xl border-2 border-primary bg-primary-fixed/20 cursor-pointer transition-all duration-150 shadow-sm';
+        vipLabel.className = 'group relative block p-space-md rounded-xl border border-secondary/40 bg-surface-container-lowest hover:border-secondary transition-all duration-150 cursor-pointer';
+
+        freeIndicator.className = 'w-5 h-5 rounded-full border-2 border-primary flex items-center justify-center shrink-0 mt-0.5';
+        freeIndicator.innerHTML = '<div class="w-2.5 h-2.5 rounded-full bg-primary"></div>';
+
+        vipIndicator.className = 'w-5 h-5 rounded-full border-2 border-outline-variant flex items-center justify-center shrink-0 mt-0.5';
+        vipIndicator.innerHTML = '<div class="w-2.5 h-2.5 rounded-full bg-transparent"></div>';
+
+        submitBtn.className = 'w-full h-touch-target-min rounded-full bg-primary text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-2 hover:bg-primary-container active:scale-[0.98] transition-all shadow-md';
+        submitBtn.innerHTML = '<span>Send Wave Request 👋</span>';
+      } else {
+        freeLabel.className = 'group relative block p-space-md rounded-xl border border-outline-variant/60 bg-surface-container-lowest hover:border-outline cursor-pointer transition-all duration-150';
+        vipLabel.className = 'group relative block p-space-md rounded-xl border-2 border-secondary bg-secondary-fixed/20 transition-all duration-150 cursor-pointer shadow-sm';
+
+        freeIndicator.className = 'w-5 h-5 rounded-full border-2 border-outline-variant flex items-center justify-center shrink-0 mt-0.5';
+        freeIndicator.innerHTML = '<div class="w-2.5 h-2.5 rounded-full bg-transparent"></div>';
+
+        vipIndicator.className = 'w-5 h-5 rounded-full border-2 border-secondary flex items-center justify-center shrink-0 mt-0.5';
+        vipIndicator.innerHTML = '<div class="w-2.5 h-2.5 rounded-full bg-secondary"></div>';
+
+        submitBtn.className = 'w-full h-touch-target-min rounded-full bg-secondary text-on-secondary font-label-lg text-label-lg flex items-center justify-center gap-2 hover:bg-secondary-container active:scale-[0.98] transition-all shadow-md';
+        submitBtn.innerHTML = '<span class="material-symbols-outlined text-[20px]" data-icon="bolt">bolt</span><span>Send VIP Direct Message</span>';
+        
+        document.getElementById('custom-vip-message').focus();
+      }
+    }
+
+    const textarea = document.getElementById('custom-vip-message');
+    const charCount = document.getElementById('char-count');
+    textarea.addEventListener('input', (e) => {
+      const len = e.target.value.length;
+      charCount.textContent = `${len} / 250`;
+      if (len > 0) {
+        document.getElementById('tier-vip').checked = true;
+        handleTierChange('vip');
+      }
+    });
+  </script>
+</body></html>

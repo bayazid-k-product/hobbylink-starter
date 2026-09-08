@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Edit Profile - HobbyLink</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Roboto Flex -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "background": "#fcf9f8",
+            "tertiary-fixed-dim": "#78dc77",
+            "primary-container": "#db322f",
+            "surface-tint": "#bb171c",
+            "on-secondary": "#ffffff",
+            "inverse-surface": "#303030",
+            "outline-variant": "#e4beb9",
+            "inverse-primary": "#ffb4ac",
+            "error": "#ba1a1a",
+            "surface-container-low": "#f6f3f2",
+            "surface-bright": "#fcf9f8",
+            "secondary-fixed": "#ffdcbe",
+            "surface-container-high": "#eae7e7",
+            "error-container": "#ffdad6",
+            "on-error": "#ffffff",
+            "on-surface-variant": "#5b403d",
+            "secondary-container": "#ff9800",
+            "on-secondary-fixed-variant": "#693c00",
+            "secondary-fixed-dim": "#ffb870",
+            "surface-container-highest": "#e5e2e1",
+            "on-primary-container": "#fffbff",
+            "on-tertiary": "#ffffff",
+            "surface-dim": "#dcd9d9",
+            "primary-fixed-dim": "#ffb4ac",
+            "outline": "#906f6c",
+            "on-primary": "#ffffff",
+            "on-primary-fixed-variant": "#93000d",
+            "primary": "#b7131a",
+            "primary-fixed": "#ffdad6",
+            "on-secondary-fixed": "#2c1600",
+            "on-tertiary-container": "#f7fff1",
+            "tertiary": "#006b1b",
+            "on-primary-fixed": "#410002",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-fixed-variant": "#005313",
+            "tertiary-fixed": "#94f990",
+            "surface": "#fcf9f8",
+            "tertiary-container": "#1e862d",
+            "on-tertiary-fixed": "#002204",
+            "inverse-on-surface": "#f3f0ef",
+            "on-secondary-container": "#653900",
+            "secondary": "#8b5000",
+            "on-background": "#1b1c1c",
+            "surface-container": "#f0eded",
+            "on-surface": "#1b1c1c",
+            "on-error-container": "#93000a",
+            "surface-variant": "#e5e2e1"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "16px",
+            "space-2xs": "4px",
+            "space-md": "16px",
+            "space-lg": "24px",
+            "space-sm": "12px",
+            "space-xs": "8px",
+            "margin-mobile": "16px",
+            "touch-target-min": "48px",
+            "space-xl": "32px",
+            "space-2xl": "48px",
+            "margin-tablet": "24px"
+          },
+          "fontFamily": {
+            "headline-sm": ["Roboto Flex"],
+            "body-md": ["Roboto Flex"],
+            "label-lg": ["Roboto Flex"],
+            "headline-lg-mobile": ["Roboto Flex"],
+            "headline-md": ["Roboto Flex"],
+            "body-lg": ["Roboto Flex"],
+            "label-md": ["Roboto Flex"],
+            "label-sm": ["Roboto Flex"],
+            "body-sm": ["Roboto Flex"],
+            "headline-lg": ["Roboto Flex"],
+            "display-lg": ["Roboto Flex"]
+          },
+          "fontSize": {
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex justify-center selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Mobile Screen Container (Max-W 600px) -->
+<div class="w-full max-w-[540px] bg-background min-h-screen flex flex-col pb-space-2xl relative shadow-2xl">
+<!-- Top App Bar (Task-focused: Back, Edit Profile, Save Action) -->
+<header class="sticky top-0 z-40 bg-surface shadow-sm px-margin-mobile h-touch-target-min flex items-center justify-between transition-shadow">
+<div class="flex items-center gap-space-xs">
+<button aria-label="Go back" class="w-touch-target-min h-touch-target-min flex items-center justify-center rounded-full hover:bg-surface-container active:scale-95 transition-transform duration-150 text-on-surface" type="button">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm text-on-surface">Edit Profile</h1>
+</div>
+<button class="h-[38px] px-space-md bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg rounded-full flex items-center justify-center shadow-sm active:scale-95 transition-all" type="button">
+        Save
+      </button>
+</header>
+<!-- Main Content Flow -->
+<main class="flex-1 px-margin-mobile pt-space-md flex flex-col gap-space-lg">
+<!-- 1. Profile Picture & Change Photo Prompt -->
+<section class="flex flex-col items-center justify-center pt-space-xs pb-space-2xs">
+<div class="relative group cursor-pointer">
+<!-- Avatar Container -->
+<div class="w-28 h-28 rounded-full ring-4 ring-surface-container-lowest shadow-md overflow-hidden bg-surface-container-high flex items-center justify-center relative">
+<img class="w-full h-full object-cover" data-alt="A clean, vibrant high-resolution studio portrait of Ahmed M., a friendly 28-year-old Egyptian software developer with warm expressive eyes, a neat short beard, wearing a crisp dark casual polo shirt against a bright neutral studio backdrop with soft diffused ambient lighting and subtle crimson tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgiUfl2IncJNg4SzKDGe2n8xl3NYlRai8zg4l-hZLgLGxyLvLdcy77RJrcXGlqXUbYvYHQluVwVFbeDYmj-UTLcAcS5XsBkSNfpVE53Ed3b1Axqo1KHm0U1lMorB7CWaQEwV4WOEyCvKRqf54E1dpehlG8Qsygetiei_GsrJdQC6PpY0MhEHfSkwz4cTScpJT3rjKvuDBQwwYzA-miMS_WRUjXZEaTZ41yd1jrNj2SdbI7S_lSXjEc9Q"/>
+</div>
+<!-- Camera Edit Badge Button -->
+<button aria-label="Change profile picture" class="absolute bottom-0 right-0 w-10 h-10 bg-primary text-on-primary rounded-full ring-2 ring-surface-container-lowest shadow-md flex items-center justify-center hover:bg-primary-container active:scale-90 transition-transform" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="photo_camera">photo_camera</span>
+</button>
+</div>
+<button class="mt-space-xs text-primary font-label-lg text-label-lg hover:underline active:scale-95 transition-transform" type="button">
+          Change Photo
+        </button>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">JPG, PNG or GIF up to 5MB</p>
+</section>
+<!-- 2. Personal Information Section -->
+<section class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm border border-surface-variant flex flex-col gap-space-md">
+<div class="flex items-center justify-between border-b border-surface-variant pb-space-2xs">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Personal Information</h2>
+<span class="font-label-sm text-label-sm text-tertiary bg-tertiary-fixed px-2 py-0.5 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="verified_user">verified_user</span> Verified
+          </span>
+</div>
+<!-- Display Name -->
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface-variant" for="displayName">Display Name</label>
+<div class="relative">
+<input class="w-full h-[52px] px-space-md bg-surface-container-low text-on-surface font-body-lg text-body-lg rounded-lg border border-surface-variant focus:border-primary focus:ring-1 focus:ring-primary focus:bg-surface-container-lowest transition-all outline-none" id="displayName" type="text" value="Ahmed M."/>
+</div>
+</div>
+<!-- Username with Live Validation Badge -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center">
+<label class="font-label-md text-label-md text-on-surface-variant" for="username">Username</label>
+<span class="font-label-sm text-label-sm text-tertiary flex items-center gap-0.5 font-medium">
+<span class="material-symbols-outlined text-[16px] text-tertiary" data-icon="check_circle">check_circle</span> Available
+            </span>
+</div>
+<div class="relative flex items-center">
+<span class="absolute left-4 text-on-surface-variant font-body-lg">@</span>
+<input class="w-full h-[52px] pl-9 pr-10 bg-surface-container-low text-on-surface font-body-lg text-body-lg rounded-lg border border-surface-variant focus:border-primary focus:ring-1 focus:ring-primary focus:bg-surface-container-lowest transition-all outline-none" id="username" type="text" value="ahmed_dev"/>
+<span class="material-symbols-outlined absolute right-3 text-tertiary text-[20px]" data-icon="check">check</span>
+</div>
+</div>
+<!-- Country / Region -->
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface-variant" for="country">Country / Region</label>
+<div class="relative flex items-center">
+<div class="absolute left-3.5 flex items-center pointer-events-none">
+<span class="text-xl">🇪🇬</span>
+</div>
+<select class="w-full h-[52px] pl-11 pr-10 bg-surface-container-low text-on-surface font-body-lg text-body-lg rounded-lg border border-surface-variant focus:border-primary focus:ring-1 focus:ring-primary focus:bg-surface-container-lowest transition-all outline-none appearance-none cursor-pointer" id="country">
+<option selected="" value="EG">Egypt</option>
+<option value="AE">United Arab Emirates</option>
+<option value="SA">Saudi Arabia</option>
+<option value="DE">Germany</option>
+<option value="UK">United Kingdom</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 text-on-surface-variant pointer-events-none" data-icon="arrow_drop_down">arrow_drop_down</span>
+</div>
+</div>
+<!-- Bio / About Me -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center">
+<label class="font-label-md text-label-md text-on-surface-variant" for="bio">Bio / About Me</label>
+<span class="font-label-sm text-label-sm text-on-surface-variant" id="bioCounter">138/500</span>
+</div>
+<textarea class="w-full p-space-md bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg border border-surface-variant focus:border-primary focus:ring-1 focus:ring-primary focus:bg-surface-container-lowest transition-all outline-none resize-none leading-relaxed" id="bio" maxlength="500" rows="4">Software developer, paddle tennis fanatic, and weekend explorer. Looking to organize friendly matches and join book circles around Cairo.</textarea>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Mention your current sports level, book preferences, or project ideas.</span>
+</div>
+</section>
+<!-- 3. Interests Section (FR-7) -->
+<section class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm border border-surface-variant flex flex-col gap-space-md">
+<div>
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Interests &amp; Hobbies</h2>
+<span class="font-label-sm text-label-sm text-primary font-bold bg-primary-fixed px-2.5 py-0.5 rounded-full">5 selected</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+            Select 3 to 15 interests to power your Hobby Radar match accuracy.
+          </p>
+</div>
+<!-- Search Bar for Hobbies -->
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[20px]" data-icon="search">search</span>
+<input class="w-full h-11 pl-10 pr-4 bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg border border-surface-variant focus:border-primary focus:ring-1 focus:ring-primary focus:bg-surface-container-lowest transition-all outline-none placeholder:text-on-surface-variant" placeholder="Search hobbies, crafts, or sports..." type="text"/>
+</div>
+<!-- Selected Interests Chips (Primary Red Active State) -->
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-md text-label-md text-on-surface-variant font-bold">Active Selections (5)</span>
+<button class="text-primary font-label-sm text-label-sm hover:underline" type="button">Clear all</button>
+</div>
+<div class="flex flex-wrap gap-2">
+<!-- Active 1 -->
+<button class="h-9 px-3 bg-primary text-on-primary rounded-full font-label-md text-label-md flex items-center gap-1.5 shadow-sm active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="sports_tennis">sports_tennis</span>
+<span>Paddle Tennis</span>
+<span class="material-symbols-outlined text-[16px] ml-0.5" data-icon="check">check</span>
+</button>
+<!-- Active 2 -->
+<button class="h-9 px-3 bg-primary text-on-primary rounded-full font-label-md text-label-md flex items-center gap-1.5 shadow-sm active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="coffee">coffee</span>
+<span>Specialty Coffee</span>
+<span class="material-symbols-outlined text-[16px] ml-0.5" data-icon="check">check</span>
+</button>
+<!-- Active 3 -->
+<button class="h-9 px-3 bg-primary text-on-primary rounded-full font-label-md text-label-md flex items-center gap-1.5 shadow-sm active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="directions_run">directions_run</span>
+<span>5k Running</span>
+<span class="material-symbols-outlined text-[16px] ml-0.5" data-icon="check">check</span>
+</button>
+<!-- Active 4 -->
+<button class="h-9 px-3 bg-primary text-on-primary rounded-full font-label-md text-label-md flex items-center gap-1.5 shadow-sm active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="casino">casino</span>
+<span>Board Games</span>
+<span class="material-symbols-outlined text-[16px] ml-0.5" data-icon="check">check</span>
+</button>
+<!-- Active 5 -->
+<button class="h-9 px-3 bg-primary text-on-primary rounded-full font-label-md text-label-md flex items-center gap-1.5 shadow-sm active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="photo_camera">photo_camera</span>
+<span>Street Photography</span>
+<span class="material-symbols-outlined text-[16px] ml-0.5" data-icon="check">check</span>
+</button>
+</div>
+</div>
+<!-- Suggested Unselected Chips -->
+<div>
+<span class="font-label-md text-label-md text-on-surface-variant font-bold mb-2 block">Popular in Cairo</span>
+<div class="flex flex-wrap gap-2">
+<button class="h-9 px-3 bg-surface-container-high hover:bg-surface-variant text-on-surface rounded-full font-label-md text-label-md flex items-center gap-1 active:scale-95 transition-transform border border-outline-variant/40" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="fitness_center">fitness_center</span>
+<span>+ Gym</span>
+</button>
+<button class="h-9 px-3 bg-surface-container-high hover:bg-surface-variant text-on-surface rounded-full font-label-md text-label-md flex items-center gap-1 active:scale-95 transition-transform border border-outline-variant/40" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="pedal_bike">pedal_bike</span>
+<span>+ Cycling</span>
+</button>
+<button class="h-9 px-3 bg-surface-container-high hover:bg-surface-variant text-on-surface rounded-full font-label-md text-label-md flex items-center gap-1 active:scale-95 transition-transform border border-outline-variant/40" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="skillet">skillet</span>
+<span>+ Cooking</span>
+</button>
+<button class="h-9 px-3 bg-surface-container-high hover:bg-surface-variant text-on-surface rounded-full font-label-md text-label-md flex items-center gap-1 active:scale-95 transition-transform border border-outline-variant/40" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="code">code</span>
+<span>+ Tech &amp; Coding</span>
+</button>
+<button class="h-9 px-3 bg-surface-container-high hover:bg-surface-variant text-on-surface rounded-full font-label-md text-label-md flex items-center gap-1 active:scale-95 transition-transform border border-outline-variant/40" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="hiking">hiking</span>
+<span>+ Hiking</span>
+</button>
+</div>
+</div>
+</section>
+<!-- 4. Social Media Links (Optional) -->
+<section class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm border border-surface-variant flex flex-col gap-space-md">
+<div class="flex items-center justify-between border-b border-surface-variant pb-space-2xs">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Social Connections</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Visible only to confirmed hobby event buddies</p>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Optional</span>
+</div>
+<div class="flex flex-col gap-3">
+<!-- Instagram -->
+<div class="relative flex items-center">
+<div class="absolute left-3 flex items-center text-on-surface-variant pointer-events-none">
+<span class="material-symbols-outlined text-[20px]" data-icon="photo_camera_front">photo_camera_front</span>
+</div>
+<input class="w-full h-11 pl-10 pr-4 bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg border border-surface-variant focus:border-primary focus:ring-1 focus:ring-primary focus:bg-surface-container-lowest transition-all outline-none placeholder:text-on-surface-variant" placeholder="Instagram username" type="text" value="@ahmed_captures"/>
+</div>
+<!-- Twitter / X -->
+<div class="relative flex items-center">
+<div class="absolute left-3 flex items-center text-on-surface-variant pointer-events-none">
+<span class="material-symbols-outlined text-[20px]" data-icon="tag">tag</span>
+</div>
+<input class="w-full h-11 pl-10 pr-4 bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg border border-surface-variant focus:border-primary focus:ring-1 focus:ring-primary focus:bg-surface-container-lowest transition-all outline-none placeholder:text-on-surface-variant" placeholder="Twitter / X handle" type="text" value="@ahmed_dev95"/>
+</div>
+<!-- WhatsApp -->
+<div class="relative flex items-center">
+<div class="absolute left-3 flex items-center text-on-surface-variant pointer-events-none">
+<span class="material-symbols-outlined text-[20px]" data-icon="chat">chat</span>
+</div>
+<input class="w-full h-11 pl-10 pr-4 bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg border border-surface-variant focus:border-primary focus:ring-1 focus:ring-primary focus:bg-surface-container-lowest transition-all outline-none placeholder:text-on-surface-variant" placeholder="WhatsApp contact phone" type="text" value="+20 100 892 4410"/>
+</div>
+<!-- Facebook -->
+<div class="relative flex items-center">
+<div class="absolute left-3 flex items-center text-on-surface-variant pointer-events-none">
+<span class="material-symbols-outlined text-[20px]" data-icon="link">link</span>
+</div>
+<input class="w-full h-11 pl-10 pr-4 bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg border border-surface-variant focus:border-primary focus:ring-1 focus:ring-primary focus:bg-surface-container-lowest transition-all outline-none placeholder:text-on-surface-variant" placeholder="Facebook profile URL" type="text"/>
+</div>
+</div>
+</section>
+<!-- 5. Danger Zone -->
+<section class="bg-error-container/20 p-space-md rounded-xl border border-error/30 flex flex-col gap-space-sm mb-6">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-error text-[24px] mt-0.5" data-icon="warning">warning</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-error">Danger Zone</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 leading-snug">
+              Permanently delete your profile, chat threads, and all hosted event history. This operation is irreversibly destructive.
+            </p>
+</div>
+</div>
+<div class="pt-2 flex justify-end">
+<button class="h-11 px-space-md border border-error text-error hover:bg-error/10 rounded-lg font-label-md text-label-md flex items-center justify-center gap-1.5 active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="delete_forever">delete_forever</span>
+            Delete Account
+          </button>
+</div>
+</section>
+</main>
+<!-- Bottom Fixed Save Bar for Ergonomics -->
+<div class="sticky bottom-0 bg-surface/95 backdrop-blur-md px-margin-mobile py-3 border-t border-surface-variant flex items-center gap-3">
+<button class="w-1/3 h-12 rounded-xl border border-surface-variant font-label-lg text-label-lg text-on-surface hover:bg-surface-container active:scale-95 transition-transform flex items-center justify-center" type="button">
+        Cancel
+      </button>
+<button class="w-2/3 h-12 bg-primary hover:bg-primary-container text-on-primary rounded-xl font-label-lg text-label-lg shadow-md flex items-center justify-center gap-2 active:scale-98 transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="check_circle">check_circle</span>
+        Save Changes
+      </button>
+</div>
+</div>
+<!-- Interactive script for Bio counter & Chip interaction -->
+<script>
+    const bioArea = document.getElementById('bio');
+    const bioCounter = document.getElementById('bioCounter');
+    if (bioArea && bioCounter) {
+      bioArea.addEventListener('input', () => {
+        bioCounter.textContent = `${bioArea.value.length}/500`;
+      });
+    }
+  </script>
+</body></html>

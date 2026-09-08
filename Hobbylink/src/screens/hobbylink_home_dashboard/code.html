@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HobbyLink - Home Dashboard</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary-fixed-dim": "#ffb4ac",
+            "inverse-surface": "#303030",
+            "surface": "#fcf9f8",
+            "surface-tint": "#bb171c",
+            "tertiary-fixed": "#94f990",
+            "on-secondary-fixed-variant": "#693c00",
+            "secondary-fixed-dim": "#ffb870",
+            "on-primary-fixed-variant": "#93000d",
+            "on-tertiary": "#ffffff",
+            "on-surface": "#1b1c1c",
+            "on-secondary-container": "#653900",
+            "background": "#fcf9f8",
+            "primary-fixed": "#ffdad6",
+            "secondary-fixed": "#ffdcbe",
+            "on-primary-container": "#fffbff",
+            "surface-container": "#f0eded",
+            "tertiary-fixed-dim": "#78dc77",
+            "surface-container-lowest": "#ffffff",
+            "surface-dim": "#dcd9d9",
+            "secondary": "#8b5000",
+            "on-secondary-fixed": "#2c1600",
+            "error-container": "#ffdad6",
+            "outline-variant": "#e4beb9",
+            "inverse-primary": "#ffb4ac",
+            "on-surface-variant": "#5b403d",
+            "tertiary-container": "#1e862d",
+            "on-error-container": "#93000a",
+            "on-primary-fixed": "#410002",
+            "on-secondary": "#ffffff",
+            "on-primary": "#ffffff",
+            "surface-container-high": "#eae7e7",
+            "tertiary": "#006b1b",
+            "primary-container": "#db322f",
+            "surface-bright": "#fcf9f8",
+            "on-background": "#1b1c1c",
+            "inverse-on-surface": "#f3f0ef",
+            "primary": "#b7131a",
+            "surface-variant": "#e5e2e1",
+            "outline": "#906f6c",
+            "on-error": "#ffffff",
+            "surface-container-highest": "#e5e2e1",
+            "surface-container-low": "#f6f3f2",
+            "on-tertiary-fixed": "#002204",
+            "secondary-container": "#ff9800",
+            "on-tertiary-fixed-variant": "#005313",
+            "error": "#ba1a1a",
+            "on-tertiary-container": "#f7fff1"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "16px",
+            "touch-target-min": "48px",
+            "space-xl": "32px",
+            "space-md": "16px",
+            "space-sm": "12px",
+            "space-2xl": "48px",
+            "space-lg": "24px",
+            "space-xs": "8px",
+            "margin-mobile": "16px",
+            "space-2xs": "4px",
+            "margin-tablet": "24px"
+          },
+          "fontFamily": {
+            "label-lg": ["Roboto Flex"],
+            "label-sm": ["Roboto Flex"],
+            "label-md": ["Roboto Flex"],
+            "body-sm": ["Roboto Flex"],
+            "headline-sm": ["Roboto Flex"],
+            "headline-lg-mobile": ["Roboto Flex"],
+            "body-md": ["Roboto Flex"],
+            "body-lg": ["Roboto Flex"],
+            "headline-md": ["Roboto Flex"],
+            "display-lg": ["Roboto Flex"],
+            "headline-lg": ["Roboto Flex"]
+          },
+          "fontSize": {
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+    .shadow-level-1 {
+      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.08), 0px 1px 2px rgba(0, 0, 0, 0.05);
+    }
+    .shadow-level-2 {
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.10), 0px 2px 4px rgba(0, 0, 0, 0.06);
+    }
+    .shadow-level-3 {
+      box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.12), 0px 3px 6px rgba(0, 0, 0, 0.08);
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md text-body-md antialiased min-h-screen flex flex-col justify-between selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TOP APP BAR -->
+<header class="sticky top-0 z-40 bg-surface dark:bg-inverse-surface shadow-sm w-full">
+<div class="flex justify-between items-center w-full px-margin-mobile h-touch-target-min max-w-full mx-auto">
+<!-- Left: Drawer Hamburger -->
+<button aria-label="Open navigation drawer" class="min-w-touch-target-min min-h-touch-target-min flex items-center justify-center rounded-full hover:bg-surface-container active:scale-95 transition-transform duration-150 text-on-surface">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<!-- Center: Logo Branding -->
+<div class="flex items-center gap-space-xs">
+<img alt="HobbyLink Logo" class="w-8 h-8 object-contain rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6u1wCXMfCaF4vmwmPBLS8fIXJtJ9cO7y-zA3BLeOSoUngYjqVviR2b2J5JwskpIL6bAuMpiMb9SNCiHXf2d0dtPESJydtHRw6ALVrWSm47ezpQSBKyby0YzUBICDfd0_HnLp1jlTHzslA192hTzYLwQb0NEL6nHJdtl2O0eGgpbI6PyAVS8IRXwtsaQY6xDN-wgV9IWheOCwTbQF6ERl06BAfeUUW953DwypbVRkN--GFQrBMI7ibUs0Erf-DifZ7iI8"/>
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed-dim tracking-tight">HobbyLink</span>
+</div>
+<!-- Right Actions: Live Search & Notifications -->
+<div class="flex items-center gap-space-2xs">
+<button aria-label="Search users live filter" class="min-w-touch-target-min min-h-touch-target-min flex items-center justify-center rounded-full hover:bg-surface-container active:scale-95 transition-transform duration-150 text-on-surface">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button aria-label="Notifications" class="min-w-touch-target-min min-h-touch-target-min flex items-center justify-center rounded-full hover:bg-surface-container active:scale-95 transition-transform duration-150 relative text-on-surface">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2.5 right-2.5 w-2.5 h-2.5 bg-primary rounded-full ring-2 ring-surface animate-pulse"></span>
+</button>
+</div>
+</div>
+</header>
+<!-- MAIN SCROLLABLE CONTENT -->
+<main class="flex-1 w-full max-w-xl mx-auto px-margin-mobile pt-space-sm pb-space-2xl flex flex-col gap-space-md">
+<!-- WELCOME NOTIFICATION BANNER -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md shadow-level-1 flex items-center justify-between border-l-4 border-primary transition-all duration-200" id="welcome-banner">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="waving_hand" style="font-variation-settings: 'FILL' 1;">waving_hand</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Welcome back, Ahmed!</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">4 friends are looking for activity partners right now</p>
+</div>
+</div>
+<button aria-label="Close welcome banner" class="min-w-touch-target-min min-h-touch-target-min flex items-center justify-center text-on-surface-variant hover:text-on-surface active:scale-95 transition-transform" onclick="document.getElementById('welcome-banner').style.display='none'">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</section>
+<!-- PROFILE COMPLETENESS CARD -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md shadow-level-1 flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary" data-icon="stars" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold">Complete Your Profile (75%)</span>
+</div>
+<span class="font-label-sm text-label-sm bg-secondary-fixed text-on-secondary-fixed px-space-xs py-space-2xs rounded-full font-bold">VIP Match Boost</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Complete your profile to unlock verified hobby circles and get higher-accuracy partner matches!</p>
+<!-- Progress Bar -->
+<div class="w-full bg-surface-container rounded-full h-2.5 overflow-hidden">
+<div class="bg-primary h-2.5 rounded-full" style="width: 75%;"></div>
+</div>
+<div class="pt-space-2xs flex justify-end">
+<button class="h-10 px-space-md bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-lg text-label-lg rounded-xl flex items-center gap-space-xs active:scale-95 transition-transform duration-150">
+<span>Complete Profile</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- MAIN FEATURE: ACTIVITY PARTNER SEARCH BOX -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md shadow-level-2 flex flex-col gap-space-sm relative border border-outline-variant/30">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary" data-icon="search_spark" style="font-variation-settings: 'FILL' 1;">travel_explore</span>
+<h1 class="font-headline-sm text-headline-sm text-on-surface font-bold">Find an Activity Partner</h1>
+</div>
+<span class="flex items-center gap-1 font-label-sm text-label-sm text-tertiary bg-tertiary-fixed/40 px-2 py-0.5 rounded-full font-semibold">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-ping"></span>
+          AI Powered
+        </span>
+</div>
+<!-- Multi-line input with mic -->
+<div class="relative rounded-xl bg-surface-container-low border border-outline focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all">
+<textarea class="w-full bg-transparent border-0 resize-none p-space-sm pb-space-lg text-body-md font-body-md text-on-surface placeholder:text-on-surface-variant/70 focus:outline-none focus:ring-0" placeholder="Describe what you want to do... (e.g., Looking for 2 people to play paddle tennis at 8 PM in Nasr City)" rows="3"></textarea>
+<!-- Action bottom line inside textarea -->
+<div class="absolute bottom-2 right-2 flex items-center gap-space-xs">
+<button aria-label="Use microphone for voice search" class="w-9 h-9 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container hover:text-primary active:scale-90 transition-all">
+<span class="material-symbols-outlined" data-icon="mic">mic</span>
+</button>
+</div>
+</div>
+<!-- Red AI Search Action Button -->
+<button class="w-full h-12 bg-primary hover:bg-primary-container active:scale-98 transition-all duration-150 rounded-xl flex items-center justify-center gap-space-xs text-on-primary font-label-lg text-label-lg shadow-level-1">
+<span class="material-symbols-outlined" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span>AI Search</span>
+</button>
+</section>
+<!-- QUICK ACTION BUTTONS -->
+<section class="grid grid-cols-2 gap-space-sm">
+<!-- Left: AI Assistant -->
+<button class="min-h-touch-target-min p-space-sm bg-primary-fixed hover:bg-primary-fixed-dim/80 rounded-xl flex items-center gap-space-sm text-left shadow-level-1 active:scale-95 transition-transform duration-150">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+</div>
+<div>
+<span class="font-label-lg text-label-lg text-on-primary-fixed block font-bold leading-tight">AI Assistant</span>
+<span class="font-body-sm text-body-sm text-on-primary-fixed-variant">Match &amp; advice</span>
+</div>
+</button>
+<!-- Right: Create Event -->
+<button class="min-h-touch-target-min p-space-sm bg-primary hover:bg-primary-container rounded-xl flex items-center gap-space-sm text-left shadow-level-1 active:scale-95 transition-transform duration-150">
+<div class="w-10 h-10 rounded-full bg-on-primary text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined" data-icon="event" style="font-variation-settings: 'FILL' 1;">event</span>
+</div>
+<div>
+<span class="font-label-lg text-label-lg text-on-primary block font-bold leading-tight">Create Event</span>
+<span class="font-body-sm text-body-sm text-on-primary/90">Host a session</span>
+</div>
+</button>
+</section>
+<!-- QUICK CATEGORY CHIPS -->
+<section class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Browse Categories</h2>
+<a class="font-label-md text-label-md text-primary hover:underline" href="#">See All</a>
+</div>
+<div class="flex gap-space-xs overflow-x-auto no-scrollbar py-1">
+<!-- Sports (Active pill) -->
+<button class="h-9 px-space-md rounded-full bg-primary text-on-primary font-label-md text-label-md whitespace-nowrap flex items-center gap-space-2xs shrink-0 shadow-level-1">
+<span class="material-symbols-outlined text-sm" data-icon="sports_tennis">sports_tennis</span>
+<span>Sports</span>
+</button>
+<!-- Arts -->
+<button class="h-9 px-space-md rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md whitespace-nowrap flex items-center gap-space-2xs shrink-0 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="palette">palette</span>
+<span>Arts</span>
+</button>
+<!-- Gaming -->
+<button class="h-9 px-space-md rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md whitespace-nowrap flex items-center gap-space-2xs shrink-0 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="sports_esports">sports_esports</span>
+<span>Gaming</span>
+</button>
+<!-- Outdoors -->
+<button class="h-9 px-space-md rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md whitespace-nowrap flex items-center gap-space-2xs shrink-0 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="terrain">terrain</span>
+<span>Outdoors</span>
+</button>
+<!-- Music -->
+<button class="h-9 px-space-md rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md whitespace-nowrap flex items-center gap-space-2xs shrink-0 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="music_note">music_note</span>
+<span>Music</span>
+</button>
+<!-- Tech -->
+<button class="h-9 px-space-md rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md whitespace-nowrap flex items-center gap-space-2xs shrink-0 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="memory">memory</span>
+<span>Tech</span>
+</button>
+</div>
+</section>
+<!-- NEARBY ACTIVE ACTIVITIES PREVIEW FEED -->
+<section class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-2xs">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary animate-pulse"></span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Nearby Active Sessions</h2>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="radar">radar</span>
+          Radar Live
+        </span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- Card 1: Paddle Tennis -->
+<article class="bg-surface-container-lowest rounded-xl p-space-md shadow-level-1 flex flex-col gap-space-sm border border-outline-variant/20 hover:shadow-level-2 transition-shadow">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="relative w-12 h-12 rounded-xl bg-primary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="sports_tennis">sports_tennis</span>
+<span class="absolute -top-1 -right-1 w-3 h-3 bg-tertiary rounded-full border-2 border-surface-container-lowest"></span>
+</div>
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-primary-fixed text-primary font-bold">Paddle Tennis</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs" data-icon="location_on">location_on</span>
+                    2.3 km away
+                  </span>
+</div>
+<h3 class="font-label-lg text-label-lg text-on-surface font-bold pt-0.5">Intermediate Match @ Smash Club</h3>
+</div>
+</div>
+<span class="font-label-sm text-label-sm bg-surface-container text-on-surface px-2 py-1 rounded-md font-semibold">Today 8:00 PM</span>
+</div>
+<div class="flex items-center justify-between pt-space-2xs border-t border-surface-container-highest">
+<!-- Participants Count & Avatars -->
+<div class="flex items-center gap-space-xs">
+<div class="flex -space-x-2 overflow-hidden">
+<div class="inline-block h-7 w-7 rounded-full ring-2 ring-surface bg-surface-container-highest flex items-center justify-center text-xs font-bold text-on-surface">K</div>
+<div class="inline-block h-7 w-7 rounded-full ring-2 ring-surface bg-primary-fixed flex items-center justify-center text-xs font-bold text-primary">M</div>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">2 / 4 joined</span>
+</div>
+<!-- Quick Join Button -->
+<button class="h-9 px-space-md bg-primary hover:bg-primary-container active:scale-95 transition-all duration-150 rounded-lg text-on-primary font-label-md text-label-md font-bold flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-sm" data-icon="group_add">group_add</span>
+<span>Quick Join</span>
+</button>
+</div>
+</article>
+<!-- Card 2: Sunset Photography Walk -->
+<article class="bg-surface-container-lowest rounded-xl p-space-md shadow-level-1 flex flex-col gap-space-sm border border-outline-variant/20 hover:shadow-level-2 transition-shadow">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="relative w-12 h-12 rounded-xl bg-secondary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary text-2xl" data-icon="photo_camera">photo_camera</span>
+<span class="absolute -top-1 -right-1 w-3 h-3 bg-tertiary rounded-full border-2 border-surface-container-lowest"></span>
+</div>
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-secondary-fixed text-secondary font-bold">Photography</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs" data-icon="location_on">location_on</span>
+                    1.8 km away
+                  </span>
+</div>
+<h3 class="font-label-lg text-label-lg text-on-surface font-bold pt-0.5">Sunset Street Walk &amp; Portrait Lab</h3>
+</div>
+</div>
+<span class="font-label-sm text-label-sm bg-surface-container text-on-surface px-2 py-1 rounded-md font-semibold">Today 6:30 PM</span>
+</div>
+<div class="flex items-center justify-between pt-space-2xs border-t border-surface-container-highest">
+<div class="flex items-center gap-space-xs">
+<div class="flex -space-x-2 overflow-hidden">
+<div class="inline-block h-7 w-7 rounded-full ring-2 ring-surface bg-surface-container flex items-center justify-center text-xs font-bold text-on-surface">L</div>
+<div class="inline-block h-7 w-7 rounded-full ring-2 ring-surface bg-surface-container-high flex items-center justify-center text-xs font-bold text-on-surface">Y</div>
+<div class="inline-block h-7 w-7 rounded-full ring-2 ring-surface bg-tertiary-fixed flex items-center justify-center text-xs font-bold text-tertiary">S</div>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">3 / 5 joined</span>
+</div>
+<button class="h-9 px-space-md bg-primary hover:bg-primary-container active:scale-95 transition-all duration-150 rounded-lg text-on-primary font-label-md text-label-md font-bold flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-sm" data-icon="group_add">group_add</span>
+<span>Quick Join</span>
+</button>
+</div>
+</article>
+</div>
+</section>
+<!-- SUBTLE NON-INTRUSIVE BANNER AD SLOT FOR FREE TIER -->
+<aside class="w-full bg-surface-container-low rounded-xl p-space-sm flex items-center justify-between border border-outline-variant/30 text-on-surface-variant">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-sm text-label-sm bg-surface-variant text-on-surface-variant px-1.5 py-0.5 rounded tracking-widest uppercase">Ad</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface">Upgrade to HobbyLink VIP</span>
+<span class="font-body-sm text-body-sm">Zero ads, verified badges, and unlimited radar range</span>
+</div>
+</div>
+<button class="h-8 px-space-sm bg-secondary-container hover:bg-secondary-fixed-dim text-on-secondary-container rounded-lg font-label-sm text-label-sm font-bold active:scale-95 transition-all">
+        Go VIP
+      </button>
+</aside>
+</main>
+<!-- FIXED 5-TAB BOTTOM NAVIGATION BAR -->
+<!-- Executing Shared Components JSON specification for BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-margin-mobile py-space-xs min-h-touch-target-min bg-surface dark:bg-inverse-surface shadow-md">
+<!-- Tab 1: Home (ACTIVE TAB) -->
+<a aria-current="page" class="flex flex-col items-center justify-center bg-primary-fixed dark:bg-primary-container text-on-primary-fixed dark:text-on-primary-container rounded-full px-space-md py-space-2xs active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-label-sm font-label-sm font-bold">Home</span>
+</a>
+<!-- Tab 2: Radar -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-space-xs py-space-2xs hover:bg-surface-container dark:hover:bg-surface-container-high active:scale-95 transition-transform duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="radar">radar</span>
+<span class="text-label-sm font-label-sm">Radar</span>
+</a>
+<!-- Tab 3: Events -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-space-xs py-space-2xs hover:bg-surface-container dark:hover:bg-surface-container-high active:scale-95 transition-transform duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="event">event</span>
+<span class="text-label-sm font-label-sm">Events</span>
+</a>
+<!-- Tab 4: Messages -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-space-xs py-space-2xs hover:bg-surface-container dark:hover:bg-surface-container-high active:scale-95 transition-transform duration-150 rounded-lg relative" href="#">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+<span class="text-label-sm font-label-sm">Messages</span>
+<span class="absolute top-1 right-2 w-2 h-2 rounded-full bg-primary"></span>
+</a>
+<!-- Tab 5: Profile -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-space-xs py-space-2xs hover:bg-surface-container dark:hover:bg-surface-container-high active:scale-95 transition-transform duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-label-sm font-label-sm">Profile</span>
+</a>
+</nav>
+</body></html>

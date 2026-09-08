@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HobbyLink AI Guide</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght,opsz@300..800,8..144&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-container": "#653900",
+            "outline-variant": "#e4beb9",
+            "surface": "#fcf9f8",
+            "tertiary-container": "#1e862d",
+            "surface-tint": "#bb171c",
+            "on-surface": "#1b1c1c",
+            "secondary": "#8b5000",
+            "on-secondary-fixed": "#2c1600",
+            "surface-container-lowest": "#ffffff",
+            "primary-fixed-dim": "#ffb4ac",
+            "on-primary": "#ffffff",
+            "error-container": "#ffdad6",
+            "surface-dim": "#dcd9d9",
+            "inverse-surface": "#303030",
+            "surface-container-low": "#f6f3f2",
+            "primary-fixed": "#ffdad6",
+            "on-surface-variant": "#5b403d",
+            "outline": "#906f6c",
+            "surface-bright": "#fcf9f8",
+            "on-background": "#1b1c1c",
+            "secondary-fixed": "#ffdcbe",
+            "surface-container-high": "#eae7e7",
+            "background": "#fcf9f8",
+            "primary": "#b7131a",
+            "on-primary-fixed-variant": "#93000d",
+            "on-secondary-fixed-variant": "#693c00",
+            "tertiary-fixed": "#94f990",
+            "tertiary-fixed-dim": "#78dc77",
+            "on-error": "#ffffff",
+            "inverse-primary": "#ffb4ac",
+            "error": "#ba1a1a",
+            "on-primary-fixed": "#410002",
+            "on-error-container": "#93000a",
+            "on-tertiary-container": "#f7fff1",
+            "surface-container-highest": "#e5e2e1",
+            "on-tertiary-fixed": "#002204",
+            "secondary-fixed-dim": "#ffb870",
+            "primary-container": "#db322f",
+            "surface-container": "#f0eded",
+            "inverse-on-surface": "#f3f0ef",
+            "surface-variant": "#e5e2e1",
+            "on-secondary": "#ffffff",
+            "on-tertiary-fixed-variant": "#005313",
+            "on-primary-container": "#fffbff",
+            "on-tertiary": "#ffffff",
+            "tertiary": "#006b1b",
+            "secondary-container": "#ff9800"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "24px",
+            "space-2xl": "48px",
+            "space-xs": "8px",
+            "gutter": "16px",
+            "margin-tablet": "24px",
+            "space-sm": "12px",
+            "space-md": "16px",
+            "space-xl": "32px",
+            "margin-mobile": "16px",
+            "space-2xs": "4px",
+            "touch-target-min": "48px"
+          },
+          "fontFamily": {
+            "label-md": ["Roboto Flex"],
+            "headline-md": ["Roboto Flex"],
+            "body-lg": ["Roboto Flex"],
+            "label-lg": ["Roboto Flex"],
+            "body-md": ["Roboto Flex"],
+            "display-lg": ["Roboto Flex"],
+            "body-sm": ["Roboto Flex"],
+            "label-sm": ["Roboto Flex"],
+            "headline-sm": ["Roboto Flex"],
+            "headline-lg-mobile": ["Roboto Flex"],
+            "headline-lg": ["Roboto Flex"]
+          },
+          "fontSize": {
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex justify-center selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Mobile Device Shell Frame -->
+<div class="w-full max-w-md bg-surface flex flex-col min-h-screen shadow-md relative overflow-hidden">
+<!-- Top App Bar (Task-Focused with Back Action, No global bottom nav per Semantic Shell Mandate) -->
+<header class="sticky top-0 z-40 bg-surface shadow-sm px-margin-mobile h-touch-target-min flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<button aria-label="Go Back" class="w-touch-target-min h-touch-target-min flex items-center justify-center rounded-full hover:bg-surface-container active:scale-95 transition-transform duration-150 text-on-surface">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<!-- Assistant Avatar & Identity -->
+<div class="flex items-center gap-space-xs">
+<div class="relative flex items-center justify-center">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary shadow-sm">
+<span class="material-symbols-outlined text-xl" data-icon="auto_awesome" data-weight="fill" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<!-- Live Radar Status Dot -->
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-tertiary-container ring-2 ring-surface-container-lowest animate-pulse"></span>
+</div>
+<div>
+<div class="flex items-center gap-space-2xs">
+<h1 class="font-headline-sm text-headline-sm font-bold text-on-surface">HobbyLink AI Guide</h1>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="inline-flex items-center px-1.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm">
+                Powered by Gemini • Ephemeral
+              </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Action: Clear / Reset context -->
+<button aria-label="Reset Conversation" class="w-touch-target-min h-touch-target-min flex items-center justify-center rounded-full hover:bg-surface-container text-on-surface-variant active:scale-95 transition-transform duration-150" title="Reset Session">
+<span class="material-symbols-outlined" data-icon="restart_alt">restart_alt</span>
+</button>
+</header>
+<!-- Main Scrollable Chat Canvas -->
+<main class="flex-1 overflow-y-auto px-margin-mobile py-space-sm space-y-space-md pb-44">
+<!-- Privacy Banner / Top Notice -->
+<div class="bg-surface-container-low rounded-xl p-space-sm flex items-start gap-space-xs shadow-sm">
+<span class="material-symbols-outlined text-primary shrink-0 text-xl" data-icon="shield" data-weight="fill" style="font-variation-settings: 'FILL' 1;">shield</span>
+<div class="text-left">
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Conversations are 100% ephemeral and reset every session for privacy. Ask for local activity ideas, sports venues, or advice!
+          </p>
+</div>
+</div>
+<!-- Timestamp Divider -->
+<div class="flex items-center justify-center my-space-xs">
+<span class="bg-surface-container text-on-surface-variant px-space-xs py-space-2xs rounded-full font-label-sm text-label-sm">
+          Today • Session Started
+        </span>
+</div>
+<!-- User Message -->
+<div class="flex justify-end items-end gap-space-2xs pl-8">
+<div class="bg-primary text-on-primary rounded-2xl rounded-tr-none px-space-md py-space-sm shadow-sm max-w-[85%]">
+<p class="font-body-md text-body-md leading-snug">
+            Where can I play paddle tennis near Nasr City, Cairo on weekends?
+          </p>
+<div class="flex items-center justify-end mt-1 gap-1 text-primary-fixed-dim">
+<span class="font-label-sm text-label-sm">10:42 AM</span>
+<span class="material-symbols-outlined text-xs" data-icon="done_all">done_all</span>
+</div>
+</div>
+</div>
+<!-- AI Assistant Response with Structured Cards -->
+<div class="flex items-start gap-space-xs pr-2">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary shrink-0 shadow-sm mt-1">
+<span class="material-symbols-outlined text-sm" data-icon="auto_awesome" data-weight="fill" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div class="space-y-space-sm max-w-[90%]">
+<!-- Main AI Message Bubble -->
+<div class="bg-surface-container-lowest text-on-surface rounded-2xl rounded-tl-none p-space-md shadow-sm space-y-space-sm">
+<p class="font-body-md text-body-md leading-relaxed">
+              Here are the top 3 spots with active HobbyLink groups:
+            </p>
+<!-- Structured Recommendation Cards -->
+<div class="space-y-space-xs">
+<!-- Spot 1 -->
+<div class="bg-surface-container-low hover:bg-surface-container transition-colors rounded-xl p-space-sm flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-2xs">
+<span class="w-5 h-5 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-sm text-label-sm">1</span>
+<span class="font-headline-sm text-body-lg font-bold text-on-surface">City Club Nasr City</span>
+</div>
+<span class="inline-flex items-center gap-0.5 text-secondary font-label-sm text-label-sm bg-secondary-fixed px-1.5 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-xs" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span> 4.9
+                  </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pl-7">
+                  Has 4 indoor courts &amp; high rating. 3 HobbyLink weekend mixers scheduled.
+                </p>
+<div class="flex items-center gap-space-xs pl-7 pt-1">
+<span class="font-label-sm text-label-sm text-tertiary flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span> 14 Active Players
+                  </span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">1.2 km away</span>
+</div>
+</div>
+<!-- Spot 2 -->
+<div class="bg-surface-container-low hover:bg-surface-container transition-colors rounded-xl p-space-sm flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-2xs">
+<span class="w-5 h-5 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-sm text-label-sm">2</span>
+<span class="font-headline-sm text-body-lg font-bold text-on-surface">Smash Club Padel Academy</span>
+</div>
+<span class="inline-flex items-center gap-0.5 text-secondary font-label-sm text-label-sm bg-secondary-fixed px-1.5 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-xs" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span> 4.8
+                  </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pl-7">
+                  Outdoor panoramic glass courts. Ideal for beginner &amp; intermediate friendly double matches.
+                </p>
+<div class="flex items-center gap-space-xs pl-7 pt-1">
+<span class="font-label-sm text-label-sm text-tertiary flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span> 8 Active Players
+                  </span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">2.8 km away</span>
+</div>
+</div>
+<!-- Spot 3 -->
+<div class="bg-surface-container-low hover:bg-surface-container transition-colors rounded-xl p-space-sm flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-2xs">
+<span class="w-5 h-5 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-sm text-label-sm">3</span>
+<span class="font-headline-sm text-body-lg font-bold text-on-surface">Al Ahly Sporting Club courts</span>
+</div>
+<span class="inline-flex items-center gap-0.5 text-secondary font-label-sm text-label-sm bg-secondary-fixed px-1.5 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-xs" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span> 4.7
+                  </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pl-7">
+                  Affordable rates for registered squads; vibrant community lounge right beside the courts.
+                </p>
+<div class="flex items-center gap-space-xs pl-7 pt-1">
+<span class="font-label-sm text-label-sm text-tertiary flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span> 21 Active Players
+                  </span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">3.5 km away</span>
+</div>
+</div>
+</div>
+<!-- Follow-up Prompt Question -->
+<p class="font-body-md text-body-md pt-1 leading-snug">
+              Would you like to create an event or search nearby partners?
+            </p>
+<!-- Inline Interactive Action Chips -->
+<div class="flex flex-wrap gap-space-xs pt-1">
+<button class="h-9 px-space-sm rounded-full bg-primary text-on-primary font-label-md text-label-md flex items-center gap-1.5 hover:bg-primary-container active:scale-95 transition-all shadow-sm">
+<span class="material-symbols-outlined text-base" data-icon="add_circle">add_circle</span>
+                Create Padel Event
+              </button>
+<button class="h-9 px-space-sm rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center gap-1.5 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-base" data-icon="radar">radar</span>
+                Search Nearby Partners
+              </button>
+</div>
+</div>
+<!-- Assistant Message Footer Info -->
+<div class="flex items-center gap-space-xs px-2 text-on-surface-variant">
+<span class="font-label-sm text-label-sm">Gemini AI • 10:42 AM</span>
+<button aria-label="Copy response" class="hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="content_copy">content_copy</span>
+</button>
+<button aria-label="Helpful" class="hover:text-tertiary transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="thumb_up">thumb_up</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Docked Area: Quick Prompts & Message Input -->
+<div class="fixed bottom-0 max-w-md w-full bg-surface/95 backdrop-blur-md z-50 flex flex-col shadow-lg">
+<!-- Quick Prompt Chips Carousel -->
+<div class="w-full px-margin-mobile pt-space-xs pb-space-2xs flex items-center gap-space-xs overflow-x-auto no-scrollbar">
+<button class="shrink-0 h-9 px-space-sm rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center gap-1.5 transition-colors active:scale-95 shadow-sm">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="sports_tennis">sports_tennis</span>
+          Paddle tennis near me
+        </button>
+<button class="shrink-0 h-9 px-space-sm rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center gap-1.5 transition-colors active:scale-95 shadow-sm">
+<span class="material-symbols-outlined text-sm text-secondary" data-icon="local_cafe">local_cafe</span>
+          Best cafes with board games
+        </button>
+<button class="shrink-0 h-9 px-space-sm rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center gap-1.5 transition-colors active:scale-95 shadow-sm">
+<span class="material-symbols-outlined text-sm text-tertiary" data-icon="directions_run">directions_run</span>
+          How to organize a 5k run?
+        </button>
+</div>
+<!-- Message Input Box -->
+<div class="px-margin-mobile pb-space-sm pt-space-2xs flex items-center gap-space-xs">
+<div class="flex-1 flex items-center bg-surface-container-lowest rounded-full shadow-sm px-space-sm min-h-[50px] ring-1 ring-surface-variant focus-within:ring-2 focus-within:ring-primary transition-all">
+<input class="w-full bg-transparent border-none text-on-surface placeholder:text-on-surface-variant font-body-md text-body-md focus:ring-0 focus:outline-none p-0" placeholder="Ask HobbyLink AI anything..." type="text"/>
+<button aria-label="Use Microphone" class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:text-primary active:scale-90 transition-transform rounded-full shrink-0">
+<span class="material-symbols-outlined text-xl" data-icon="mic">mic</span>
+</button>
+</div>
+<!-- Send Button -->
+<button aria-label="Send Message" class="w-touch-target-min h-touch-target-min rounded-full bg-primary hover:bg-primary-container text-on-primary flex items-center justify-center shadow-md active:scale-95 transition-all shrink-0">
+<span class="material-symbols-outlined text-xl ml-0.5" data-icon="send">send</span>
+</button>
+</div>
+</div>
+</div>
+<style>
+    /* Hide horizontal scrollbar for clean chip rail */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<script>
+    // Lightweight micro-interactions for prompt chips
+    document.querySelectorAll('.no-scrollbar button').forEach(chip => {
+      chip.addEventListener('click', function() {
+        const input = document.querySelector('input[type="text"]');
+        if (input) {
+          input.value = this.innerText.trim();
+          input.focus();
+        }
+      });
+    });
+  </script>
+</body></html>
